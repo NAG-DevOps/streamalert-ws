@@ -1,0 +1,12 @@
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+.DS_Store
+doc/report/project-report.pdf
+*.tps
+Thumbs.db
