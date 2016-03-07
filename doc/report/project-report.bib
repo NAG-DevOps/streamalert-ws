@@ -50,7 +50,7 @@
 %%    Amr M. Youssef
 %%
 %%
-%% $Id: bibliography.bib,v 1.43 2016/01/04 02:10:18 serguei Exp $
+%% $Id: bibliography.bib,v 1.241 2015/11/28 23:43:38 mokhov Exp $
 %%
 
 % WARNING:
@@ -7083,6 +7083,19 @@
 	note      = {}
 }
 
+% A version for submissions when the anonymous references are required
+@inproceedings
+{
+	marf-gipsy-distributed-ispdc08-anon,
+	author    = anonauthor,
+	title     = anontitle,
+	booktitle = anonbooktitle,
+	publisher = {IEEE Computer Society Press},
+	pages     = {},
+	year      = 2008,
+	note      = {}
+}
+
 @article
 {
 	demand-driven-vuln-detection-2014,
@@ -7099,26 +7112,13 @@
 	address   = {New York, NY, USA}
 }
 
-% A version for submissions when the anonymous references are required
-@inproceedings
-{
-	marf-gipsy-distributed-ispdc08-anon,
-	author    = anonauthor,
-	title     = anontitle,
-	booktitle = anonbooktitle,
-	publisher = {IEEE Computer Society Press},
-	pages     = {},
-	year      = 2008,
-	note      = {}
-}
-
 @misc
 {
 	cryptolysis-inse6110-05,
 	author       = {Serguei A. Mokhov and Marc-Andr\'e Laverdi\`ere and Nader Hatami and Ali Benssam},
 	title        = {{Cryptolysis} v.0.0.1 -- A Framework for Automated Cryptanalysis of Classical Ciphers},
 	howpublished = {[online]},
-	year         = {2005--2014},
+	year         = {2005--2016},
 	note         = {Project report; \url{http://arxiv.org/abs/1101.1075}}
 }
 
@@ -9920,16 +9920,22 @@
 	author    = {Miao Song and Serguei A. Mokhov and Sudhir P. Mudur},
 	title     = {Rapid Interactive Application Prototyping for Media Arts and Stage
 	             Using {Max/Jitter}, {Processing}, and {OpenGL}},
-	booktitle = {GEM 2015},
+	booktitle = {Proceedings of the 2015 {IEEE} Games Entertainment Media Conference ({GEM} 2015)},
+	editor    = {Elena G. Bertozzi
+	             and Bill Kapralos
+	             and Nahum D. Gershon
+	             and Jim R. Parker},
 	series    = {},
 	year      = 2015,
+	month     = oct,
+	day       = {14--16},
 	location  = {Toronto, Canada},
-	pages     = {},
-	doi       = {},
+	pages     = {8--9},
+	doi       = {10.1109/GEM.2015.7377246},
 	publisher = ieee,
 	address   = {},
-	isbn      = {},
-	note      = {To appear}
+	isbn      = {978-1-4673-7452-1},
+	note      = {}
 }
 
 @misc
@@ -10281,7 +10287,7 @@
 	title        = {{Max/MSP/Jitter}},
 	author       = {{Cycling '74}},
 	howpublished = {[online]},
-	year         = {2005--2015},
+	year         = {2005--2016},
 	note         = {\url{http://cycling74.com/products/max/}}
 }
 
@@ -10548,6 +10554,37 @@
 
 @misc
 {
+	gipsy-rmi-corba-ws-comp6231-s15,
+	title        = {Toward {RMI}, {CORBA} \& Web Services Implementation for {GIPSY}},
+	author       = {Nehal Bhagat and Parikshit Pandya and Kumaran Ayyappan and Nandhini Devaraj},
+	year         = 2015,
+	month        = sep,
+	howpublished = {[project report]},
+	note         = {Summer 2015}
+}
+
+@misc
+{
+	gipsy-mongo-etc-soen6951-f15,
+	title        = {{MongoDB} Implementation for {GIPSY}},
+	author       = {Rahul Kilkani and Shivam Patel and Nidhish Patadia},
+	year         = 2015,
+	howpublished = {[project report]},
+	note         = {Fall 2015}
+}
+
+@misc
+{
+	gipsy-marfcat-comp490-f15,
+	title        = {{COMP490 -- MARFCAT/GIPSY}},
+	author       = {Joseph-Antoine Martineau-Gagn\'e},
+	year         = 2015,
+	howpublished = {[project report]},
+	note         = {Fall 2015}
+}
+
+@misc
+{
 	satish-iss-soen6481-w15,
 	title        = {Software Requirements Specification ({SOEN 6481}) on {Illimitable Space System}},
 	author       = {Satish Chilkaka
@@ -10561,9 +10598,10 @@
 	note         = {Winter 2015}
 }
 
+% was: zinia-iss-soen6481-w15
 @misc
 {
-	zinia-iss-soen6481-w15,
+	zinia-keerthana-iss-soen6481-w15,
 	title        = {Software Requirements Specification ({SOEN 6481}) on {Illimitable Space System}},
 	author       = {Zinia Das
 	                and Dhanashree Sankini
@@ -10571,6 +10609,19 @@
 	                and Keerthana Gudavalli
 	                and Chaithanya Chitraju
 	                and Prakash Chanamolu},
+	year         = 2015,
+	howpublished = {[project report]},
+	note         = {Winter 2015}
+}
+
+@misc
+{
+	mehak-amandeep-iss-soen6481-w15,
+	title        = {Software Requirements Specification ({SOEN 6481}) on {Illimitable Space System}},
+	author       = {Amandeep Kaur
+	                and Mehak Talwar
+	                and Ishan Monga
+	                and Omar Faruk},
 	year         = 2015,
 	howpublished = {[project report]},
 	note         = {Winter 2015}
@@ -11219,6 +11270,24 @@
 	doi       = {10.1145/2559206.2574795},
 	publisher = acm,
 	address   = {New York, NY, USA}
+}
+
+@misc
+{
+	dreaming-now-kinect-processing,
+	author       = {Michel Lefebvre
+	                and Guillaume L\'{e}vesque
+	                and Renaud Pettigrew
+	                and Jeremy Segal
+	                and Benoit Z. Leroux},
+	title        = {Dreaming Now},
+	year         = 2016,
+	month        = feb,
+	day          = 6,
+	location     = {Montreal, Canada},
+	howpublished = {[Th\'{e}\^{a}re Youtheatre show; video]},
+	note         = {\url{http://accesculture.com/activite/Dreaming_now}
+	                and \url{https://vimeo.com/81609646}}
 }
 
 @inproceedings
@@ -12492,6 +12561,19 @@
 	note         = {\url{http://vimeo.com/85049604}}
 }
 
+@inproceedings
+{
+	iss-ascension-singapore-2015,
+	author    = {Miao Song and Serguei A. Mokhov and Peter Grogono},
+	title     = {Experience Evaluation in Motion Tracking and Visualiazation in Artistic Dance Using {Kinect}},
+	booktitle = {Proceedings of the International Academic Chinese Opera Seminar},
+	year      = 2015,
+	month     = nov,
+	day       = {7--8},
+	location  = {Traditional Arts Center, Singapore},
+	note      = {}
+}
+
 @misc
 {
 	iss-like-shadows-theatre-production-2014,
@@ -12654,20 +12736,23 @@
 	             and Sudhir P. Mudur
 	             and Jean-Claude Bustros},
 	title     = {Demo: Towards Historical Sightseeing with an Augmented Reality Interactive Documentary App},
-	booktitle = {Proceedings of GEM'15},
-	editor    = {},
+	booktitle = {Proceedings of the 2015 {IEEE} Games Entertainment Media Conference ({GEM} 2015)},
+	editor    = {Elena G. Bertozzi
+	             and Bill Kapralos
+	             and Nahum D. Gershon
+	             and Jim R. Parker},
 	publisher = ieee,
-	pages     = {},
+	pages     = {16--17},
 	year      = 2015,
 	month     = oct,
 	day       = {14--16},
 	location  = {Toronto, Canada},
 	address   = {},
 	isbn      = {},
-	doi       = {},
+	doi       = {10.1109/GEM.2015.7377249},
 	issn      = {},
-	series    = {},
-	note      = {To appear}
+	isbn      = {978-1-4673-7452-1},
+	note      = {}
 }
 
 @inproceedings
@@ -12775,16 +12860,52 @@
 	note         = {\url{http://s2015.siggraph.org/attendees/acm-siggraph-theater-events}}
 } 
 
-@misc
+@inproceedings
+{
+	video-artwork-its-only-game-gem2015,
+	author    = {Deschanel Li and Miao Song},
+	title     = {Video Artwork: {It's Only a Game}},
+	booktitle = {Proceedings of the 2015 {IEEE} Games Entertainment Media Conference ({GEM} 2015)},
+	editor    = {Elena G. Bertozzi
+	             and Bill Kapralos
+	             and Nahum D. Gershon
+	             and Jim R. Parker},
+	publisher = ieee,
+	pages     = {18},
+	year      = 2015,
+	month     = oct,
+	day       = {14--16},
+	location  = {Toronto, Canada},
+	address   = {},
+	isbn      = {},
+	doi       = {10.1109/GEM.2015.7377245},
+	issn      = {},
+	isbn      = {978-1-4673-7452-1},
+	note      = {}
+} 
+
+@inproceedings
 {
 	iss-v2-demo-gem2015,
-	author       = {Miao Song and Serguei A. Mokhov and Jilson Thomas and Sudhir P. Mudur},
-	title        = {Demo: Spatial {UI} Experience and Projection Mapping on Stage with {ISSv2}},
-	howpublished = {Demo},
-	year         = 2015,
-	month        = oct,
-	day          = {},
-	note         = {To appear}
+	author    = {Miao Song and Serguei A. Mokhov and Jilson Thomas and Sudhir P. Mudur},
+	title     = {Demo: Spatial {UI} Experience and Projection Mapping on Stage with {ISSv2}},
+	booktitle = {Proceedings of the 2015 {IEEE} Games Entertainment Media Conference ({GEM} 2015)},
+	editor    = {Elena G. Bertozzi
+	             and Bill Kapralos
+	             and Nahum D. Gershon
+	             and Jim R. Parker},
+	publisher = ieee,
+	pages     = {13--14},
+	year      = 2015,
+	month     = oct,
+	day       = {14--16},
+	location  = {Toronto, Canada},
+	address   = {},
+	isbn      = {},
+	doi       = {10.1109/GEM.2015.7377247},
+	issn      = {},
+	isbn      = {978-1-4673-7452-1},
+	note      = {}
 } 
 
 @inproceedings
@@ -12797,20 +12918,23 @@
 	title     = {Applications of the {Illimitable Space System} in the Context
 	             of Media Technology and On-Stage Performance:
 	             a Collaborative Interdisciplinary Experience},
-	booktitle = {Proceedings of GEM'15},
-	series    = {},
-	editor    = {},
+	booktitle = {Proceedings of the 2015 {IEEE} Games Entertainment Media Conference ({GEM} 2015)},
+	editor    = {Elena G. Bertozzi
+	             and Bill Kapralos
+	             and Nahum D. Gershon
+	             and Jim R. Parker},
 	publisher = ieee,
-	address   = {},
-	pages     = {},
+	pages     = {73--80},
 	year      = 2015,
 	month     = oct,
-	day       = {},
+	day       = {14--16},
 	location  = {Toronto, Canada},
+	address   = {},
 	isbn      = {},
-	doi       = {},
+	doi       = {10.1109/GEM.2015.7377204},
 	issn      = {},
-	note      = {To appear}
+	isbn      = {978-1-4673-7452-1},
+	note      = {}
 }
 
 @misc
@@ -12831,17 +12955,51 @@
 @misc
 {
 	iss-nanjing-festival-dance-show-2015,
-	author       = {Miao Song
+	author       = {Deschanel Li
+	                and Miao Song
 	                and Serguei A. Mokhov
 	                and Satish Chilkaka
 	                and Zinia Das
-									and others},
-	title        = {Dynamic Motion-Based Background Visualization for the Dance with the {ISSv2}},
+	                and others},
+	title        = {Dynamic Motion-Based Background Visualization for the Nanjing Week Dance with the {ISSv2}},
 	howpublished = {[dance show, video]},
 	year         = 2015,
 	month        = sep,
 	day          = 25,
 	note         = {\url{https://vimeo.com/141081567}}
+}
+
+@misc
+{
+	iss-mccca-dance-show-2016,
+	author       = {Deschanel Li
+	                and Miao Song
+	                and Serguei A. Mokhov
+	                and Satish Chilkaka
+	                and Zinia Das
+	                and Alexandre Charette},
+	title        = {{Interactive Media Light Dance} Using {ISSv2} at the {MCCCA 2016 Chinese New Year Gala}},
+	howpublished = {[dance show, video]},
+	year         = 2016,
+	month        = jan,
+	day          = 16,
+	note         = {\url{https://vimeo.com/152476114}}
+}
+
+@misc
+{
+	iss-west-island-dance-show-2016,
+	author       = {Deschanel Li
+	                and Miao Song
+	                and Serguei A. Mokhov
+	                and Alexandre Charette
+	                and Amandeep Kaur},
+	title        = {{Interactive Media Light Dance} Using {ISSv2} at the {Spring Festival 2016 Gala}},
+	howpublished = {[dance show, video]},
+	year         = 2016,
+	month        = jan,
+	day          = 23,
+	note         = {\url{https://vimeo.com/153062959}, West Island}
 }
 
 @misc
@@ -12920,6 +13078,30 @@
 
 @misc
 {
+	mccca-new-year-gala-2016,
+	author       = {{MCCCA}},
+	title        = {{Chinese New Year Gala} 2016},
+	howpublished = {[show]},
+	year         = 2016,
+	month        = jan,
+	day          = 16,
+	note         = {\url{http://www.mccca.ca/about_us.php?lang=en}}
+}
+
+@misc
+{
+	spring-festival-new-year-gala-2016,
+	author       = {{West Island Chinese Community} and {MCCCA} and others},
+	title        = {{Spring Festival Gala} 2016},
+	howpublished = {[show]},
+	year         = 2016,
+	month        = jan,
+	day          = 23,
+	note         = {West Island}
+}
+
+@misc
+{
 	iss-d3c-demo-2015,
 	author       = {Miao Song
 	                and Serguei A. Mokhov
@@ -12933,17 +13115,29 @@
 	note         = {\url{https://vimeo.com/130122925} and \url{https://vimeo.com/129692753}}
 }
 
+@article
+{
+	iss-v2-design-theory-journal,
+	author  = {Serguei A. Mokhov and Miao Song and Satish Chilkaka and Zinia Das and Jie Zhang and Jonathan Llewellyn and Sudhir P. Mudur},
+	title   = {Agile Forward-Reverse Requirements Elicitation as a Creative Design Process: a Case Study of {llimitable Space System v2}},
+	journal = {Journal of Integrated Design and Process Science},
+	pages   = {},
+	year    = {2015--2016}
+	note    = {Under review}
+}
+
+% was: song-and-team-2015
 @misc
 {
-	song-and-team-2015,
+	mdreams-stage-team,
 	author       = {Miao Song
 	                and Serguei A. Mokhov
 	                and others},
-	title        = {mDeams-stage team {ISSv2}},
-	howpublished = {[dance show, video]},
-	year         = 2015,
-	month        = sep,
-	day          = 1,
+	title        = {{mDeams-Stage} team},
+	howpublished = {[online]},
+	year         = {2015--2016},
+	month        = {},
+	day          = {},
 	note         = {\url{http://mdreams-stage.com/team/}}
 }
 
@@ -18793,6 +18987,26 @@
 
 @misc
 {
+	mokhov-soen6471-w16,
+	author       = {Serguei A. Mokhov},
+	title        = {{SOEN 6471}: Advanced Software Architectures, Lecture Notes},
+	howpublished = cse,
+	year         = 2016,
+	note         = {Winter 2014}
+}
+
+@misc
+{
+	mokhov-soen6471-s14,
+	author       = {Serguei A. Mokhov},
+	title        = {{SOEN 6471}: Advanced Software Architectures, Lecture Notes},
+	howpublished = cse,
+	year         = 2014,
+	note         = {Summer 2014}
+}
+
+@misc
+{
 	rigby-soen6471-w14,
 	author       = {Peter C. Rigby},
 	title        = {{SOEN 6471}: Advanced Software Architectures, Lecture Notes},
@@ -18941,6 +19155,158 @@
 	year         = 2007,
 	month        = mar,
 	note         = {SOEN6611 Winter 2007 sample report}
+}
+
+@misc
+{
+	soen6471-s14-team4,
+	author       = {Afshin Somani
+	                and Ahmad Al{-}Sheikh Hassan
+	                and Anurag Reddy Pedditi
+	                and Challa Sai Sukesh Reddy
+	                and Vijay Nag Ranga
+	                and Saravanan Iyyaswamy Srinivasan
+	                and Hongyo Lao
+	                and Zhu Zhili},
+	title        = {Toward Refactoring of {DMARF} and {GIPSY} Case Studies -- a Team 4
+							   {SOEN6471-S14} Project Report},
+	howpublished = {[online]},
+	year         = 2014,
+	note         = {\url{http://arxiv.org/abs/1412.7534}}
+}
+
+@misc
+{
+	soen6471-s14-team5,
+	author       = {Pavan Kumar Polu
+	                and Amjad Al Najjar
+	                and Biswajit Banik
+	                and Ajay Sujit Kumar
+	                and Gustavo Pereira
+	                and Prince Japhlet
+	                and Bhanu Prakash R.
+	                and Sabari Krishna Raparla},
+	title        = {Towards Refactoring of {DMARF} and {GIPSY} Case Studies -- a Team 5
+	                {SOEN6471-S14} Project Report},
+	howpublished = {[online]},
+	year         = 2014,
+	note         = {\url{http://arxiv.org/abs/1412.7533}}
+}
+
+@misc
+{
+	soen6471-s14-team6,
+	author       = {Aaradhna Goyal
+	                and Ali Alshamrani
+	                and Dhivyaa Nandakumar
+	                and Dileep Vanga
+	                and Dmitriy Fingerman
+	                and Parul Gupta
+	                and Riya Ray
+	                and Srikanth Suryadevara},
+	title        = {Towards Refactoring {DMARF} and {GIPSY} {OSS}},
+	howpublished = {[online]},
+	year         = 2014,
+	note         = {A Team 7 {SOEN6471-S14} Project Report, \url{http://arxiv.org/abs/1410.3856}}
+}
+
+@misc
+{
+	soen6471-s14-team7,
+	author       = {Abdulrhman Albeladi
+	                and Ahmed Almessabi
+	                and Aber Abozkhar
+	                and Huda Mohamed
+	                and Jilson Thomas
+	                and Zakaria Alomari},
+	title        = {Toward Refactoring of {DMARF} and {GIPSY} Case Studies -- a Team 7 {SOEN6471-S14}
+	                Project Report},
+	howpublished = {[online]},
+	year         = 2014,
+	note         = {\url{http://arxiv.org/abs/1412.6494}}
+}
+
+@misc
+{
+	soen6471-s14-team8,
+	author       = {Nitish Agrawal
+	                and Rachit Naidu
+	                and Sadhana Viswanathan
+	                and Vikram Wankhede
+	                and Zakaria Nasereldine
+	                and Zohaib S. Kiyani},
+	title        = {Towards Refactoring of {DMARF} and {GIPSY} Case Studies -- a Team 8
+							    {SOEN6471-S14} Project Report},
+	howpublished = {[online]},
+	year         = 2014,
+	note         = {\url{http://arxiv.org/abs/1412.7535}}
+}
+
+@misc
+{
+	soen6471-s14-team9,
+	author       = {Manpreet Kaur
+	                and Ravjeet Singh
+	                and Sukhveer Kaur 
+	                and Baljot Singh
+	                and Savpreet Kaur
+	                and Navkaran Singh
+	                and Aman Ohri
+	                and Ravenna Sharma},
+	title        = {Toward Refactoring of {DMARF} and {GIPSY} Case Studies -- a Team 9
+                 {SOEN6471-S14} Project Report},
+	howpublished = {[online]},
+	year         = 2014,
+	note         = {\url{http://arxiv.org/abs/1412.7529}}
+}
+
+@misc
+{
+	soen6471-s14-team10,
+	author       = {Osama Yawar
+	                and Tahir Ayoub
+	                and Yashwanth Beeravelli
+	                and Muhammad Nadir
+	                and Shahroze Jamil
+	                and Parham Darbandi},
+	title        = {Toward Refactoring of {DMARF} and {GIPSY} Case Studies - a Team 10
+							    {SOEN6471-S14} Project Report},
+	howpublished = {[online]},
+	year         = 2014,
+	note         = {\url{http://arxiv.org/abs/1412.7531}}
+}
+
+@misc
+{
+	soen6471-s14-team11,
+	author       = {Zinia Das
+	                and Mohammad Iftekharul Hoque
+	                and Renuka Milkoori
+	                and Jithin Nair
+	                and Rohan Nayak
+	                and Swamy Yogya Reddy
+	                and Dhanashree Sankini
+	                and Arslan Zaffar},
+	title        = {Toward Refactoring of {DMARF} and {GIPSY} Case Studies -- a Team {XI}
+							    {SOEN6471-S14} Project Report},
+	howpublished = {[online]},
+	year         = 2014,
+	note         = {\url{http://arxiv.org/abs/1412.7532}}
+}
+
+@misc
+{
+	soen6471-s14-team12,
+	author       = {Dipesh Walia
+	                and Pankaj Kumar Pant
+	                and Mahendra Neela
+	                and Naveen Kumar
+	                and Ram Babu Kunchala},
+	title        = {Toward Refactoring of {DMARF} and {GIPSY} Case Studies -- a Team 12
+	                {SOEN6471-S14} Project Report},
+	howpublished = {[online]},
+	year         = 2014,
+	note         = {\url{http://arxiv.org/abs/1412.7530}}
 }
 
 @book
