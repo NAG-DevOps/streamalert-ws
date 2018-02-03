@@ -31,31 +31,36 @@ public class XMLParser {
 	private Map<Markup, String> defaultUriMap = new HashMap<Markup, String>()
 	{{
 	     put(Markup.RSS, "http://www.ledevoir.com/rss/edition_complete.xml");
-	     put(Markup.NN, "https://dev.hotton.ca/xml/test1.xml");
-	     put(Markup.MARFCAT_IN, "https://dev.hotton.ca/xml/marfcat-in.xml");
-	     put(Markup.MARFCAT_OUT, "https://dev.hotton.ca/xml/marfcat-out.xml");
+	     put(Markup.NN, "https://users.encs.concordia.ca/~yzs487_4/xml/test1.xml");
+	     put(Markup.MARFCAT_IN, "https://users.encs.concordia.ca/~yzs487_4/xml/marfcat-in.xml");
+	     put(Markup.MARFCAT_OUT, "https://users.encs.concordia.ca/~yzs487_4/xml/marfcat-out.xml");
 	     put(Markup.WSDL, "http://users.encs.concordia.ca/~s487_4/examples/soap/faultmessage/faultSample.wsdl");
 	}};
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
 		XMLParser parser = new XMLParser();
 		
 		// parse the xml documents with an empty uri (will use the default strings)
 		
 		System.out.println("Parsing the default URIs...\n");
-		//parser.parseXML(Markup.RSS, "");
+		parser.parseXML(Markup.RSS, "");
 		parser.parseXML(Markup.NN, "");
 		parser.parseXML(Markup.MARFCAT_IN, "");
 		parser.parseXML(Markup.MARFCAT_OUT, "");
 		//parser.parseXML(Markup.WSDL, "");
 	}
 	
+	/**
+	 * Creates an XML input stream for a given markup and URI.
+	 * If the URI is empty or null, it uses the default URIs.
+	 * @param markup
+	 * @param uri
+	 */
 	public void parseXML(Markup markup, String uri) {
 		
-		// if the uri passed in is empty, use the default xml for the markup
-		if (uri.isEmpty()) {
+		// if the uri passed in is empty or null, use the default xml for the markup
+		if (uri.trim().isEmpty() || uri == null) {
 			uri = defaultUriMap.get(markup);
 		}
 		
@@ -91,26 +96,51 @@ public class XMLParser {
 		
 	}
 	
+	/**
+	 * Parses XML input stream using appropriate parsing techniques
+	 * and prints out elements and attributes in 'name:value' pairs
+	 * @param xml
+	 */
 	public void parseRSSXML(InputStream xml) {
 		// TODO: Stub for parsing RSS xml documents
 		System.out.println("About to parse RSS XML!");
 	}
 	
+	/**
+	 * Parses XML input stream using appropriate parsing techniques
+	 * and prints out elements and attributes in 'name:value' pairs
+	 * @param xml
+	 */
 	public void parseNNXML(InputStream xml) {
 		// TODO: Stub for parsing NN xml documents
 		System.out.println("About to parse NN XML!");
 	}
 	
+	/**
+	 * Parses XML input stream using appropriate parsing techniques
+	 * and prints out elements and attributes in 'name:value' pairs
+	 * @param xml
+	 */
 	public void parseMARFCATINXML(InputStream xml) {
 		// TODO: Stub for parsing MARFCATIN xml documents
 		System.out.println("About to parse MARFCATIN XML!");
 	}
 	
+	/**
+	 * Parses XML input stream using appropriate parsing techniques
+	 * and prints out elements and attributes in 'name:value' pairs
+	 * @param xml
+	 */
 	public void parseMARFCATOUTXML(InputStream xml) {
 		// TODO: Stub for parsing MARFCATOUT xml documents
 		System.out.println("About to parse MARFCATOUT XML!");
 	}
 	
+	/**
+	 * Parses XML input stream using appropriate parsing techniques
+	 * and prints out elements and attributes in 'name:value' pairs
+	 * @param xml
+	 */
 	public void parseWSDLXML(InputStream xml) {
 		// TODO: Stub for parsing WSDL xml documents
 		System.out.println("About to parse WSDL XML!");
