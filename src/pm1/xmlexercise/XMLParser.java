@@ -59,8 +59,8 @@ public class XMLParser {
 	 */
 	public void parseXML(Markup markup, String uri) {
 		
-		// if the uri passed in is empty or null, use the default xml for the markup
-		if (uri.trim().isEmpty() || uri == null) {
+		// if the uri passed in is null or empty, use the default xml for the markup
+		if (uri == null || uri.trim().isEmpty()) {
 			uri = defaultUriMap.get(markup);
 		}
 		
