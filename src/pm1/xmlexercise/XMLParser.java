@@ -10,6 +10,18 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
 /**
  * @author AlexGenio
  *
@@ -74,6 +86,8 @@ public class XMLParser {
 			connection.setRequestMethod("GET");
 			connection.setRequestProperty("Accept", "application/xml");
 
+			int xmlLength = connection.getContentLength();
+			System.out.println(markup.name() + " - " + xmlLength	);
 			xml = connection.getInputStream();
 			
 		} catch (IOException e) {
@@ -83,7 +97,7 @@ public class XMLParser {
 		if (xml != null) {
 			// call the appropriate helper method
 			switch (markup) {
-				case RSS:         parseRSSXML(xml);        break;
+				case RSS:         parseRSSXML(xml, "title");        break;
 				case NN:          parseNNXML(xml);         break;
 				case MARFCAT_IN:  parseMARFCATINXML(xml);  break;
 				case MARFCAT_OUT: parseMARFCATOUTXML(xml); break;
@@ -101,9 +115,33 @@ public class XMLParser {
 	 * and prints out elements and attributes in 'name:value' pairs
 	 * @param xml
 	 */
-	public void parseRSSXML(InputStream xml) {
+	public void parseRSSXML(InputStream xml, String searchString) {
 		// TODO: Stub for parsing RSS xml documents
 		System.out.println("About to parse RSS XML!");
+		
+		try {
+			// Document parsing with InputStream - Adapted from: https://github.com/smokhov/atsm/blob/master/examples/ws/XML/XMLParsing/src/XPathSample.java
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(xml);
+			// XPath
+			XPathFactory xPathFactory = XPathFactory.newInstance();
+		    XPath xPath = xPathFactory.newXPath();
+		    
+		    String expression = "//" + searchString;
+		    
+		    NodeList nodeList = (NodeList) xPath.compile(expression).evaluate(doc, XPathConstants.NODESET);
+			
+			for (int i = 0; i < nodeList.getLength(); i++) {
+				Node nNode = nodeList.item(i);
+				System.out.println("\n" + nNode.getNodeName() + " : " + nNode.getTextContent());
+			}
+		    
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	/**
