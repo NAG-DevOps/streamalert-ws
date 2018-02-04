@@ -12,6 +12,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import pm1.parse.ParseRSSXML;
+
 /**
  * @author AlexGenio
  *
@@ -117,6 +119,16 @@ public class XMLParser {
 	public void parseRSSXML(InputStream xml) {
 		// TODO: Stub for parsing RSS xml documents
 		System.out.println("About to parse RSS XML!");
+		
+		// use the RSS parser to parse the feed and output results
+		ParseRSSXML parser = new ParseRSSXML();
+		String result = parser.parse(xml);
+		
+		if (result != null) {
+			System.out.println(result);
+		} else {
+			System.out.println("Error: could not parse RSS xml,");
+		}
 	}
 
 	/**

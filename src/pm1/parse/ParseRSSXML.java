@@ -18,8 +18,12 @@ public class ParseRSSXML implements IParseXML {
 	 */
 	@Override
 	public String parse(InputStream xml) {
-		// TODO Auto-generated method stub
-		return null;
+
+		// parse with a SAX parser using a search term of title
+		CustomSAXParser parser = new CustomSAXParser();
+		String result = parser.parse(xml, "title");
+	
+		return result;
 	}
 
 }
