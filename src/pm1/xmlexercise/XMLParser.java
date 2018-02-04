@@ -130,13 +130,9 @@ public class XMLParser {
 	public void parseRSSXML(InputStream xml) {
 		// TODO: Stub for parsing RSS xml documents
 		System.out.println("About to parse RSS XML!");
-		// declaring blank output
-		String output = "";
 		// initializing RSS parsing class
 		ParseRSSXML pRSS = new ParseRSSXML();
-		output = pRSS.parse(xml);
-		
-		System.out.println(output);
+		System.out.println(pRSS.parse(xml));
 	}
 
 	/**

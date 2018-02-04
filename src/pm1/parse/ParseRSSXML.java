@@ -20,16 +20,9 @@ public class ParseRSSXML implements IParseXML {
 	@Override
 	public String parse(InputStream xml) {
 		// TODO Auto-generated method stub
-		System.out.println("About to parse RSS XML!");
-		
-		String output = "";
-		
 		ParseXPATH pXPath = new ParseXPATH();
-		
 		// If XPath is selected - right now it is default
-		output = pXPath.parseXPath(xml, "title");
-		
-		return output;
+		return pXPath.parseXPath(xml, "title");
 	}
 
 }
