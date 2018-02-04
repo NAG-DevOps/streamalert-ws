@@ -12,6 +12,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import pm1.parse.*;
+
 /**
  * @author AlexGenio
  *
@@ -57,9 +59,20 @@ public class XMLParser {
 			uri = defaultUriMap.get(markup);
 
 		InputStream xml = null;
+		int xmlLength = -1;
 
 		try {
 			HttpURLConnection connection = getHTTPConnection(uri);
+			
+			// gets length of xml, -1 means file is too large or could not calculate
+			xmlLength = connection.getContentLength();
+			/*
+			 * Further implementation could include,
+			 * having a smart parser which desides on using SAX for large files
+			 * and using DOM for smaller ones.
+			 * - Ryan
+			 */
+			
 			xml = connection.getInputStream();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -117,6 +130,13 @@ public class XMLParser {
 	public void parseRSSXML(InputStream xml) {
 		// TODO: Stub for parsing RSS xml documents
 		System.out.println("About to parse RSS XML!");
+		// declaring blank output
+		String output = "";
+		// initializing RSS parsing class
+		ParseRSSXML pRSS = new ParseRSSXML();
+		output = pRSS.parse(xml);
+		
+		System.out.println(output);
 	}
 
 	/**
