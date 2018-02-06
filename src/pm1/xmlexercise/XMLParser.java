@@ -155,6 +155,16 @@ public class XMLParser {
 	public void parseMARFCATINXML(InputStream xml) {
 		// TODO: Stub for parsing MARFCATIN xml documents
 		System.out.println("About to parse MARFCATIN XML!");
+			
+		// use the MARFCATIN parser to parse the XML and output results
+		ParseMARFCATINXML parser = new ParseMARFCATINXML();
+		String result = parser.parse(xml);
+		
+		if (result != null) {
+			System.out.println(result);
+		} else {
+			System.out.println("Error: could not parse MARFCATIN xml,");
+		}
 	}
 
 	/**

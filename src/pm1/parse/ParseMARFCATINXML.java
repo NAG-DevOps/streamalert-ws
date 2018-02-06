@@ -18,8 +18,12 @@ public class ParseMARFCATINXML implements IParseXML {
 	 */
 	@Override
 	public String parse(InputStream xml) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		// parse with a SAX parser without a search term
+		CustomSAXParser parser = new CustomSAXParser();
+		String result = parser.parse(xml, "");
+	
+		return result;
 	}
 
 }
