@@ -12,8 +12,6 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import pm1.parse.ParseMARFCATINXML;
-
 /**
  * @author AlexGenio
  *
