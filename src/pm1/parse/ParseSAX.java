@@ -17,7 +17,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * @author AlexGenio
  *
  */
-public class CustomSAXParser {
+public class ParseSAX {
 
 	private SAXParserFactory factory;
     private SAXParser saxParser;
@@ -26,7 +26,7 @@ public class CustomSAXParser {
 	/**
 	 * Constructor for CustomSAXParser
 	 */
-	public CustomSAXParser() {
+	public ParseSAX() {
 		super();
 		
 		try {
@@ -97,7 +97,7 @@ public class CustomSAXParser {
 	    		// search term was specified so only store that element
 	    		if (qName.equals(this.searchTerm)) {
 	    			this.matchedSearch = true;
-	    			this.value.append("<" + qName + ">");
+	    			this.value.append(qName + ":");
 	    		}
 	    	}
 	    }
@@ -114,7 +114,6 @@ public class CustomSAXParser {
 	    		// only store end tags that match the search term
 	    		if (qName.equals(this.searchTerm)) {
 	    			this.matchedSearch = false;
-	    			this.value.append("<" + qName + ">\n");
 	    		}
 	    	}
 	    }

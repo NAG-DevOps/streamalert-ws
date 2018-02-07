@@ -20,7 +20,7 @@ public class ParseMARFCATINXML implements IParseXML {
 	public String parse(InputStream xml) {
 		
 		// parse with a SAX parser without a search term
-		CustomSAXParser parser = new CustomSAXParser();
+		ParseSAX parser = new ParseSAX();
 		String result = parser.parse(xml, "");
 	
 		return result;
