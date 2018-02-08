@@ -133,8 +133,6 @@ public class XMLParser {
 	 */
 	public void parseNNXML(InputStream xml, Parsers parserType) {
 		LOGGER.log(Level.INFO, "About to parse NN XML!");
-		XMLParserHelper parser = new XMLParserHelper();
-		logParseResult(parser.parse(xml, parserType), "NNXML");
 	}
 
 	/**
