@@ -18,4 +18,5 @@ public interface IParseXML {
 	 * @param xml
 	 */
 	public String parse(InputStream xml, Parsers parserType);
+
 }

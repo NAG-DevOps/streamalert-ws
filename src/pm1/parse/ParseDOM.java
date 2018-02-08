@@ -4,6 +4,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+
+import pm1.abstractions.Parser;
+
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -16,10 +19,10 @@ import java.util.logging.Logger;
 /**
  * @Author Sophia Kavousifard
  */
-public class ParseDOM {
-	private static Logger LOGGER = Logger.getLogger("InfoLogging");
+public class ParseDOM extends Parser{
+	
 	private DocumentBuilderFactory docBuilderFactory;
-	private  DocumentBuilder docBuilder;
+	private DocumentBuilder docBuilder;
 	
 	/**
 	 * Default constructor for DomParser
@@ -32,7 +35,7 @@ public class ParseDOM {
 			this.docBuilderFactory = DocumentBuilderFactory.newInstance();
 			this.docBuilder = docBuilderFactory.newDocumentBuilder();
 		} catch (Exception e) {
-			e.printStackTrace();
+			getLogger().log(Level.WARNING, e.getMessage());
 		}
 	}
 
@@ -50,7 +53,7 @@ public class ParseDOM {
 			output = findChildNodes(doc, stringBuilder).toString();
 		}
 		catch(Exception e) {
-			LOGGER.log(Level.WARNING, "Issue while parsing NN XML!");
+			getLogger().log(Level.WARNING, e.getMessage());
 		}
 		
 		return output;
@@ -66,7 +69,6 @@ public class ParseDOM {
 	public  StringBuilder findChildNodes(Document doc, StringBuilder stringBuilder) {
 		NodeList entries = doc.getElementsByTagName("*");
 		
-		//iterating through each tag
 		for(int i=0; i < entries.getLength(); i++) {
 			Element tag = (Element) entries.item(i);
 			stringBuilder.append(tag.getNodeName() + "\n");
@@ -74,7 +76,7 @@ public class ParseDOM {
 			
 			for(int j=0; j < tag.getAttributes().getLength(); j++) {
 				Node attribute = tag.getAttributes().item(j);
-				//current node has an attribute
+
 				if(attribute != null) {
 					stringBuilder.append(attribute.getNodeName() + " = " + attribute.getNodeValue() + "\n");
 					System.out.println(attribute.getNodeName() + " = " + attribute.getNodeValue());

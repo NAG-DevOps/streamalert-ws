@@ -9,7 +9,7 @@ package pm1.enums;
 public class XMLEnums {
 
 	public enum Markup {
-		RSS, NN, MARFCAT_IN, MARFCAT_OUT, WSDL
+		RSS, NN, MARFCATIN, MARFCATOUT, WSDL
 	}
 	
 	public enum Parsers {

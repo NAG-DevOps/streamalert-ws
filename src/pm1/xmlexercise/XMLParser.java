@@ -31,33 +31,34 @@ public class XMLParser {
 		{
 			put(Markup.RSS, "http://www.ledevoir.com/rss/edition_complete.xml");
 			put(Markup.NN, "https://users.encs.concordia.ca/~yzs487_4/xml/test1.xml");
-			put(Markup.MARFCAT_IN, "https://users.encs.concordia.ca/~yzs487_4/xml/marfcat-in.xml");
-			put(Markup.MARFCAT_OUT, "https://users.encs.concordia.ca/~yzs487_4/xml/marfcat-out.xml");
-			put(Markup.WSDL, "https://raw.githubusercontent.com/smokhov/atsm/master/examples/ws/soap/faultmessage/faultSample.wsdl");
+			put(Markup.MARFCATIN, "https://users.encs.concordia.ca/~yzs487_4/xml/marfcat-in.xml");
+			put(Markup.MARFCATOUT, "https://users.encs.concordia.ca/~yzs487_4/xml/marfcat-out.xml");
+			put(Markup.WSDL,
+					"https://raw.githubusercontent.com/smokhov/atsm/master/examples/ws/soap/faultmessage/faultSample.wsdl");
 		}
 	};
 
 	public static void main(String[] args) {
 		LOGGER.log(Level.INFO, "Parsing the default URIs...");
-		
+
 		XMLParser parser = new XMLParser();
-		parser.parseXML(Markup.RSS, "", Parsers.SAX, "title");
-		parser.parseXML(Markup.NN, "", Parsers.SAX, "");
-		parser.parseXML(Markup.MARFCAT_IN, "", Parsers.SAX, "");
-		parser.parseXML(Markup.MARFCAT_OUT, "", Parsers.SAX, "");
-		parser.parseXML(Markup.WSDL, "", Parsers.DOM, "");
+		parser.parseXML(Markup.RSS, "", Parsers.DOM, "title");
+		//parser.parseXML(Markup.NN, "", Parsers.DOM, "");
+		//parser.parseXML(Markup.MARFCATIN, "", Parsers.SAX, "");
+		//parser.parseXML(Markup.MARFCATOUT, "", Parsers.SAX, "");
+		//parser.parseXML(Markup.WSDL, "", Parsers.DOM, "");
 	}
 
 	/**
-	 * Creates an XML input stream for a given markup, URI, parser type, and search term. 
-	 * If the URI is empty or null, it uses the default URIs.
+	 * Creates an XML input stream for a given markup, URI, parser type, and
+	 * search term. If the URI is empty or null, it uses the default URIs.
 	 * 
 	 * @param markup
 	 * @param uri
 	 * @param parser
 	 * @param searchTerm
 	 */
-	public void parseXML(Markup markup, String uri, Parsers parser, String searchTerm) {
+	public void parseXML(Markup markup, String uri, Parsers parserType, String searchTerm) {
 
 		if (Validation.isNotValidString(uri))
 			uri = defaultUriMap.get(markup);
@@ -68,29 +69,26 @@ public class XMLParser {
 			HttpURLConnection connection = getHTTPConnection(uri);
 			xml = connection.getInputStream();
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOGGER.log(Level.WARNING, e.getMessage());
 		}
 
 		if (xml != null) {
+
 			switch (markup) {
 			case RSS:
-				parseRSSXML(xml, searchTerm);
-				break;
 			case NN:
-				parseNNXML(xml, parser);
-				break;
-			case MARFCAT_IN:
-				parseMARFCATINXML(xml, parser);
-				break;
-			case MARFCAT_OUT:
-				parseMARFCATOUTXML(xml, parser);
-				break;
-			case WSDL:
-				parseWSDLXML(xml, parser);
+			case MARFCATIN:
+			case MARFCATOUT:
+			case WSDL: {
+				// seachTerm may or may not be empty
+				XMLParserHelper parser = new XMLParserHelper(searchTerm);
+				logParseResult(parser.parse(xml, parserType), parserType.name());
+			}
 				break;
 			default:
 				LOGGER.log(Level.SEVERE, "Invalid markup was entered.");
 			}
+
 		} else {
 			LOGGER.log(Level.SEVERE, "Could not open the url for xml parsing.");
 		}
@@ -115,72 +113,8 @@ public class XMLParser {
 	}
 
 	/**
-	 * Parses XML input stream for RSS feed using DOM and XPath with a search term.
-	 * All elements and attributes are ouputted in 'name:value' pairs
-	 * 
-	 * @param xml
-	 * @param searchTerm
-	 */
-	public void parseRSSXML(InputStream xml, String searchTerm) {
-		LOGGER.log(Level.INFO, "About to parse RSS XML!");
-		XMLSearchHelper parser = new XMLSearchHelper();
-		logParseResult(parser.search(xml, searchTerm), "RSSXML");
-	}
-
-	/**
-	 * Parses NN XML input stream using appropriate parsing techniques and prints
-	 * out elements and attributes in 'name:value' pairs
-	 * 
-	 * @param xml
-	 * @param parserType
-	 */
-	public void parseNNXML(InputStream xml, Parsers parserType) {
-		LOGGER.log(Level.INFO, "About to parse NN XML!");
-		XMLParserHelper parser = new XMLParserHelper();
-		logParseResult(parser.parse(xml, parserType), "NN");
-	}
-
-	/**
-	 * Parses MARFCATIN XML input stream using appropriate parsing techniques and prints
-	 * out elements and attributes in 'name:value' pairs
-	 * 
-	 * @param xml
-	 * @param parserType
-	 */
-	public void parseMARFCATINXML(InputStream xml, Parsers parserType) {
-		LOGGER.log(Level.INFO, "About to parse MARFCATIN XML!");
-		XMLParserHelper parser = new XMLParserHelper();
-		logParseResult(parser.parse(xml, parserType), "MARFCATIN");
-	}
-
-	/**
-	 * Parses MARFCATOUT XML input stream using appropriate parsing techniques and prints
-	 * out elements and attributes in 'name:value' pairs
-	 * 
-	 * @param xml
-	 * @param parserType
-	 */
-	public void parseMARFCATOUTXML(InputStream xml, Parsers parserType) {
-		LOGGER.log(Level.INFO, "About to parse MARFCATOUT XML!");
-		XMLParserHelper parser = new XMLParserHelper();
-		logParseResult(parser.parse(xml, parserType), "MARFCATOUT");
-	}
-
-	/**
-	 * Parses WSDL XML input stream using appropriate parsing techniques and prints
-	 * out elements and attributes in 'name:value' pairs
-	 * 
-	 * @param xml
-	 * @param parserType
-	 */
-	public void parseWSDLXML(InputStream xml, Parsers parserType) {
-		LOGGER.log(Level.INFO, "About to parse WSDL XML!");
-		XMLParserHelper parser = new XMLParserHelper();
-		logParseResult(parser.parse(xml, parserType), "WSDL");
-	}
-
-	/**
-	 * Outputs the result of parsing the XML file. Logs an error if unsuccessful.
+	 * Outputs the result of parsing the XML file. Logs an error if
+	 * unsuccessful.
 	 * 
 	 * @param result
 	 * @param type

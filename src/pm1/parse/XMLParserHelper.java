@@ -4,12 +4,23 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import pm1.abstractions.Parser;
 import pm1.enums.XMLEnums.Parsers;
 import pm1.interfaces.IParseXML;
+import utilities.Validation;
 
 public class XMLParserHelper implements IParseXML{
 
-private static Logger LOGGER = Logger.getLogger("InfoLogging");
+	private static Logger LOGGER = Logger.getLogger("InfoLogging");
+	private String searchTerm;
+	
+	public XMLParserHelper() {
+		this.searchTerm = "";
+	}
+	
+	public XMLParserHelper(String searchTerm) {
+		this.searchTerm = searchTerm;
+	}
 	
 	/*
 	 * (non-Javadoc)
@@ -20,30 +31,43 @@ private static Logger LOGGER = Logger.getLogger("InfoLogging");
 	public String parse(InputStream xml, Parsers parserType) {
 
 		String output = null;
+		Parser parser = null;
 
 		switch (parserType) {
 
 		case DOM: {
 			LOGGER.log(Level.INFO, "Parsing using DOM parser.");
 			
-			// Parse with a DOM parser without a search term
-			ParseDOM parser = new ParseDOM();
-			output = parser.parse(xml);
+			if (Validation.isNotValidString(searchTerm)) {
+				LOGGER.log(Level.INFO, "Parsing using DOM parser.");
+				parser = new ParseDOM();
+			} else {
+				LOGGER.log(Level.INFO, "Parsing and searching using XPath and DOM parser.");
+				parser = new ParseXPATH(searchTerm);
+			}
+			
 		}
 			break;
 
 		case SAX: {
-			LOGGER.log(Level.INFO, "Parsing using SAX parser.");
 			
-			// Parse with a SAX parser without a search term
-			ParseSAX parser = new ParseSAX();
-			output = parser.parse(xml, "");
+			if (Validation.isNotValidString(searchTerm)) {
+				LOGGER.log(Level.INFO, "Parsing using SAX parser.");
+				parser = new ParseSAX();
+			} else {
+				LOGGER.log(Level.INFO, "Parsing and searching using SAX parser.");
+				parser = new ParseSAX(searchTerm);
+			}
 		}
 			break;
 
 		default:
 			LOGGER.log(Level.WARNING, "Invalid logger type.");
 			
+		}
+		
+		if (parser != null) {
+			output = parser.parse(xml);
 		}
 
 		return output;
