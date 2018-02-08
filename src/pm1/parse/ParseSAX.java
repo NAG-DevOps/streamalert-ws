@@ -22,7 +22,7 @@ import utilities.Validation;
  *
  */
 public class ParseSAX {
-
+	
 	private SAXParserFactory factory;
 	private SAXParser saxParser;
 	private SAXHandler handler;
@@ -75,6 +75,9 @@ public class ParseSAX {
 	 */
 	public class SAXHandler extends DefaultHandler {
 
+		// Document parsing with InputStream - Adapted from:
+		// https://github.com/smokhov/atsm/blob/master/examples/ws/XML/XMLParsing/src/SAXSample.java
+		
 		private StringBuilder value;
 		private String searchTerm;
 		private Boolean matchedSearch;
@@ -124,7 +127,7 @@ public class ParseSAX {
 				this.value.append(qName + ":\n");
 
 				for (int i = 0; i < attributes.getLength(); i++) {
-					this.value.append(attributes.getQName(i) + ":" + attributes.getValue(i) + "\n");
+					this.value.append(attributes.getQName(i) + " = " + attributes.getValue(i) + "\n");
 				}
 			} else {
 

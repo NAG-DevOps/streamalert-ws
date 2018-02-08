@@ -8,14 +8,16 @@ import java.io.InputStream;
 import pm1.enums.XMLEnums.Parsers;
 
 /**
- * @author miqdadamirali
+ * @author AlexGenio
  *
  */
 public interface ISearchXML {
 	
 	/**
-	 * Parse XML
+	 * Searches XML for a given search term.
+	 * 
 	 * @param xml
+	 * @param searchTerm
 	 */
 	public String search(InputStream xml, String searchTerm);
 }

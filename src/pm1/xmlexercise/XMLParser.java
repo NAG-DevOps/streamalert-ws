@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 
 import pm1.enums.XMLEnums.Markup;
 import pm1.enums.XMLEnums.Parsers;
-import pm1.interfaces.IParseXML;
 import pm1.parse.*;
 import utilities.Validation;
 
@@ -46,15 +45,17 @@ public class XMLParser {
 		parser.parseXML(Markup.NN, "", Parsers.SAX, "");
 		parser.parseXML(Markup.MARFCAT_IN, "", Parsers.SAX, "");
 		parser.parseXML(Markup.MARFCAT_OUT, "", Parsers.SAX, "");
-		parser.parseXML(Markup.WSDL, "", Parsers.SAX, "");
+		parser.parseXML(Markup.WSDL, "", Parsers.DOM, "");
 	}
 
 	/**
-	 * Creates an XML input stream for a given markup and URI. If the URI is
-	 * empty or null, it uses the default URIs.
+	 * Creates an XML input stream for a given markup, URI, parser type, and search term. 
+	 * If the URI is empty or null, it uses the default URIs.
 	 * 
 	 * @param markup
 	 * @param uri
+	 * @param parser
+	 * @param searchTerm
 	 */
 	public void parseXML(Markup markup, String uri, Parsers parser, String searchTerm) {
 
@@ -114,10 +115,11 @@ public class XMLParser {
 	}
 
 	/**
-	 * Parses XML input stream using appropriate parsing techniques and prints
-	 * out elements and attributes in 'name:value' pairs
+	 * Parses XML input stream for RSS feed using DOM and XPath with a search term.
+	 * All elements and attributes are ouputted in 'name:value' pairs
 	 * 
 	 * @param xml
+	 * @param searchTerm
 	 */
 	public void parseRSSXML(InputStream xml, String searchTerm) {
 		LOGGER.log(Level.INFO, "About to parse RSS XML!");
@@ -126,20 +128,24 @@ public class XMLParser {
 	}
 
 	/**
-	 * Parses XML input stream using appropriate parsing techniques and prints
+	 * Parses NN XML input stream using appropriate parsing techniques and prints
 	 * out elements and attributes in 'name:value' pairs
 	 * 
 	 * @param xml
+	 * @param parserType
 	 */
 	public void parseNNXML(InputStream xml, Parsers parserType) {
 		LOGGER.log(Level.INFO, "About to parse NN XML!");
+		XMLParserHelper parser = new XMLParserHelper();
+		logParseResult(parser.parse(xml, parserType), "NN");
 	}
 
 	/**
-	 * Parses XML input stream using appropriate parsing techniques and prints
+	 * Parses MARFCATIN XML input stream using appropriate parsing techniques and prints
 	 * out elements and attributes in 'name:value' pairs
 	 * 
 	 * @param xml
+	 * @param parserType
 	 */
 	public void parseMARFCATINXML(InputStream xml, Parsers parserType) {
 		LOGGER.log(Level.INFO, "About to parse MARFCATIN XML!");
@@ -148,10 +154,11 @@ public class XMLParser {
 	}
 
 	/**
-	 * Parses XML input stream using appropriate parsing techniques and prints
+	 * Parses MARFCATOUT XML input stream using appropriate parsing techniques and prints
 	 * out elements and attributes in 'name:value' pairs
 	 * 
 	 * @param xml
+	 * @param parserType
 	 */
 	public void parseMARFCATOUTXML(InputStream xml, Parsers parserType) {
 		LOGGER.log(Level.INFO, "About to parse MARFCATOUT XML!");
@@ -160,10 +167,11 @@ public class XMLParser {
 	}
 
 	/**
-	 * Parses XML input stream using appropriate parsing techniques and prints
+	 * Parses WSDL XML input stream using appropriate parsing techniques and prints
 	 * out elements and attributes in 'name:value' pairs
 	 * 
 	 * @param xml
+	 * @param parserType
 	 */
 	public void parseWSDLXML(InputStream xml, Parsers parserType) {
 		LOGGER.log(Level.INFO, "About to parse WSDL XML!");
@@ -172,6 +180,7 @@ public class XMLParser {
 	}
 
 	/**
+	 * Outputs the result of parsing the XML file. Logs an error if unsuccessful.
 	 * 
 	 * @param result
 	 * @param type

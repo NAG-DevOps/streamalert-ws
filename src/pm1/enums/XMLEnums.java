@@ -1,3 +1,9 @@
+
+/**
+ * @author AlexGenio
+ *
+ */
+
 package pm1.enums;
 
 public class XMLEnums {
