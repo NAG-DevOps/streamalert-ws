@@ -36,8 +36,7 @@ public class XMLParser {
 			put(Markup.NN, "https://users.encs.concordia.ca/~yzs487_4/xml/test1.xml");
 			put(Markup.MARFCAT_IN, "https://users.encs.concordia.ca/~yzs487_4/xml/marfcat-in.xml");
 			put(Markup.MARFCAT_OUT, "https://users.encs.concordia.ca/~yzs487_4/xml/marfcat-out.xml");
-			put(Markup.WSDL,
-					"https://raw.githubusercontent.com/smokhov/atsm/master/examples/ws/soap/faultmessage/faultSample.wsdl");
+			put(Markup.WSDL, "https://raw.githubusercontent.com/smokhov/atsm/master/examples/ws/soap/faultmessage/faultSample.wsdl");
 		}
 	};
 
