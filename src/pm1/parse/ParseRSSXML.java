@@ -14,15 +14,20 @@ import pm1.parse.ParseXPATH;
  */
 public class ParseRSSXML implements IParseXML {
 
-	/* (non-Javadoc)
+	private final String TITLE = "title";
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pm1.interfaces.IParseXML#parse(java.io.InputStream)
 	 */
 	@Override
 	public String parse(InputStream xml) {
-		// TODO Auto-generated method stub
+
 		ParseXPATH pXPath = new ParseXPATH();
+
 		// If XPath is selected - right now it is default
-		return pXPath.parseXPath(xml, "title");
+		return pXPath.parseXPath(xml, TITLE);
 	}
 
 }
