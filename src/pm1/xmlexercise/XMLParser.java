@@ -14,6 +14,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import pm1.enums.XMLEnums.Markup;
+import pm1.enums.XMLEnums.Parsers;
 import pm1.interfaces.IParseXML;
 import pm1.parse.*;
 import utilities.Validation;
@@ -25,10 +27,6 @@ import utilities.Validation;
 public class XMLParser {
 
 	private static Logger LOGGER = Logger.getLogger("InfoLogging");
-
-	private enum Markup {
-		RSS, NN, MARFCAT_IN, MARFCAT_OUT, WSDL
-	}
 
 	private Map<Markup, String> defaultUriMap = new HashMap<Markup, String>() {
 		{
@@ -44,11 +42,11 @@ public class XMLParser {
 		LOGGER.log(Level.INFO, "Parsing the default URIs...");
 		
 		XMLParser parser = new XMLParser();
-		parser.parseXML(Markup.RSS, "");
-		parser.parseXML(Markup.NN, "");
-		parser.parseXML(Markup.MARFCAT_IN, "");
-		parser.parseXML(Markup.MARFCAT_OUT, "");
-		parser.parseXML(Markup.WSDL, "");
+		parser.parseXML(Markup.RSS, "", Parsers.SAX, "title");
+		parser.parseXML(Markup.NN, "", Parsers.SAX, "");
+		parser.parseXML(Markup.MARFCAT_IN, "", Parsers.SAX, "");
+		parser.parseXML(Markup.MARFCAT_OUT, "", Parsers.SAX, "");
+		parser.parseXML(Markup.WSDL, "", Parsers.SAX, "");
 	}
 
 	/**
@@ -58,48 +56,36 @@ public class XMLParser {
 	 * @param markup
 	 * @param uri
 	 */
-	public void parseXML(Markup markup, String uri) {
+	public void parseXML(Markup markup, String uri, Parsers parser, String searchTerm) {
 
 		if (Validation.isNotValidString(uri))
 			uri = defaultUriMap.get(markup);
 
 		InputStream xml = null;
-		int xmlLength = -1;
 
 		try {
 			HttpURLConnection connection = getHTTPConnection(uri);
-
-			// gets length of xml, -1 means file is too large or could not
-			// calculate
-			xmlLength = connection.getContentLength();
-			/*
-			 * Further implementation could include, having a smart parser which
-			 * desides on using SAX for large files and using DOM for smaller
-			 * ones. - Ryan
-			 */
-
 			xml = connection.getInputStream();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		IParseXML parser;
 		if (xml != null) {
 			switch (markup) {
 			case RSS:
-				parseRSSXML(xml);
+				parseRSSXML(xml, searchTerm);
 				break;
 			case NN:
-				parseNNXML(xml);
+				parseNNXML(xml, parser);
 				break;
 			case MARFCAT_IN:
-				parseMARFCATINXML(xml);
+				parseMARFCATINXML(xml, parser);
 				break;
 			case MARFCAT_OUT:
-				parseMARFCATOUTXML(xml);
+				parseMARFCATOUTXML(xml, parser);
 				break;
 			case WSDL:
-				parseWSDLXML(xml);
+				parseWSDLXML(xml, parser);
 				break;
 			default:
 				LOGGER.log(Level.SEVERE, "Invalid markup was entered.");
@@ -133,10 +119,10 @@ public class XMLParser {
 	 * 
 	 * @param xml
 	 */
-	public void parseRSSXML(InputStream xml) {
+	public void parseRSSXML(InputStream xml, String searchTerm) {
 		LOGGER.log(Level.INFO, "About to parse RSS XML!");
-		ParseRSSXML parser = new ParseRSSXML();
-		logParseResult(parser.parse(xml), "RSSXML");
+		XMLSearchHelper parser = new XMLSearchHelper();
+		logParseResult(parser.search(xml, searchTerm), "RSSXML");
 	}
 
 	/**
@@ -145,10 +131,10 @@ public class XMLParser {
 	 * 
 	 * @param xml
 	 */
-	public void parseNNXML(InputStream xml) {
+	public void parseNNXML(InputStream xml, Parsers parserType) {
 		LOGGER.log(Level.INFO, "About to parse NN XML!");
-		ParseNNXML parser = new ParseNNXML();
-		logParseResult(parser.parse(xml), "NNXML");
+		XMLParserHelper parser = new XMLParserHelper();
+		logParseResult(parser.parse(xml, parserType), "NNXML");
 	}
 
 	/**
@@ -157,10 +143,10 @@ public class XMLParser {
 	 * 
 	 * @param xml
 	 */
-	public void parseMARFCATINXML(InputStream xml) {
+	public void parseMARFCATINXML(InputStream xml, Parsers parserType) {
 		LOGGER.log(Level.INFO, "About to parse MARFCATIN XML!");
-		ParseMARFCATINXML parser = new ParseMARFCATINXML();
-		logParseResult(parser.parse(xml), "MARFCATIN");
+		XMLParserHelper parser = new XMLParserHelper();
+		logParseResult(parser.parse(xml, parserType), "MARFCATIN");
 	}
 
 	/**
@@ -169,10 +155,10 @@ public class XMLParser {
 	 * 
 	 * @param xml
 	 */
-	public void parseMARFCATOUTXML(InputStream xml) {
+	public void parseMARFCATOUTXML(InputStream xml, Parsers parserType) {
 		LOGGER.log(Level.INFO, "About to parse MARFCATOUT XML!");
-		ParseMARFCATOUTXML parser = new ParseMARFCATOUTXML();
-		logParseResult(parser.parse(xml), "MARFCATOUT");
+		XMLParserHelper parser = new XMLParserHelper();
+		logParseResult(parser.parse(xml, parserType), "MARFCATOUT");
 	}
 
 	/**
@@ -181,10 +167,10 @@ public class XMLParser {
 	 * 
 	 * @param xml
 	 */
-	public void parseWSDLXML(InputStream xml) {
+	public void parseWSDLXML(InputStream xml, Parsers parserType) {
 		LOGGER.log(Level.INFO, "About to parse WSDL XML!");
-		ParseWSDLXML parser = new ParseWSDLXML();
-		logParseResult(parser.parse(xml), "WSDL");
+		XMLParserHelper parser = new XMLParserHelper();
+		logParseResult(parser.parse(xml, parserType), "WSDL");
 	}
 
 	/**

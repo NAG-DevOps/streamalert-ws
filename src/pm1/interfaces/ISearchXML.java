@@ -11,11 +11,11 @@ import pm1.enums.XMLEnums.Parsers;
  * @author miqdadamirali
  *
  */
-public interface IParseXML {
+public interface ISearchXML {
 	
 	/**
 	 * Parse XML
 	 * @param xml
 	 */
-	public String parse(InputStream xml, Parsers parserType);
+	public String search(InputStream xml, String searchTerm);
 }
