@@ -13,7 +13,9 @@ import pm1.interfaces.IParseXML;
  */
 public class ParseNNXML implements IParseXML {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pm1.interfaces.IParseXML#parse(java.io.InputStream)
 	 */
 	@Override

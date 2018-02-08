@@ -13,17 +13,17 @@ import pm1.interfaces.IParseXML;
  */
 public class ParseMARFCATINXML implements IParseXML {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pm1.interfaces.IParseXML#parse(java.io.InputStream)
 	 */
 	@Override
 	public String parse(InputStream xml) {
-		
-		// parse with a SAX parser without a search term
+
+		// Parse with a SAX parser without a search term
 		ParseSAX parser = new ParseSAX();
-		String result = parser.parse(xml, "");
-	
-		return result;
+		return parser.parse(xml, "");
 	}
 
 }
