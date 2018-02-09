@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  tomcat:
+    build: ./tomcat
+    ports:
+      - "8000:8080"
+    volumes:
+      - ./tomcat:/usr/local/tomcat/webapps/streamalert
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    environment:
+      - NGINX_PORT=80
+    volumes:
+      - ./nginx/pages:/var/www
