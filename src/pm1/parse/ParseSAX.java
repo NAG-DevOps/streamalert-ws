@@ -15,32 +15,39 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import pm1.abstractions.Parser;
 import utilities.Validation;
 
 /**
  * @author AlexGenio
  *
  */
-public class ParseSAX {
-
+public class ParseSAX extends Parser{
+	
 	private SAXParserFactory factory;
 	private SAXParser saxParser;
 	private SAXHandler handler;
-
-	private static Logger LOGGER = Logger.getLogger("InfoLogging");
 
 	/**
 	 * Constructor for CustomSAXParser
 	 */
 	public ParseSAX() {
-		super();
-
+		this("");
+	}
+	
+	/**
+	 * Overloaded constructor for CustomSAXParser
+	 */
+	public ParseSAX(String searchTerm) {
+		super(searchTerm);
+		
 		try {
 			this.factory = SAXParserFactory.newInstance();
 			this.saxParser = factory.newSAXParser();
 		} catch (Exception e) {
-			LOGGER.log(Level.WARNING, e.getMessage());
+			getLogger().log(Level.WARNING, e.getMessage());
 		}
+		
 	}
 
 	/**
@@ -50,14 +57,14 @@ public class ParseSAX {
 	 * @param searchTerm
 	 * @return Resulting output of parsing XML
 	 */
-	public String parse(InputStream xml, String searchTerm) {
+	public String parse(InputStream xml) {
 		String output = null;
 		try {
-			this.handler = new SAXHandler(searchTerm);
+			this.handler = new SAXHandler(getSearchTerm());
 			this.saxParser.parse(xml, this.handler);
 			output = this.handler.getValue().toString();
 		} catch (SAXException | IOException e) {
-			LOGGER.log(Level.WARNING, e.getMessage());
+			getLogger().log(Level.WARNING, e.getMessage());
 		}
 
 		return output;
@@ -75,6 +82,9 @@ public class ParseSAX {
 	 */
 	public class SAXHandler extends DefaultHandler {
 
+		// Document parsing with InputStream - Adapted from:
+		// https://github.com/smokhov/atsm/blob/master/examples/ws/XML/XMLParsing/src/SAXSample.java
+		
 		private StringBuilder value;
 		private String searchTerm;
 		private Boolean matchedSearch;
@@ -110,6 +120,7 @@ public class ParseSAX {
 				// only store end tags that match the search term
 				if (qName.equals(this.searchTerm)) {
 					this.matchedSearch = false;
+					this.value.append("\n");
 				}
 			}
 		}
@@ -124,7 +135,7 @@ public class ParseSAX {
 				this.value.append(qName + ":\n");
 
 				for (int i = 0; i < attributes.getLength(); i++) {
-					this.value.append(attributes.getQName(i) + ":" + attributes.getValue(i) + "\n");
+					this.value.append(attributes.getQName(i) + " = " + attributes.getValue(i) + "\n");
 				}
 			} else {
 

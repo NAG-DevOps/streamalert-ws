@@ -17,28 +17,34 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import pm1.abstractions.Parser;
 import utilities.Validation;
 
 /**
  * @author ryanhotton
  *
  */
-public class ParseXPATH {
-
-	private static Logger LOGGER = Logger.getLogger("InfoLogging");
-
+public class ParseXPATH extends Parser{
+	
+	public ParseXPATH() {
+		super();
+	}
+	
+	public ParseXPATH(String searchTerm) {
+		super(searchTerm);
+	}
+	
 	/**
 	 * 
 	 * Parses XML using XPath and a search string.
 	 * 
 	 * @param xml
-	 * @param searchString
 	 * @return output string
 	 */
-	public String parseXPath(InputStream xml, String searchString) {
-		LOGGER.log(Level.INFO, "About to parse XPath with search string: " + searchString);
+	public String parse(InputStream xml) {
+		getLogger().log(Level.INFO, "About to parse XPath with search string: " + getSearchTerm());
 
-		if (Validation.isNotValidString(searchString)) {
+		if (Validation.isNotValidString(getSearchTerm())) {
 			return null;
 		}
 
@@ -55,7 +61,7 @@ public class ParseXPATH {
 			XPathFactory xPathFactory = XPathFactory.newInstance();
 			XPath xPath = xPathFactory.newXPath();
 
-			String expression = "//" + searchString;
+			String expression = "//" + getSearchTerm();
 
 			NodeList nodeList = (NodeList) xPath.compile(expression).evaluate(doc, XPathConstants.NODESET);
 
@@ -67,7 +73,7 @@ public class ParseXPATH {
 			}
 
 		} catch (Exception e) {
-			LOGGER.log(Level.WARNING, e.getMessage());
+			getLogger().log(Level.WARNING, e.getMessage());
 		}
 
 		return output.toString();
