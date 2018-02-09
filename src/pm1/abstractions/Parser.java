@@ -16,7 +16,7 @@ public abstract class Parser {
 	private String searchTerm;
 	
 	public Parser() {
-		this.searchTerm = "";
+		this("");
 	}
 	
 	public Parser(String searchTerm) {

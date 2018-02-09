@@ -32,8 +32,7 @@ public class ParseSAX extends Parser{
 	 * Constructor for CustomSAXParser
 	 */
 	public ParseSAX() {
-		super();
-		init();
+		this("");
 	}
 	
 	/**
@@ -41,19 +40,14 @@ public class ParseSAX extends Parser{
 	 */
 	public ParseSAX(String searchTerm) {
 		super(searchTerm);
-		init();
-	}
-	
-	/**
-	 * Initializes specific class member variables
-	 */
-	private void init() {
+		
 		try {
 			this.factory = SAXParserFactory.newInstance();
 			this.saxParser = factory.newSAXParser();
 		} catch (Exception e) {
 			getLogger().log(Level.WARNING, e.getMessage());
 		}
+		
 	}
 
 	/**

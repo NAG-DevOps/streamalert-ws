@@ -15,7 +15,7 @@ public class XMLParserHelper implements IParseXML{
 	private String searchTerm;
 	
 	public XMLParserHelper() {
-		this.searchTerm = "";
+		this("");
 	}
 	
 	public XMLParserHelper(String searchTerm) {
@@ -32,13 +32,14 @@ public class XMLParserHelper implements IParseXML{
 
 		String output = null;
 		Parser parser = null;
-
+		boolean noSearchTerm = Validation.isNotValidString(searchTerm);
+		
 		switch (parserType) {
 
 		case DOM: {
 			LOGGER.log(Level.INFO, "Parsing using DOM parser.");
 			
-			if (Validation.isNotValidString(searchTerm)) {
+			if (noSearchTerm) {
 				LOGGER.log(Level.INFO, "Parsing using DOM parser.");
 				parser = new ParseDOM();
 			} else {
@@ -51,7 +52,7 @@ public class XMLParserHelper implements IParseXML{
 
 		case SAX: {
 			
-			if (Validation.isNotValidString(searchTerm)) {
+			if (noSearchTerm) {
 				LOGGER.log(Level.INFO, "Parsing using SAX parser.");
 				parser = new ParseSAX();
 			} else {
