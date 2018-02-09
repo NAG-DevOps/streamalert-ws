@@ -37,7 +37,6 @@ public class XMLParserHelper implements IParseXML{
 		switch (parserType) {
 
 		case DOM: {
-			LOGGER.log(Level.INFO, "Parsing using DOM parser.");
 			
 			if (noSearchTerm) {
 				LOGGER.log(Level.INFO, "Parsing using DOM parser.");

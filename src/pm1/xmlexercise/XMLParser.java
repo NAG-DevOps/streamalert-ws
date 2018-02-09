@@ -39,14 +39,51 @@ public class XMLParser {
 	};
 
 	public static void main(String[] args) {
-		LOGGER.log(Level.INFO, "Parsing the default URIs...");
 
+		// must have markup type, url, parser type, and search term
+		// url and search term can be empty however
+		if (args.length < 2 || args.length > 4) {
+			LOGGER.log(Level.SEVERE, "Usage: program [Markup] [ParserType] (URL) (SearchTerm)");
+			System.exit(0);
+		}
+		
+		// read the passed arguments
+		Markup markup = null;
+		Parsers parserType = null;
+		String uri = null;
+		String searchTerm = null;
+		
+		try {
+			int markupInt = Integer.parseInt(args[0]);
+			int parserInt = Integer.parseInt(args[1]);
+			
+			if (markupInt < 0 || markupInt > Markup.values().length - 1) {
+				LOGGER.log(Level.SEVERE, "Markup values must be 0..." + (Markup.values().length - 1));
+				System.exit(0);
+			}
+			markup = Markup.values()[markupInt];
+			
+			if (parserInt < 0 || parserInt > Parsers.values().length - 1) {
+				LOGGER.log(Level.SEVERE, "ParserType values must be 0..." + (Parsers.values().length - 1));
+				System.exit(0);
+			}
+			parserType = Parsers.values()[parserInt];
+		} catch (NumberFormatException e) {
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			System.exit(0);
+		}
+		
+		if (args.length == 3) {
+			uri = args[2];
+		}
+		
+		if (args.length == 4) {
+			searchTerm = args[3];
+		}
+		
+		// parse according to what was passed in
 		XMLParser parser = new XMLParser();
-		parser.parseXML(Markup.RSS, "", Parsers.DOM, "title");
-		//parser.parseXML(Markup.NN, "", Parsers.DOM, "");
-		//parser.parseXML(Markup.MARFCATIN, "", Parsers.SAX, "");
-		//parser.parseXML(Markup.MARFCATOUT, "", Parsers.SAX, "");
-		//parser.parseXML(Markup.WSDL, "", Parsers.DOM, "");
+		parser.parseXML(markup, uri, parserType, searchTerm);
 	}
 
 	/**
@@ -82,7 +119,7 @@ public class XMLParser {
 			case WSDL: {
 				// seachTerm may or may not be empty
 				XMLParserHelper parser = new XMLParserHelper(searchTerm);
-				logParseResult(parser.parse(xml, parserType), parserType.name());
+				logParseResult(parser.parse(xml, parserType), markup.name());
 			}
 				break;
 			default:
@@ -120,10 +157,12 @@ public class XMLParser {
 	 * @param type
 	 */
 	private void logParseResult(String result, String type) {
-		if (result != null)
+		if (result != null) {
+			LOGGER.log(Level.INFO, String.format("Parsing %s XML", type));
 			System.out.println(result);
-		else
+		} else {
 			LOGGER.log(Level.SEVERE, String.format("Could not parse %s XML", type));
+		}
 	}
 
 }

@@ -72,14 +72,12 @@ public class ParseDOM extends Parser{
 		for(int i=0; i < entries.getLength(); i++) {
 			Element tag = (Element) entries.item(i);
 			stringBuilder.append(tag.getNodeName() + "\n");
-			System.out.println(tag.getNodeName() + ":");
 			
 			for(int j=0; j < tag.getAttributes().getLength(); j++) {
 				Node attribute = tag.getAttributes().item(j);
 
 				if(attribute != null) {
 					stringBuilder.append(attribute.getNodeName() + " = " + attribute.getNodeValue() + "\n");
-					System.out.println(attribute.getNodeName() + " = " + attribute.getNodeValue());
 				}
 			}
 		}
