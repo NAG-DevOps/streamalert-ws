@@ -6,7 +6,7 @@ services:
     ports:
       - "8000:8080"
     volumes:
-      - ./tomcat:/usr/local/tomcat/webapps/streamalert
+      - ./tomcat/war:/usr/local/tomcat/webapps
 
   nginx:
     build: ./nginx
