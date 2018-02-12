@@ -23,9 +23,7 @@ public class XmlParser {
 			T castedObject = (T)toMarshal;
 			JAXBContext jaxbContext = JAXBContext.newInstance(castedObject.getClass());
 			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-			
 			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			
 			jaxbMarshaller.marshal(toMarshal, sw);
 			return sw.toString();
 		}
