@@ -14,7 +14,7 @@
 * In the right window pane, click the "Arguments" tab
 * Enter the parameters in the "Program arguments" textbox
 * The following are the possible usages of the program (note that the braces should not be entered as part of the arguments):
-	+ To use the default URI for a given Markup and no search term 
+	+ To use the default URI for a given Markup and no search term
 		- [Markup] [Parser]
 	+ To use the default URI for a given Markup and a search term (do not use quotations in the SearchTerm)
 		- [Markup] [Parser] "" [SearchTerm]
@@ -32,13 +32,13 @@
 	+ 0: DOM
 	+ 1: SAX
 * Click "Apply", and then "Run"
-* The results are then desplayed in the Console
+* The results are then displayed in the Console
 
 ### Running the application from the command line ###
 
 * From the command line, locate where the jar file was downloaded
 * The following are the possible usages of the program (note that the braces should not be entered as part of the arguments):
-	+ To use the default URI for a given Markup and no search term 
+	+ To use the default URI for a given Markup and no search term
 		- programName [Markup] [Parser]
 	+ To use the default URI for a given Markup and a search term (do not use quotations in the SearchTerm)
 		- programName [Markup] [Parser] "" [SearchTerm]
@@ -55,8 +55,16 @@
 * Possible options for [Parser] are:
 	+ 0: DOM
 	+ 1: SAX
-* The results are then desplayed in the command line
+* The results are then displayed in the command line
+
+### References and Resources Used ###
+
+* We used the following GitHub pages to help out our parsing:
+	+ https://github.com/smokhov/atsm/tree/master/examples/ws/XML/XMLParsing/src
+	+ https://github.com/smokhov/atsm/blob/master/examples/ws/XML/XMLParsing/src/SAXSample.java
+	+ https://github.com/smokhov/atsm/blob/master/examples/ws/XML/XMLParsing/src/XPathSample.java
+
 
 ### Who do I talk to? ###
 
-* Alex Genio
+* Alex Genio (Team Leader)
