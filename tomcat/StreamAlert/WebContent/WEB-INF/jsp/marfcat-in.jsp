@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page import="java.util.ArrayList, marfcat.File" language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -21,16 +21,20 @@
 	<br>
 	<hr>
 	<br>
-	<h3>File</h3>
-	<h5>File ID: <%= (String)request.getAttribute("file-id") %></h5>
-	<h5>File path: <%= (String)request.getAttribute("file-path") %></h5>
-	<h5>Type: <%= (String)request.getAttribute("meta-type") %></h5>
-	<h5>Number of lines: <%= (String)request.getAttribute("number-lines") %></h5>
-	<h5>Number of words: <%= (String)request.getAttribute("number-words") %></h5>
-	<h5>Number of bytes: <%= (String)request.getAttribute("number-bytes") %></h5>
-	<h5>Location line: <%= (String)request.getAttribute("location-line") %></h5>
-	<h5>Location fraglines: <%= (String)request.getAttribute("mlocation-fraglines") %></h5>
-	<h5>Location fragment: <%= (String)request.getAttribute("location-fragment") %></h5>
-	<h5>Location explanation: <%= (String)request.getAttribute("location-explanation") %></h5>
+	<h3>Files</h3>
+	<% ArrayList<File> files = (ArrayList<File>)request.getAttribute("files"); %>
+	<% for(File f : files) { %>
+	<hr>
+	<h5>File ID: <%= f.id %></h5>
+	<h5>File path: <%= f.path %></h5>
+	<h5>Type: <%= f.meta.type %></h5>
+	<h5>Number of lines: <%= f.meta.length.lines %></h5>
+	<h5>Number of words: <%= f.meta.length.words %></h5>
+	<h5>Number of bytes: <%= f.meta.length.bytes %></h5>
+	<h5>Location line: <%= f.location.line %></h5>
+	<h5>Location fraglines: <%= f.location.fraglines %></h5>
+	<h5>Location fragment: <%= f.location.fragment %></h5>
+	<h5>Location explanation: <%= f.location.explanation %></h5>
+	<% } %>
 </body>
 </html>

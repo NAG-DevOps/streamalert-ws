@@ -1,13 +1,9 @@
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
-import java.io.Reader;
 import java.io.StringWriter;
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 import javax.servlet.ServletContext;
@@ -19,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+
+import marfcat.Dataset;
 
 /**
  * Servlet implementation class MarfcatInput
@@ -57,20 +55,18 @@ public class MarfcatInput extends HttpServlet {
 			request.setAttribute("description-file-type-tool", ds.description.fileTypeTool);
 			request.setAttribute("description-find-tool", ds.description.findTool);
 			request.setAttribute("description-marfcat-tool", ds.description.marfTool);
-			
-			// Display the 95th file in the DOM
-			File f = ds.files.get(94);
-			
-			request.setAttribute("file-id", f.id);
-			request.setAttribute("file-path", f.path);
-			request.setAttribute("meta-type", f.meta.type);
-			request.setAttribute("number-lines", f.meta.length.lines);
-			request.setAttribute("number-words", f.meta.length.words);
-			request.setAttribute("number-bytes", f.meta.length.bytes);
-			request.setAttribute("location-line", f.location.line);
-			request.setAttribute("location-fraglines", f.location.fraglines);
-			request.setAttribute("location-fragment", f.location.fragment);
-			request.setAttribute("location-explanation", f.location.explanation);
+			request.setAttribute("files", ds.files);
+
+//			request.setAttribute("file-id", f.id);
+//			request.setAttribute("file-path", f.path);
+//			request.setAttribute("meta-type", f.meta.type);
+//			request.setAttribute("number-lines", f.meta.length.lines);
+//			request.setAttribute("number-words", f.meta.length.words);
+//			request.setAttribute("number-bytes", f.meta.length.bytes);
+//			request.setAttribute("location-line", f.location.line);
+//			request.setAttribute("location-fraglines", f.location.fraglines);
+//			request.setAttribute("location-fragment", f.location.fragment);
+//			request.setAttribute("location-explanation", f.location.explanation);
 			
 			response.setContentType("text/html");
 	        request.getRequestDispatcher("/WEB-INF/jsp/marfcat-in.jsp").forward(request, response);

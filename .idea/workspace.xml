@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8175d48-0d90-4526-b46d-f6b74d78e4c4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/tomcat/StreamAlert/.classpath" afterPath="$PROJECT_DIR$/tomcat/StreamAlert/.classpath" />
-      <change beforePath="$PROJECT_DIR$/tomcat/StreamAlert/.settings/org.eclipse.wst.common.component" afterPath="$PROJECT_DIR$/tomcat/StreamAlert/.settings/org.eclipse.wst.common.component" />
-      <change beforePath="$PROJECT_DIR$/tomcat/StreamAlert/src/utils/XmlParser.java" afterPath="$PROJECT_DIR$/tomcat/StreamAlert/src/utils/XmlParser.java" />
+      <change beforePath="$PROJECT_DIR$/tomcat/StreamAlert/WebContent/WEB-INF/jsp/marfcat-in.jsp" afterPath="$PROJECT_DIR$/tomcat/StreamAlert/WebContent/WEB-INF/jsp/marfcat-in.jsp" />
+      <change beforePath="$PROJECT_DIR$/tomcat/StreamAlert/src/servlets/MarfcatInput.java" afterPath="$PROJECT_DIR$/tomcat/StreamAlert/src/servlets/MarfcatInput.java" />
       <change beforePath="$PROJECT_DIR$/tomcat/war/StreamAlert.war" afterPath="$PROJECT_DIR$/tomcat/war/StreamAlert.war" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +18,8 @@
       <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker-compose.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+            <state relative-caret-position="306">
+              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -435,8 +433,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docker-compose.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="306">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
           <folding />
         </state>
       </provider>
