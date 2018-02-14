@@ -5,6 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/utils"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/models"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/marfcat"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/xml-service"/>
         <property name="java-output-path" value="/StreamAlert/build/classes"/>
         <property name="context-root" value="StreamAlert/WebContent/WEB-INF/jsp"/>
     </wb-module>

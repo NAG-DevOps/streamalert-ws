@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/servlets"/>
+	<classpathentry kind="src" path="src/xml-service"/>
 	<classpathentry kind="src" path="src/marfcat"/>
 	<classpathentry kind="src" path="src/models"/>
 	<classpathentry kind="src" path="src/utils"/>
