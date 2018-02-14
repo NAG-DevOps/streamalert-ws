@@ -52,6 +52,17 @@ public class MarfcatInput extends HttpServlet {
 			request.setAttribute("description-find-tool", ds.description.findTool);
 			request.setAttribute("description-marfcat-tool", ds.description.marfTool);
 			request.setAttribute("files", ds.files);
+
+//			request.setAttribute("file-id", f.id);
+//			request.setAttribute("file-path", f.path);
+//			request.setAttribute("meta-type", f.meta.type);
+//			request.setAttribute("number-lines", f.meta.length.lines);
+//			request.setAttribute("number-words", f.meta.length.words);
+//			request.setAttribute("number-bytes", f.meta.length.bytes);
+//			request.setAttribute("location-line", f.location.line);
+//			request.setAttribute("location-fraglines", f.location.fraglines);
+//			request.setAttribute("location-fragment", f.location.fragment);
+//			request.setAttribute("location-explanation", f.location.explanation);
 			
 			response.setContentType("text/html");
 	        request.getRequestDispatcher("/WEB-INF/jsp/marfcat-in.jsp").forward(request, response);
