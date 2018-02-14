@@ -50,9 +50,6 @@ public class XmlService extends HttpServlet {
 		    NodeList types = soapBody.getElementsByTagName("type");
 		    NodeList uris = soapBody.getElementsByTagName("uri");
 		    PrintWriter writer = response.getWriter();
-//		    ByteArrayOutputStream out = new ByteArrayOutputStream(); 
-//		    soapMessage.writeTo(out); 
-//		    String payload = new String(out.toByteArray());
 		    Node typeNode = types.item(0);
 		    Node uriNode = uris.item(0);
 		    
@@ -70,6 +67,12 @@ public class XmlService extends HttpServlet {
 		    	case("le-devoir"):
 		    		request.setAttribute("uri", uri);
 		    		rd = request.getRequestDispatcher("le_devoir");
+		    		rd.forward(request, response);
+		    		break;
+		    		
+		    	case("neural-network"):
+		    		request.setAttribute("uri", uri);
+		    		rd = request.getRequestDispatcher("NeuralNetwork");
 		    		rd.forward(request, response);
 		    		break;
 		    		

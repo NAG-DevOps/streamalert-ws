@@ -58,5 +58,44 @@ public class NeuralNetwork extends HttpServlet {
 			s.close();
 		}
 	}
+	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String uri = (String) request.getAttribute("uri");
+		String xmlString = "";
+		
+		if(uri == null || uri.equals("")) {
+			ServletContext context = request.getServletContext();
+			InputStream in = context.getResourceAsStream("/WEB-INF/xml/test1.xml");
+			Scanner s = null;
+			s = new Scanner(in).useDelimiter("\\A");
+			xmlString = s.hasNext() ? s.next() : "";
+			s.close();
+		}
+		else {
+			try {
+				xmlString = Requests.get(uri);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			
+			Net neuralNetwork = XmlParser.unmarshal(xmlString, Net.class);
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.enable(SerializationFeature.INDENT_OUTPUT);
+			String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(neuralNetwork);
+			request.setAttribute("neuralNetwork", json);
+			response.setContentType("text/html");
+	        request.getRequestDispatcher("/WEB-INF/jsp/neural-network.jsp").forward(request, response);
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
