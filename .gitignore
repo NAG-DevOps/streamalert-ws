@@ -35,6 +35,7 @@ Thumbs.db
 tomcat/StreamAlert/build/
 .metadata/
 tomcat/StreamAlert/.settings/org.eclipse.wst.common.project.facet.core.prefs.xml/
+tomcat/war/StreamAlert/WEB-INF/classes/
 .recommenders/
 
 # Compiled class file
