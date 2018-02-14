@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Marfact Input</title>
+<title>Marfcat Input</title>
 </head>
 <body>
-	<h1>Marfact Input:</h1>
+	<h1>Marfcat Input:</h1>
 	<hr>
 	<br>
 	<h3>DataSet</h3>
