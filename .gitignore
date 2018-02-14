@@ -34,3 +34,10 @@ doc/report/project-report.pdf
 Thumbs.db
 tomcat/StreamAlert/build/
 .metadata/
+tomcat/StreamAlert/.settings/org.eclipse.wst.common.project.facet.core.prefs.xml/
+tomcat/war/
+.recommenders/
+
+# Compiled class file
+*.class
+.classpath
