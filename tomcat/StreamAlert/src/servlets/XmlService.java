@@ -50,12 +50,19 @@ public class XmlService extends HttpServlet {
 		    
 		    // The payload object that contains a URI and document type
 		    XmlServicePayload payloadObject = XmlParser.unmarshal(payload, XmlServicePayload.class);
-		    
+		    RequestDispatcher rd = null;
 		    switch(payloadObject.type) {
 		    	case("marfcat-input"):
 		    		request.setAttribute("uri", payloadObject.uri);
-		    		RequestDispatcher rd = request.getRequestDispatcher("MarfcatInput");
+		    		rd = request.getRequestDispatcher("MarfcatInput");
 		    		rd.forward(request, response);
+		    		break;
+		    		
+		    	case("le-devoir"):
+		    		request.setAttribute("uri", payloadObject.uri);
+		    		rd = request.getRequestDispatcher("le_devoir");
+		    		rd.forward(request, response);
+		    		break;
 		    		
 		    	default:
 		    		writer.println("No type exists for specified type: " + payloadObject.type);

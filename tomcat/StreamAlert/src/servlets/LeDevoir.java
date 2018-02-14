@@ -32,7 +32,26 @@ public class LeDevoir extends HttpServlet {
 			ArrayList<String> parsedStrings = DOMParser.parse("http://www.ledevoir.com/rss/edition_complete.xml", "title");
 			request.setAttribute("parsedStrings", parsedStrings);
 		} catch (ParserConfigurationException | IOException| SAXException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.getRequestDispatcher("WEB-INF/jsp/le_devoir.jsp").forward(request, response);
+	}
+	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			String uri = (String)request.getAttribute("uri");
+			if(uri == null || uri.equals("")) {
+				ArrayList<String> parsedStrings = DOMParser.parse("http://www.ledevoir.com/rss/edition_complete.xml", "title");
+				request.setAttribute("parsedStrings", parsedStrings);
+			}
+			else {
+				ArrayList<String> parsedStrings = DOMParser.parse(uri, "title");
+				request.setAttribute("parsedStrings", parsedStrings);
+			}
+		} catch (ParserConfigurationException | IOException| SAXException e) {
 			e.printStackTrace();
 		}
 		request.getRequestDispatcher("WEB-INF/jsp/le_devoir.jsp").forward(request, response);
