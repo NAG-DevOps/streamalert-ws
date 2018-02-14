@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8175d48-0d90-4526-b46d-f6b74d78e4c4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/tomcat/StreamAlert/.classpath" afterPath="$PROJECT_DIR$/tomcat/StreamAlert/.classpath" />
-      <change beforePath="$PROJECT_DIR$/tomcat/StreamAlert/.settings/org.eclipse.wst.common.component" afterPath="$PROJECT_DIR$/tomcat/StreamAlert/.settings/org.eclipse.wst.common.component" />
+      <change beforePath="$PROJECT_DIR$/tomcat/StreamAlert/src/servlets/MarfcatInput.java" afterPath="$PROJECT_DIR$/tomcat/StreamAlert/src/servlets/MarfcatInput.java" />
       <change beforePath="$PROJECT_DIR$/tomcat/war/StreamAlert.war" afterPath="$PROJECT_DIR$/tomcat/war/StreamAlert.war" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
