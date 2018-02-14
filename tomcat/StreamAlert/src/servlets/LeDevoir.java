@@ -13,7 +13,7 @@ import org.xml.sax.SAXException;
 /**
  * Servlet implementation class LeDevoir
  */
-@WebServlet("/le_devoir")
+@WebServlet("/LeDevoir")
 public class LeDevoir extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -69,4 +69,47 @@ public class MarfcatOutput extends HttpServlet {
 			s.close();
 		}
 	}
+	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String uri = (String) request.getAttribute("uri");
+		String xmlString = "";
+		
+		if(uri == null || uri.equals("")) {
+			ServletContext context = request.getServletContext();
+			InputStream in = context.getResourceAsStream("/WEB-INF/xml/marfcat-out.xml");
+			Scanner s = null;
+			s = new Scanner(in).useDelimiter("\\A");
+			xmlString = s.hasNext() ? s.next() : "";
+			s.close();
+		}
+		else {
+			try {
+				xmlString = Requests.get(uri);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		try {
+			Report rp = XmlParser.unmarshal(xmlString, Report.class);
+			request.setAttribute("report-tool_name", rp.toolName);
+			request.setAttribute("report-tool_version", rp.toolVersion);
+			request.setAttribute("weaknesses", rp.weaknesses);
+			response.setContentType("text/html");
+	        request.getRequestDispatcher("/WEB-INF/jsp/marfcat-out.jsp").forward(request, response);
+		}
+		catch(NullPointerException e) {
+			response.setContentType("text/html");
+			request.setAttribute("message", "Cannot parse xml located at: " + uri);
+	        request.getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
+		}
+		catch(Exception e) {
+			response.setContentType("text/html");
+			request.setAttribute("message", e.getMessage());
+	        request.getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(request, response);
+		}
+	}
 }

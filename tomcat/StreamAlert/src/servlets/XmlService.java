@@ -1,6 +1,5 @@
 
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -17,12 +16,8 @@ import javax.xml.soap.SOAPBody;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Logger;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import xmlService.XmlServicePayload;
 
 /**
  * Servlet implementation class XmlService
@@ -59,29 +54,33 @@ public class XmlService extends HttpServlet {
 		    RequestDispatcher rd = null;
 		    switch(type) {
 		    	case("marfcat-input"):
-		    		request.setAttribute("uri", uri);
 		    		rd = request.getRequestDispatcher("MarfcatInput");
-		    		rd.forward(request, response);
+		    		break;
+		    		
+		    	case("marfcat-output"):
+		    		rd = request.getRequestDispatcher("MarfcatOutput");
 		    		break;
 		    		
 		    	case("le-devoir"):
-		    		request.setAttribute("uri", uri);
-		    		rd = request.getRequestDispatcher("le_devoir");
-		    		rd.forward(request, response);
+		    		rd = request.getRequestDispatcher("LeDevoir");
 		    		break;
 		    		
 		    	case("neural-network"):
-		    		request.setAttribute("uri", uri);
 		    		rd = request.getRequestDispatcher("NeuralNetwork");
-		    		rd.forward(request, response);
 		    		break;
 		    		
 		    	default:
 		    		writer.println("No type exists for specified type: " + type);
 		    }
+		    if(rd != null) {
+		    	request.setAttribute("uri", uri);
+	    		rd.forward(request, response);
+		    }
 		} catch (UnsupportedOperationException e) {
 			e.printStackTrace();
 		} catch (SOAPException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
