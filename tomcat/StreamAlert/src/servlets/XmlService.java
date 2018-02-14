@@ -13,11 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.soap.MessageFactory;
 import javax.xml.soap.MimeHeaders;
+import javax.xml.soap.SOAPBody;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import xmlService.XmlServicePayload;
 
@@ -43,29 +46,35 @@ public class XmlService extends HttpServlet {
 			MessageFactory messageFactory = MessageFactory.newInstance();
 		    InputStream inStream = request.getInputStream();
 		    SOAPMessage soapMessage = messageFactory.createMessage(new MimeHeaders(), inStream);
+		    SOAPBody soapBody = soapMessage.getSOAPBody();
+		    NodeList types = soapBody.getElementsByTagName("type");
+		    NodeList uris = soapBody.getElementsByTagName("uri");
 		    PrintWriter writer = response.getWriter();
-		    ByteArrayOutputStream out = new ByteArrayOutputStream(); 
-		    soapMessage.writeTo(out); 
-		    String payload = new String(out.toByteArray());
+//		    ByteArrayOutputStream out = new ByteArrayOutputStream(); 
+//		    soapMessage.writeTo(out); 
+//		    String payload = new String(out.toByteArray());
+		    Node typeNode = types.item(0);
+		    Node uriNode = uris.item(0);
 		    
-		    // The payload object that contains a URI and document type
-		    XmlServicePayload payloadObject = XmlParser.unmarshal(payload, XmlServicePayload.class);
+		    String type = typeNode != null ? typeNode.getTextContent() : "";
+		    String uri = uriNode != null ? uriNode.getTextContent() : "";
+
 		    RequestDispatcher rd = null;
-		    switch(payloadObject.type) {
+		    switch(type) {
 		    	case("marfcat-input"):
-		    		request.setAttribute("uri", payloadObject.uri);
+		    		request.setAttribute("uri", uri);
 		    		rd = request.getRequestDispatcher("MarfcatInput");
 		    		rd.forward(request, response);
 		    		break;
 		    		
 		    	case("le-devoir"):
-		    		request.setAttribute("uri", payloadObject.uri);
+		    		request.setAttribute("uri", uri);
 		    		rd = request.getRequestDispatcher("le_devoir");
 		    		rd.forward(request, response);
 		    		break;
 		    		
 		    	default:
-		    		writer.println("No type exists for specified type: " + payloadObject.type);
+		    		writer.println("No type exists for specified type: " + type);
 		    }
 		} catch (UnsupportedOperationException e) {
 			e.printStackTrace();

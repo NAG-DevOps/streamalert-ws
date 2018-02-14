@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8175d48-0d90-4526-b46d-f6b74d78e4c4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/tomcat/StreamAlert/src/servlets/LeDevoir.java" afterPath="$PROJECT_DIR$/tomcat/StreamAlert/src/servlets/LeDevoir.java" />
-      <change beforePath="$PROJECT_DIR$/tomcat/StreamAlert/src/servlets/XmlService.java" afterPath="$PROJECT_DIR$/tomcat/StreamAlert/src/servlets/XmlService.java" />
-      <change beforePath="$PROJECT_DIR$/tomcat/war/StreamAlert.war" afterPath="$PROJECT_DIR$/tomcat/war/StreamAlert.war" />
-    </list>
+    <list default="true" id="e8175d48-0d90-4526-b46d-f6b74d78e4c4" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
