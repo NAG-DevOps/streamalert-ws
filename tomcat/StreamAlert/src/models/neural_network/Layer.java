@@ -122,4 +122,9 @@ public class Layer {
         this.index = value;
     }
 
+	@Override
+	public String toString() {
+		return "Layer \n[neuron=" + neuron + ", type=" + type + ", index=" + index + "]\n";
+	}
+
 }

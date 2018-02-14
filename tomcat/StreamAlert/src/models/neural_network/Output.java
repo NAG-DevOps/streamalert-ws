@@ -30,35 +30,12 @@ import javax.xml.bind.annotation.XmlValue;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = { "value" })
+@XmlType(name = "")
 @XmlRootElement(name = "output")
 public class Output {
 
-	@XmlValue
-	protected String value;
 	@XmlAttribute(name = "ref")
 	protected BigInteger ref;
-
-	/**
-	 * Gets the value of the value property.
-	 * 
-	 * @return possible object is {@link String }
-	 * 
-	 */
-	public String getValue() {
-		return value;
-	}
-
-	/**
-	 * Sets the value of the value property.
-	 * 
-	 * @param value
-	 *            allowed object is {@link String }
-	 * 
-	 */
-	public void setValue(String value) {
-		this.value = value;
-	}
 
 	/**
 	 * Gets the value of the ref property.
@@ -79,6 +56,11 @@ public class Output {
 	 */
 	public void setRef(BigInteger value) {
 		this.ref = value;
+	}
+
+	@Override
+	public String toString() {
+		return "Output [ref=" + ref + "]\n";
 	}
 
 }

@@ -66,4 +66,9 @@ public class Net {
 		return this.layer;
 	}
 
+	@Override
+	public String toString() {
+		return "Net \n[layer=" + layer + "]\n";
+	}
+
 }

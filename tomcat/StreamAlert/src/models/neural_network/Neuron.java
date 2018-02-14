@@ -147,4 +147,10 @@ public class Neuron {
 		this.thresh = value;
 	}
 
+	@Override
+	public String toString() {
+		return "Neuron \n[input=" + input + ", output=" + output + ", index=" + index + ", thresh=" + thresh
+				+ "]\n";
+	}
+
 }
