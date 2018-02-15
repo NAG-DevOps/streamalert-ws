@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://utils.xml" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://utils.xml" xmlns:intf="http://utils.xml" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://utils.xml" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="main">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="args" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="mainResponse">
+    <complexType/>
+   </element>
+   <element name="parseXML">
+    <complexType>
+     <sequence>
+      <element name="markup" type="xsd:int"/>
+      <element name="uri" type="xsd:string"/>
+      <element name="parserType" type="xsd:int"/>
+      <element name="searchTerm" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="parseXMLResponse">
+    <complexType>
+     <sequence>
+      <element name="parseXMLReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="parseXMLResponse">
+
+      <wsdl:part element="impl:parseXMLResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="parseXMLRequest">
+
+      <wsdl:part element="impl:parseXML" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainRequest">
+
+      <wsdl:part element="impl:main" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainResponse">
+
+      <wsdl:part element="impl:mainResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="XMLParser">
+
+      <wsdl:operation name="main">
+
+         <wsdl:input message="impl:mainRequest" name="mainRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:mainResponse" name="mainResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="parseXML">
+
+         <wsdl:input message="impl:parseXMLRequest" name="parseXMLRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:parseXMLResponse" name="parseXMLResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="XMLParserSoapBinding" type="impl:XMLParser">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="main">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="mainRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="mainResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="parseXML">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="parseXMLRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="parseXMLResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="XMLParserService">
+
+      <wsdl:port binding="impl:XMLParserSoapBinding" name="XMLParser">
+
+         <wsdlsoap:address location="http://localhost:9999/PM1_Service/services/XMLParser"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
