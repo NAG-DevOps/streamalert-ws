@@ -6,6 +6,12 @@ import java.net.URL;
 
 public class Requests {
 	
+	/**
+	 * Request a HTTP GET method on a URL.
+	 * @param urlToRead URL to open the connection on
+	 * @return Formatted string containing the request's input stream
+	 * @throws Exception
+	 */
 	public static String get(String urlToRead) throws Exception {
 		StringBuilder result = new StringBuilder();
 		URL url = new URL(urlToRead);

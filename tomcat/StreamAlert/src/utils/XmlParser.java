@@ -16,6 +16,12 @@ import org.w3c.dom.NodeList;
 
 public class XmlParser {
 
+	/**
+	 * Converts content tree into a string
+	 * @param toMarshal Object to marshal
+	 * @param clazz Target class to cast
+	 * @return Formatted string containing the object's content tree
+	 */
 	public static <T> String marshal(Object toMarshal, Class<T> clazz) {
 
 		StringWriter sw = new StringWriter();
@@ -45,6 +51,12 @@ public class XmlParser {
 
 	}
 
+	/**
+	 * Converts XML into the appropriate content tree 
+	 * @param xmlToUnmarshal XML string
+	 * @param clazz Target class to cast the XML
+	 * @return Casted object
+	 */
 	public static <T> T unmarshal(String xmlToUnmarshal, Class<T> clazz) {
 
 		StringReader sr = new StringReader(xmlToUnmarshal);
@@ -71,6 +83,11 @@ public class XmlParser {
 		}
 	}
 
+	/**
+	 * Prints names and values of nodes from a list
+	 * @param nodeList List of nodes
+	 * @return Formatted string containing all names and values
+	 */
 	public static String printNode(NodeList nodeList) {
 		String toRet = "";
 		for (int i = 0; i < nodeList.getLength(); i++) {

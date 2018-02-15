@@ -14,8 +14,7 @@ public class DOMParser {
 	
 	/**
 	 * Parse the content of the XML document using the given tag name at the given URI
-	 * and return an ArrayList of String
-	 * 
+	 * and return an ArrayList of String.
 	 * @param uri Location of content to be parsed
 	 * @param tagName The tag name to match on during parsing
 	 * @return An ArrayList containing the contents of all elements that match tagName from the XML document

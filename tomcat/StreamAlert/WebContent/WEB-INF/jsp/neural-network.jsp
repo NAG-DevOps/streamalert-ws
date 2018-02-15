@@ -7,6 +7,9 @@
 <title>Neural Network</title>
 </head>
 <body>
+	<h1>Neural Network:</h1>
+	<hr>
+	<br>
 	<pre><%= request.getAttribute("neuralNetwork") %></pre>
 </body>
 </html>
