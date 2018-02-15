@@ -10,6 +10,9 @@ import javax.xml.bind.Unmarshaller;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class XmlParser {
 	
@@ -67,4 +70,28 @@ public class XmlParser {
 			return null;
 		}
 	}
+	
+	public static String printNode(NodeList nodeList) {
+		String toRet = "";
+		System.out.println("in the method of printNode");
+		for (int i = 0; i < nodeList.getLength(); i++) {
+			Node nodes = nodeList.item(i);
+			if (nodes.getNodeType() == Node.ELEMENT_NODE) {
+				if (nodes.hasAttributes()) {
+					// Getting name:value pairs
+					NamedNodeMap nodeMap = nodes.getAttributes();
+					for (int j = 0; j < nodeMap.getLength(); j++) {
+						Node node = nodeMap.item(j);
+						toRet = toRet + node.getNodeName()+":"+node.getNodeValue() + "\n";
+						System.out.println(node.getNodeName()+":"+node.getNodeValue());
+					}
+				}
+				if (nodes.hasChildNodes()) {
+					// Loop again to check for child nodes
+					toRet += printNode(nodes.getChildNodes());
+				}
+			}
+		}
+		return toRet;
+	}     
 }
