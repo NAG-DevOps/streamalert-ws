@@ -69,6 +69,10 @@ public class XmlService extends HttpServlet {
 		    		rd = request.getRequestDispatcher("NeuralNetwork");
 		    		break;
 		    		
+		    	case("wsdl"):
+		    		rd = request.getRequestDispatcher("WsdlParser");
+		    		break;
+		    		
 		    	default:
 		    		writer.println("No type exists for specified type: " + type);
 		    }
