@@ -14,8 +14,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import pm1.enums.XMLEnums.Markup;
-import pm1.enums.XMLEnums.Parsers;
+import pm1.enums.Markup;
+import pm1.enums.Parsers;
 import pm1.parse.*;
 import utilities.Validation;
 
@@ -48,26 +48,26 @@ public class XMLParser {
 		}
 		
 		// read the passed arguments
-		Markup markup = null;
-		Parsers parserType = null;
 		String uri = null;
 		String searchTerm = null;
 		
+		int markupInt = 0,parserInt = 0;
+		
 		try {
-			int markupInt = Integer.parseInt(args[0]);
-			int parserInt = Integer.parseInt(args[1]);
+			markupInt = Integer.parseInt(args[0]);
+			parserInt = Integer.parseInt(args[1]);
 			
 			if (markupInt < 0 || markupInt > Markup.values().length - 1) {
 				LOGGER.log(Level.SEVERE, "Markup values must be 0..." + (Markup.values().length - 1));
 				System.exit(0);
 			}
-			markup = Markup.values()[markupInt];
+//			markup = Markup.values()[markupInt];
 			
 			if (parserInt < 0 || parserInt > Parsers.values().length - 1) {
 				LOGGER.log(Level.SEVERE, "ParserType values must be 0..." + (Parsers.values().length - 1));
 				System.exit(0);
 			}
-			parserType = Parsers.values()[parserInt];
+
 		} catch (NumberFormatException e) {
 			LOGGER.log(Level.SEVERE, e.getMessage());
 			System.exit(0);
@@ -83,7 +83,7 @@ public class XMLParser {
 		
 		// parse according to what was passed in
 		XMLParser parser = new XMLParser();
-		parser.parseXML(markup, uri, parserType, searchTerm);
+		parser.parseXML(markupInt, uri, parserInt, searchTerm);
 	}
 
 	/**
@@ -95,10 +95,10 @@ public class XMLParser {
 	 * @param parser
 	 * @param searchTerm
 	 */
-	public void parseXML(Markup markup, String uri, Parsers parserType, String searchTerm) {
+	public String parseXML(int markup, String uri, int parserType, String searchTerm) {
 
 		if (Validation.isNotValidString(uri))
-			uri = defaultUriMap.get(markup);
+			uri = defaultUriMap.get(Markup.values()[markup]);
 
 		InputStream xml = null;
 
@@ -109,9 +109,10 @@ public class XMLParser {
 			LOGGER.log(Level.WARNING, e.getMessage());
 		}
 
+		String output = "HELP!";
 		if (xml != null) {
 
-			switch (markup) {
+			switch (Markup.values()[markup]) {
 			case RSS:
 			case NN:
 			case MARFCATIN:
@@ -119,7 +120,8 @@ public class XMLParser {
 			case WSDL: {
 				// seachTerm may or may not be empty
 				XMLParserHelper parser = new XMLParserHelper(searchTerm);
-				logParseResult(parser.parse(xml, parserType), markup.name());
+				output = parser.parse(xml, Parsers.values()[parserType]);
+				System.out.println(output);
 			}
 				break;
 			default:
@@ -129,7 +131,10 @@ public class XMLParser {
 		} else {
 			LOGGER.log(Level.SEVERE, "Could not open the url for xml parsing.");
 		}
+		
+		return output;
 	}
+
 
 	/**
 	 * Establish an HTTP GET Connection

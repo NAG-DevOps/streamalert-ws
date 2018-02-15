@@ -5,7 +5,7 @@ package pm1.interfaces;
 
 import java.io.InputStream;
 
-import pm1.enums.XMLEnums.Parsers;
+import pm1.enums.Parsers;
 
 /**
  * @author miqdadamirali

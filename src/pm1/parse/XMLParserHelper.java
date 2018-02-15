@@ -5,7 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import pm1.abstractions.Parser;
-import pm1.enums.XMLEnums.Parsers;
+import pm1.enums.Parsers;
 import pm1.interfaces.IParseXML;
 import utilities.Validation;
 
