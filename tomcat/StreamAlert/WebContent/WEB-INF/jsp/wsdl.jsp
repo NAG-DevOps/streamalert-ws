@@ -6,13 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Parse WSDL</title>
 </head>
-<%@ page import="wsdl.Element" %>
 <body>
 	<h1>WSDL Content:</h1>
 	<hr>
 	<br>
-	<h5>Elements Name: <%= (String)request.getAttribute("elementName") %></h5>
-	<h5>Elements Value: <%= (String)request.getAttribute("elementValue") %></h5>
+	<h5><%= (String)request.getAttribute("wsdlContent") %></h5>
+	
 
 </body>
 </html>

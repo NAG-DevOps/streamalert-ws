@@ -15,13 +15,13 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class XmlParser {
-	
+
 	public static <T> String marshal(Object toMarshal, Class<T> clazz) {
-		
+
 		StringWriter sw = new StringWriter();
 		Logger logger = Logger.getLogger("XmlParser");
 		BasicConfigurator.configure();
-		
+
 		try {
 			T castedObject = (T)toMarshal;
 			JAXBContext jaxbContext = JAXBContext.newInstance(castedObject.getClass());
@@ -42,16 +42,16 @@ public class XmlParser {
 			logger.info(sw.toString());
 			return null;
 		}
-		
+
 	}
-	
+
 	public static <T> T unmarshal(String xmlToUnmarshal, Class<T> clazz) {
-		
+
 		StringReader sr = new StringReader(xmlToUnmarshal);
 		StringWriter sw = new StringWriter();
 		Logger logger = Logger.getLogger("XmlParser");
 		BasicConfigurator.configure();
-		
+
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(clazz);
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
@@ -70,24 +70,20 @@ public class XmlParser {
 			return null;
 		}
 	}
-	
+
 	public static String printNode(NodeList nodeList) {
 		String toRet = "";
-		System.out.println("in the method of printNode");
 		for (int i = 0; i < nodeList.getLength(); i++) {
 			Node nodes = nodeList.item(i);
 			if (nodes.getNodeType() == Node.ELEMENT_NODE) {
 				if (nodes.hasAttributes()) {
-					// Getting name:value pairs
 					NamedNodeMap nodeMap = nodes.getAttributes();
 					for (int j = 0; j < nodeMap.getLength(); j++) {
 						Node node = nodeMap.item(j);
-						toRet = toRet + node.getNodeName()+":"+node.getNodeValue() + "\n";
-						System.out.println(node.getNodeName()+":"+node.getNodeValue());
+						toRet = toRet + node.getNodeName()+":"+node.getNodeValue() + "<br>";
 					}
 				}
 				if (nodes.hasChildNodes()) {
-					// Loop again to check for child nodes
 					toRet += printNode(nodes.getChildNodes());
 				}
 			}
