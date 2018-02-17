@@ -5,6 +5,7 @@
 * Download the project source files
 * Import the project into Eclipse
 * Configure the project to work with your installed Tomcat
+	+ The local Tomcat server used to generate the WSDL file and Client code was using port 9999
 
 ## Part 1 - XML Parsing Java Application 
 
@@ -82,8 +83,9 @@
 * Copy src/service/xml from the zip and paste it in the Eclipse project under src
 * Delete the xml.WebContent and xml.WebContent.wsdl packages
 * Copy src/utilities from the zip and paste it in the Eclipse project under src
-* Copy src/service/xml/WebContent from the zip and paste it in the Eclipse project under src. Overwrite the existing files
+* Copy src/service/xml/WebContent from the zip and paste it in the root of the Eclipse project. Overwrite the existing files
 * If you did not name your project PM1_Service, in Eclipse, open the **XMLParser.wsdl** in source view and change the **wsdlsoap:address** location attribute to have the name of your project in the path
+* If your Tomcat server is using a port other than 9999, open the **XMLParser.wsdl** in source view and change the **wsdlsoap:address** location attribute to have the port of your Tomcat server in the path
 
 ### Setting Up The Web Client In Eclipse ###
 
@@ -91,8 +93,9 @@
 * Copy src/client/xml from the zip and paste it in the Eclipse project under src
 * Delete the xml.WebContent package
 * Copy src/utilities from the zip and paste it in the Eclipse project under src
-* Copy src/client/xml/WebContent from the zip and paste it in the Eclipse project under src. Overwrite the existing files
+* Copy src/client/xml/WebContent from the zip and paste it in the root of the Eclipse project. Overwrite the existing files
 * If you did not name your service project PM1_Service in the previous section, in Eclipse, open **src/xml/utils/XMLParserServiceLocator.java** and change the value assigned to **XMLParser_address** to have the name of your project in the path
+* If your Tomcat server is using a port other than 9999, open **src/xml/utils/XMLParserServiceLocator.java** and change the value assigned to **XMLParser_address** to have the port of your Tomcat server in the path
 
 ### Running The Web Client In Eclipse ###
 
