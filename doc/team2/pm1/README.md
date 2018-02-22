@@ -6,6 +6,7 @@
 * Import the project into Eclipse
 * Configure the project to work with your installed Tomcat
 	+ The local Tomcat server used to generate the WSDL file and Client code was using port 9999
+* Prior to doing part 3, please refer to [StreamAlert Preconfigured Setup](https://bitbucket.org/soen487-w18-02/soen487-w18-team02/wiki/StreamAlert%20Preconfigured%20Setup)
 
 ## Part 1 - XML Parsing Java Application 
 
