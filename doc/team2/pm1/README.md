@@ -114,8 +114,9 @@
 * Delete the streamalert.WebContent and streamalert.WebContent.wsdl packages
 * Copy src/utilities from the zip and paste it in the Eclipse project under src
 * Copy src/service/streamalert/WebContent from the zip and paste it in the root of the Eclipse project. Overwrite the existing files
+* In Eclipse, open src/streamalert/util/LiveTest.java and change the variable **pathToStreamAlert** to have your path to the streamalert root directory.
 * If you did not name your project PM1_StreamAlert_Service, in Eclipse, open the **LiveTest.wsdl** in source view and change the **wsdlsoap:address** location attribute to have the name of your project in the path
-* If your Tomcat server is using a port other than 9999, open the **XMLParser.wsdl** in source view and change the **wsdlsoap:address** location attribute to have the port of your Tomcat server in the path
+* If your Tomcat server is using a port other than 9999, open the **LiveTest.wsdl** in source view and change the **wsdlsoap:address** location attribute to have the port of your Tomcat server in the path
 
 ### Who do I talk to? ###
 
