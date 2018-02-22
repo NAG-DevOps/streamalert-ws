@@ -78,7 +78,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdl:port binding="impl:LiveTestSoapBinding" name="LiveTest">
 
-         <wsdlsoap:address location="http://localhost:9999/PM1_Part_3/services/LiveTest"/>
+         <wsdlsoap:address location="http://localhost:9999/PM1_StreamAlert_Service/services/LiveTest"/>
 
       </wsdl:port>
 

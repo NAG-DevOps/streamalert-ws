@@ -3,7 +3,7 @@
   <ns1:parameter name="sendMultiRefs" value="true"/>
   <ns1:parameter name="disablePrettyXML" value="true"/>
   <ns1:parameter name="adminPassword" value="admin"/>
-  <ns1:parameter name="attachments.Directory" value="/Users/AlexGenio/Documents/School/Concordia/WebProg_year_3/Winter_2018/SOEN_487/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/PM1_Part_3/WEB-INF/attachments"/>
+  <ns1:parameter name="attachments.Directory" value="/Users/AlexGenio/Documents/School/Concordia/WebProg_year_3/Winter_2018/SOEN_487/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/PM1_StreamAlert_Service/WEB-INF/attachments"/>
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
