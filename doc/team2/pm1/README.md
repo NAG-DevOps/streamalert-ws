@@ -135,7 +135,11 @@
 * Select "Run As" -> "Run on Server"
 * Select an existing Tomcat v7.0 server instance and click on finish Add a comment to this line
 * An HTML form with the parsing parameters, test file name, and a button to parse is displayed.
-* **Note**: To test, do not select `RSS, MARFCATIN, or MARFCATOUT` default XML files to parse due to [StreamAlert-Slack integration limitations.](https://bitbucket.org/soen487-w18-02/soen487-w18-team02/wiki/StreamAlert%20Issues%20Identification)
+
+**Notes**
+* To test, do not select `RSS, MARFCATIN, or MARFCATOUT` default XML files to parse due to [StreamAlert-Slack integration limitations.](https://bitbucket.org/soen487-w18-02/soen487-w18-team02/wiki/StreamAlert%20Issues%20Identification)
+* If inputting a file name into the input box, make sure it ends in `.json`. Ex: `my_test_file.json`.
+    * If left empty, the default file name of `test_slack_xml.json` will be used.
 
 ### FAQ ###
 * Why am I getting a `The superclass "javax.servlet.http.HttpServlet" was not found on the Java Build Path` in my `index.jsp` file?
