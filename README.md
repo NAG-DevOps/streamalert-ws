@@ -20,4 +20,4 @@
 
 ### Who do I talk to? ###
 
-* Alex Genio (team leader)
+* [Alex Genio - Team Leader](mailto:alexgenio1995@gmail.com)
