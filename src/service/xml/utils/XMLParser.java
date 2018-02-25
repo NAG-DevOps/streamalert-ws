@@ -61,7 +61,6 @@ public class XMLParser {
 				LOGGER.log(Level.SEVERE, "Markup values must be 0..." + (Markup.values().length - 1));
 				System.exit(0);
 			}
-//			markup = Markup.values()[markupInt];
 			
 			if (parserInt < 0 || parserInt > Parsers.values().length - 1) {
 				LOGGER.log(Level.SEVERE, "ParserType values must be 0..." + (Parsers.values().length - 1));
@@ -109,7 +108,7 @@ public class XMLParser {
 			LOGGER.log(Level.WARNING, e.getMessage());
 		}
 
-		String output = "HELP!";
+		String output = "";
 		if (xml != null) {
 
 			switch (Markup.values()[markup]) {
