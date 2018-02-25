@@ -3,9 +3,8 @@
 * Install [Eclipse Neon 3](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/neon3)
 * Install [Tomcat 7](https://tomcat.apache.org/download-70.cgi)
 * Download the project source files
-* Import the project into Eclipse
 * Configure the project to work with your installed Tomcat
-	+ The local Tomcat server used to generate the WSDL file and Client code was using port 9999
+	+ The local Tomcat server used to generate the WSDL file and Client code was using port `9999`
 * Prior to doing part 3, please refer to [StreamAlert Preconfigured Setup](https://bitbucket.org/soen487-w18-02/soen487-w18-team02/wiki/StreamAlert%20Preconfigured%20Setup)
 
 ## Part 1 - XML Parsing Java Application 
@@ -100,7 +99,7 @@
 
 ### Running The Web Client In Eclipse ###
 
-* Select the client project in the tree view pane
+* Select the **PM1_Client** project in the tree view pane
 * Click the dropdown on the run symbol
 * Select "Run As" -> "Run on Server"
 * Select an existing `Apache Tomcat v7.0` server instance and click on finish
@@ -113,7 +112,7 @@
 * Create a new empty Dynamic Web Project called **`PM1_StreamAlert_Service`**
 * Copy `src/service/streamalert` from the zip and paste it in the Eclipse project under `src`
 * Delete the `streamalert.WebContent` and `streamalert.WebContent.wsdl` packages
-* Copy `src/utilities from the zip and paste it in the Eclipse project under `src`
+* Copy `src/utilities` from the zip and paste it in the Eclipse project under `src`
 * Copy `src/service/streamalert/WebContent` from the zip and paste it in the root of the Eclipse project. Overwrite the existing files
 * In Eclipse, open `src/streamalert/util/LiveTest.java` and change the variable **`pathToStreamAlert`** to have your path to the streamalert root directory.
 * If you did not name your project **`PM1_StreamAlert_Service`**, in Eclipse, open the **`LiveTest.wsdl`** in source view and change the **`wsdlsoap:address`** location attribute to have the name of your project in the path
@@ -144,4 +143,4 @@
 
 ### Who do I talk to? ###
 
-* Alex Genio (Team Leader)
+* [Alex Genio - Team Leader](mailto:alexgenio1995@gmail.com)
