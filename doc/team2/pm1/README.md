@@ -142,7 +142,7 @@ If you want to run Part 2 standalone, comment out the following lines:
 
 ### Setting Up The Web Client In Eclipse ###
 
-* Follow the steps outlined in `Part 2 - Running The Web Client In Eclipse` to create a Client that uses the XMLParser service.
+* Follow the steps outlined in `Part 2 - Setting Up The Web Client In Eclipse` to create a Client that uses the XMLParser service.
 * Copy `src/client/streamalert` from the zip and paste it in the Eclipse project under `src`
 * Be sure that the `xml.WebContent` package is deleted
 * Be sure that `src/utilities` from the zip and is in the Eclipse project under `src`
@@ -161,6 +161,7 @@ If you want to run Part 2 standalone, comment out the following lines:
 ### Notes ###
 
 * To test, do not select `RSS, MARFCATIN, or MARFCATOUT` default XML files to parse due to [StreamAlert-Slack integration limitations.](https://bitbucket.org/soen487-w18-02/soen487-w18-team02/wiki/StreamAlert%20Issues%20Identification)
+* Do not enter a search field when testing because the output of a search does not comply to the rule we created in StreamAlert.
 * When inputting a file name in the input box, be sure to include `.json` as part of the file name. Ex: `my_test_file.json`.
     * If left empty, the default file name of `test_slack_xml.json` will be used.
 
