@@ -1481,5 +1481,16 @@
         ]
       }
     }
+  },
+  "test-data": {
+    "parser": "json",
+    "schema": {
+      "key1": "string",
+      "key2": "integer",
+      "key3": "boolean",
+      "key4": "float",
+      "key5": [],
+      "key6": {}
+    }
   }
 }

@@ -1,0 +1,21 @@
+{
+  "records": [
+    {
+      "data": {
+        "key1": "Darrel",
+        "key2": 21,
+        "key3": true,
+        "key4": 99.99,
+        "key5": [],
+        "key6": {
+          "key": "value"
+        }
+      },
+      "description": "XML request received and forwarding its data to Slack",
+      "log": "test-data",
+      "trigger_rules": ["send_xml_to_slack"],
+      "service": "s3",
+      "source": "soen487.streamalerts"
+    }
+  ]
+}

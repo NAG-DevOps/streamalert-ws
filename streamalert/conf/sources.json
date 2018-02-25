@@ -14,6 +14,11 @@
         "cloudtrail",
         "carbonblack"
       ]
+    },
+    "soen487.streamalerts": {
+      "logs": [
+        "test-data"
+      ]
     }
   },
   "stream_alert_app": {

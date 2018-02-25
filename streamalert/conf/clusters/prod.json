@@ -24,13 +24,13 @@
     },
     "stream_alert": {
       "alert_processor": {
-        "current_version": 2,
+        "current_version": 3,
         "log_level": "info",
         "memory": 128,
         "timeout": 60
       },
       "rule_processor": {
-        "current_version": 2,
+        "current_version": 3,
         "enable_metrics": true,
         "log_level": "info",
         "memory": 128,

@@ -12,6 +12,7 @@
     "sample-integration"
   ],
   "slack": [
-    "sample-channel"
+    "sample-channel",
+    "soen487"
   ]
 }
