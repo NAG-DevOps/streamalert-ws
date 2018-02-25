@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -19,6 +17,13 @@ import javax.xml.soap.SOAPMessage;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 /**
  * Servlet implementation class XmlService
  */
@@ -87,5 +92,12 @@ public class XmlService extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String filePath = "/WEB-INF/xml/marfcat-out.xml";  
+        String keyName = "test3";
+        AWSUtils awsUtils = new AWSUtils("soen487.streamalerts", "us-east-1");
+		awsUtils.upload(request.getServletContext().getResourceAsStream(filePath), keyName);            
 	}
 }
