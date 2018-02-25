@@ -1,25 +1,24 @@
 ## Dependencies
 
-* Install Eclipse Neon 3 (https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/neon3)
-* Install Tomcat 7 (https://tomcat.apache.org/download-70.cgi)
+* Install [Eclipse Neon 3](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/neon3)
+* Install [Tomcat 7](https://tomcat.apache.org/download-70.cgi)
 * Download the project source files
-* Import the project into Eclipse
 * Configure the project to work with your installed Tomcat
-	+ The local Tomcat server used to generate the WSDL file and Client code was using port 9999
+	+ The local Tomcat server used to generate the WSDL file and Client code was using port `9999`
 * Prior to doing part 3, please refer to [StreamAlert Preconfigured Setup](https://bitbucket.org/soen487-w18-02/soen487-w18-team02/wiki/StreamAlert%20Preconfigured%20Setup)
 
 ## Part 1 - XML Parsing Java Application 
 
 ### Setting Up The Application In Eclipse ###
 
-* Create an empty java project
-* Copy src/service/xml from the zip and paste it in the Eclipse project under src
-* Delete the xml.WebContent and xml.WebContent.wsdl packages
-* Copy src/utilities from the zip and paste it in the Eclipse project under src
+* Create a new empty Java project
+* Copy `src/service/xml` from the zip and paste it in the Eclipse project under `src`
+* Delete the `xml.WebContent` and `xml.WebContent.wsdl` packages
+* Copy `src/utilities` from the zip and paste it in the Eclipse project under `src`
 
 ### Running The Application From Eclipse ###
 
-* The main method is located in src/xml/utils/XMLParser.java
+* The main method is located in `src/xml/utils/XMLParser.java`
 * Click the dropdown on the run symbol
 * Select "Run Configurations..."
 * In the right window pane, click the "Arguments" tab
@@ -71,54 +70,77 @@
 ### References and Resources Used ###
 
 * We used the following GitHub pages to help out our parsing:
-	+ https://github.com/smokhov/atsm/tree/master/examples/ws/XML/XMLParsing/src
-	+ https://github.com/smokhov/atsm/blob/master/examples/ws/XML/XMLParsing/src/SAXSample.java
-	+ https://github.com/smokhov/atsm/blob/master/examples/ws/XML/XMLParsing/src/XPathSample.java
+	+ [https://github.com/smokhov/atsm/tree/master/examples/ws/XML/XMLParsing/src](https://github.com/smokhov/atsm/tree/master/examples/ws/XML/XMLParsing/src)
+	+ [https://github.com/smokhov/atsm/blob/master/examples/ws/XML/XMLParsing/src/SAXSample.java](https://github.com/smokhov/atsm/blob/master/examples/ws/XML/XMLParsing/src/SAXSample.java)
+	+ [https://github.com/smokhov/atsm/blob/master/examples/ws/XML/XMLParsing/src/XPathSample.java](https://github.com/smokhov/atsm/blob/master/examples/ws/XML/XMLParsing/src/XPathSample.java)
 
 
 ## Part 2 - XML Parsing as a SOAP Service
 
 ### Setting Up The Web Service In Eclipse ###
 
-* Create an empty Dynamic Web Project called PM1_Service
-* Copy src/service/xml from the zip and paste it in the Eclipse project under src
-* Delete the xml.WebContent and xml.WebContent.wsdl packages
-* Copy src/utilities from the zip and paste it in the Eclipse project under src
-* Copy src/service/xml/WebContent from the zip and paste it in the root of the Eclipse project. Overwrite the existing files
-* If you did not name your project PM1_Service, in Eclipse, open the **XMLParser.wsdl** in source view and change the **wsdlsoap:address** location attribute to have the name of your project in the path
-* If your Tomcat server is using a port other than 9999, open the **XMLParser.wsdl** in source view and change the **wsdlsoap:address** location attribute to have the port of your Tomcat server in the path
+* Create a new empty Dynamic Web Project called **PM1_Service**
+* Copy `src/service/xml` from the zip and paste it in the Eclipse project under `src`
+* Delete the `xml.WebContent` and `xml.WebContent.wsdl` packages
+* Copy `src/utilities` from the zip and paste it in the Eclipse project under `src`
+* Copy `src/service/xml/WebContent` from the zip and paste it in the root of the Eclipse project. Overwrite the existing files
+* If you did not name your project **PM1_Service**, in Eclipse, open the **`XMLParser.wsdl`** in source view and change the **`wsdlsoap:address`** location attribute to have the name of your project in the path
+* If your Tomcat server is using a port other than `9999`, open the **`XMLParser.wsdl`** in source view and change the **`wsdlsoap:address`** location attribute to have the port of your Tomcat server in the path
 
 ### Setting Up The Web Client In Eclipse ###
 
-* Create an empty Dynamic Web Project
-* Copy src/client/xml from the zip and paste it in the Eclipse project under src
-* Delete the xml.WebContent package
-* Copy src/utilities from the zip and paste it in the Eclipse project under src
-* Copy src/client/xml/WebContent from the zip and paste it in the root of the Eclipse project. Overwrite the existing files
-* If you did not name your service project PM1_Service in the previous section, in Eclipse, open **src/xml/utils/XMLParserServiceLocator.java** and change the value assigned to **XMLParser_address** to have the name of your project in the path
-* If your Tomcat server is using a port other than 9999, open **src/xml/utils/XMLParserServiceLocator.java** and change the value assigned to **XMLParser_address** to have the port of your Tomcat server in the path
+* Create a new empty Dynamic Web Project called **PM1_Client**
+* Copy `src/client/xml` from the zip and paste it in the Eclipse project under `src`
+* Delete the `xml.WebContent` package
+* Copy `src/utilities` from the zip and paste it in the Eclipse project under `src`
+* Copy `src/client/xml/WebContent` from the zip and paste it in the root of the Eclipse project. Overwrite the existing files
+* If you did not name your service project **PM1_Service** in the previous section, in Eclipse, open **`src/xml/utils/XMLParserServiceLocator.java`** and change the value assigned to **`XMLParser_address`** to have the name of your project in the path
+* If your Tomcat server is using a port other than 9999, open **`src/xml/utils/XMLParserServiceLocator.java`** and change the value assigned to **`XMLParser_address`** to have the port of your Tomcat server in the path
 
 ### Running The Web Client In Eclipse ###
 
-* Select the client project in the tree view pane
+* Select the **PM1_Client** project in the tree view pane
 * Click the dropdown on the run symbol
 * Select "Run As" -> "Run on Server"
-* Select an existing Tomcat v7.0 server instance and click on finish
+* Select an existing `Apache Tomcat v7.0` server instance and click on finish
 * An HTML form with the parsing parameters and a button to parse is displayed
 
 ## Part 3 - StreamAlert as a SOAP Service
 
 ### Setting Up The Web Service In Eclipse ###
 
-* Create an empty Dynamic Web Project called PM1_StreamAlert_Service
-* Copy src/service/streamalert from the zip and paste it in the Eclipse project under src
-* Delete the streamalert.WebContent and streamalert.WebContent.wsdl packages
-* Copy src/utilities from the zip and paste it in the Eclipse project under src
-* Copy src/service/streamalert/WebContent from the zip and paste it in the root of the Eclipse project. Overwrite the existing files
-* In Eclipse, open src/streamalert/util/LiveTest.java and change the variable **pathToStreamAlert** to have your path to the streamalert root directory.
-* If you did not name your project PM1_StreamAlert_Service, in Eclipse, open the **LiveTest.wsdl** in source view and change the **wsdlsoap:address** location attribute to have the name of your project in the path
-* If your Tomcat server is using a port other than 9999, open the **LiveTest.wsdl** in source view and change the **wsdlsoap:address** location attribute to have the port of your Tomcat server in the path
+* Create a new empty Dynamic Web Project called **`PM1_StreamAlert_Service`**
+* Copy `src/service/streamalert` from the zip and paste it in the Eclipse project under `src`
+* Delete the `streamalert.WebContent` and `streamalert.WebContent.wsdl` packages
+* Copy `src/utilities` from the zip and paste it in the Eclipse project under `src`
+* Copy `src/service/streamalert/WebContent` from the zip and paste it in the root of the Eclipse project. Overwrite the existing files
+* In Eclipse, open `src/streamalert/util/LiveTest.java` and change the variable **`pathToStreamAlert`** to have your path to the streamalert root directory.
+* If you did not name your project **`PM1_StreamAlert_Service`**, in Eclipse, open the **`LiveTest.wsdl`** in source view and change the **`wsdlsoap:address`** location attribute to have the name of your project in the path
+* If your Tomcat server is using a port other than `9999`, open the **`LiveTest.wsdl`** in source view and change the **`wsdlsoap:address`** location attribute to have the port of your Tomcat server in the path
+
+### Setting Up The Web Client In Eclipse ###
+
+* Follow the steps outlined in `Part 2 - Running The Web Client In Eclipse` to create a Client that uses the XMLParser service.
+* Copy `src/client/streamalert` from the zip and paste it in the Eclipse project under `src`
+* Be sure that the `xml.WebContent` package is deleted
+* Be sure that `src/utilities` from the zip and is in the Eclipse project under `src`
+* Be sure that `src/client/xml/WebContent` from the zip and is in the root of the Eclipse project
+* Make sure that if your service project name is not **PM1_StreamAlert_Service** in the previous section, in Eclipse, open **`src/streamalert/util/LiveTestServiceLocator.java`** and change the value assigned to **`LiveTest_address`** to have the name of your project in the path
+* Make sure that your Tomcat server is using a port other than `9999`, open **`src/streamalert/util/LiveTestServiceLocator.java`** and change the value assigned to **`LiveTest_address`** to have the port of your Tomcat server in the path.
+
+### Running The Web Client In Eclipse ###
+
+* Select the client project in the tree view pane
+* Click the dropdown on the run symbol
+* Select "Run As" -> "Run on Server"
+* Select an existing Tomcat v7.0 server instance and click on finish Add a comment to this line
+* An HTML form with the parsing parameters, test file name, and a button to parse is displayed.
+* **Note**: To test, do not select `RSS, MARFCATIN, or MARFCATOUT` default XML files to parse due to [StreamAlert-Slack integration limitations.](https://bitbucket.org/soen487-w18-02/soen487-w18-team02/wiki/StreamAlert%20Issues%20Identification)
+
+### FAQ ###
+* Why am I getting a `The superclass "javax.servlet.http.HttpServlet" was not found on the Java Build Path` in my `index.jsp` file?
+	* There is no Target Runtimes specified. To specify -> Right click on the project `PM1_Client`, select `Properties`, from the left panel, select `Target Runtimes`, check the `Apache Tomcat v7.0` and `Save` changes.
 
 ### Who do I talk to? ###
 
-* Alex Genio (Team Leader)
+* [Alex Genio - Team Leader](mailto:alexgenio1995@gmail.com)
