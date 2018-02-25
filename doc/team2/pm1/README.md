@@ -105,6 +105,28 @@
 * Select an existing `Apache Tomcat v7.0` server instance and click on finish
 * An HTML form with the parsing parameters and a button to parse is displayed
 
+### Notes ###
+
+Part 2 uses the same **`ReaderServlet.java`** and **`index.jsp`** as Part 3, and therefore has dependencies on the **`LiveTest`** StreamAlert service created in Part 3.
+If you want to run Part 2 standalone, comment out the following lines:
+
+* In **`ReaderServlet.java`**
+    * Line 10: `import streamalert.util.LiveTestProxy;`
+	* Line 44: `String fileName = request.getParameter("fileName");`
+	* Lines 50-51: 
+	```
+    LiveTestProxy streamAlertProxy = new LiveTestProxy();
+    streamAlertProxy.XMLLiveTest(fileName, output);
+    ```
+* In **`index.jsp`**
+    * Lines 32-35:
+    ```
+    <div>
+       <label>File Name: </label>
+       <input type="text" name="fileName" placeholder="Name for StreamAlert Test"/>
+    </div>
+    ```
+
 ## Part 3 - StreamAlert as a SOAP Service
 
 ### Setting Up The Web Service In Eclipse ###
