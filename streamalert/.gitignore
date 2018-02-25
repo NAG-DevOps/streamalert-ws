@@ -1,0 +1,31 @@
+# Sphinx build directory
+docs/build
+
+# Compiled Python files
+*.pyc
+
+# Terraform files
+*.terraform/
+terraform.tfvars
+terraform/terraform.tfstate*
+
+# MacOS artifacts
+Thumbs.db
+.DS_Store
+*.swp
+terminal.glue
+
+# Coveralls repo token
+.coveralls.yml
+
+# nose coverage file
+.coverage
+
+# virtualenv files
+venv/
+
+.vagrant/
+htmlcov/
+
+# Pycharm IDE
+.idea/

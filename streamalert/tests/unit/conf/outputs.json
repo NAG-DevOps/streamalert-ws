@@ -1,0 +1,21 @@
+{
+  "aws-firehose": {
+    "unit_test_delivery_stream": "unit_test_delivery_stream"
+  },
+  "aws-lambda": {
+    "unit_test_lambda": "unit_test_function",
+    "unit_test_lambda_qual": "unit_test_function:production"
+  },
+  "aws-s3": {
+    "unit_test_bucket": "unit.test.bucket.name"
+  },
+  "pagerduty": [
+    "unit_test_pagerduty"
+  ],
+  "phantom": [
+    "unit_test_phantom"
+  ],
+  "slack": [
+    "unit_test_channel"
+  ]
+}

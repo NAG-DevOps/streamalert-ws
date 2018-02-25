@@ -1,0 +1,48 @@
+{
+  "id": "prod",
+  "modules": {
+    "cloudtrail": {
+      "enable_logging": true
+    },
+    "cloudwatch_monitoring": {
+      "enabled": true,
+      "kinesis_alarms_enabled": true,
+      "lambda_alarms_enabled": true
+    },
+    "kinesis": {
+      "streams": {
+        "create_user": true,
+        "retention": 24,
+        "shards": 1,
+        "trusted_accounts": []
+      }
+    },
+    "kinesis_events": {
+      "enabled": true,
+      "batch_size": 100
+    },
+    "stream_alert": {
+      "alert_processor": {
+        "current_version": "$LATEST",
+        "log_level": "info",
+        "memory": 128,
+        "timeout": 60
+      },
+      "rule_processor": {
+        "current_version": "$LATEST",
+        "enable_metrics": true,
+        "log_level": "info",
+        "memory": 128,
+        "timeout": 10
+      }
+    }
+  },
+  "outputs": {
+    "kinesis": [
+      "username",
+      "access_key_id",
+      "secret_key"
+    ]
+  },
+  "region": "us-east-1"
+}
