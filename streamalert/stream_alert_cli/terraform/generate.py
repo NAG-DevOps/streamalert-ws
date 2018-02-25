@@ -42,7 +42,7 @@ from stream_alert_cli.terraform.threat_intel_downloader import generate_threat_i
 
 DEFAULT_SNS_MONITORING_TOPIC = 'stream_alert_monitoring'
 RESTRICTED_CLUSTER_NAMES = ('main', 'athena')
-TERRAFORM_VERSIONS = {'application': '~> 0.10.6', 'provider': {'aws': '~> 1.5.0'}}
+TERRAFORM_VERSIONS = {'application': '~> 0.11.3', 'provider': {'aws': '~> 1.5.0'}}
 
 def generate_s3_bucket(**kwargs):
     """Generate an S3 Bucket dict

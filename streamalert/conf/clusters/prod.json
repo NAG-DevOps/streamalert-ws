@@ -2,6 +2,7 @@
   "id": "prod",
   "modules": {
     "cloudtrail": {
+      "enable_kinesis": false,
       "enable_logging": true
     },
     "cloudwatch_monitoring": {
@@ -18,18 +19,18 @@
       }
     },
     "kinesis_events": {
-      "enabled": true,
-      "batch_size": 100
+      "batch_size": 100,
+      "enabled": true
     },
     "stream_alert": {
       "alert_processor": {
-        "current_version": "$LATEST",
+        "current_version": 2,
         "log_level": "info",
         "memory": 128,
         "timeout": 60
       },
       "rule_processor": {
-        "current_version": "$LATEST",
+        "current_version": 2,
         "enable_metrics": true,
         "log_level": "info",
         "memory": 128,

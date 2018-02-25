@@ -1,8 +1,8 @@
 {
   "account": {
-    "aws_account_id": "AWS_ACCOUNT_ID_GOES_HERE",
+    "aws_account_id": "610860508905",
     "kms_key_alias": "stream_alert_secrets",
-    "prefix": "PREFIX_GOES_HERE",
+    "prefix": "soen487",
     "region": "us-east-1"
   },
   "infrastructure": {
@@ -11,7 +11,7 @@
     }
   },
   "terraform": {
-    "tfstate_bucket": "PREFIX_GOES_HERE.streamalert.terraform.state",
+    "tfstate_bucket": "soen487.streamalert.terraform.state",
     "tfstate_s3_key": "stream_alert_state/terraform.tfstate",
     "tfvars": "terraform.tfvars"
   }

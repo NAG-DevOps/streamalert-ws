@@ -1,0 +1,103 @@
+{
+  "module": {
+    "cloudtrail_prod": {
+      "account_ids": [
+        "610860508905"
+      ], 
+      "cluster": "prod", 
+      "enable_kinesis": false, 
+      "enable_logging": true, 
+      "existing_trail": false, 
+      "is_global_trail": true, 
+      "prefix": "soen487", 
+      "s3_logging_bucket": "soen487.streamalert.s3-logging", 
+      "source": "modules/tf_stream_alert_cloudtrail"
+    }, 
+    "cloudwatch_monitoring_prod": {
+      "kinesis_alarms_enabled": true, 
+      "kinesis_stream": "soen487_prod_stream_alert_kinesis", 
+      "lambda_alarms_enabled": true, 
+      "lambda_functions": [
+        "soen487_prod_streamalert_rule_processor", 
+        "soen487_prod_streamalert_alert_processor"
+      ], 
+      "sns_topic_arn": "arn:aws:sns:us-east-1:610860508905:stream_alert_monitoring", 
+      "source": "modules/tf_stream_alert_monitoring"
+    }, 
+    "kinesis_events_prod": {
+      "batch_size": 100, 
+      "kinesis_stream_arn": "${module.kinesis_prod.arn}", 
+      "lambda_function_arn": "${module.stream_alert_prod.lambda_arn}", 
+      "lambda_production_enabled": true, 
+      "lambda_role_id": "${module.stream_alert_prod.lambda_role_id}", 
+      "role_policy_prefix": "prod", 
+      "source": "modules/tf_stream_alert_kinesis_events"
+    }, 
+    "kinesis_prod": {
+      "account_id": "610860508905", 
+      "cluster_name": "prod", 
+      "create_user": true, 
+      "prefix": "soen487", 
+      "region": "us-east-1", 
+      "retention": 24, 
+      "shard_level_metrics": [], 
+      "shards": 1, 
+      "source": "modules/tf_stream_alert_kinesis_streams", 
+      "stream_name": "soen487_prod_stream_alert_kinesis", 
+      "trusted_accounts": []
+    }, 
+    "stream_alert_prod": {
+      "account_id": "610860508905", 
+      "alert_processor_config": "${var.alert_processor_config}", 
+      "alert_processor_enable_metrics": true, 
+      "alert_processor_log_level": "info", 
+      "alert_processor_memory": 128, 
+      "alert_processor_timeout": 60, 
+      "alert_processor_version": 2, 
+      "cluster": "prod", 
+      "kms_key_arn": "${aws_kms_key.stream_alert_secrets.arn}", 
+      "metric_alarms": [], 
+      "prefix": "soen487", 
+      "region": "us-east-1", 
+      "rule_processor_config": "${var.rule_processor_config}", 
+      "rule_processor_enable_metrics": true, 
+      "rule_processor_log_level": "info", 
+      "rule_processor_memory": 128, 
+      "rule_processor_metric_filters": [
+        "RuleProcessor-TotalRecords-PROD,{ $.metric_name = \"TotalRecords\" },$.metric_value", 
+        "RuleProcessor-TotalRecords,{ $.metric_name = \"TotalRecords\" },$.metric_value", 
+        "RuleProcessor-TotalS3Records-PROD,{ $.metric_name = \"TotalS3Records\" },$.metric_value", 
+        "RuleProcessor-TotalS3Records,{ $.metric_name = \"TotalS3Records\" },$.metric_value", 
+        "RuleProcessor-FirehoseRecordsSent-PROD,{ $.metric_name = \"FirehoseRecordsSent\" },$.metric_value", 
+        "RuleProcessor-FirehoseRecordsSent,{ $.metric_name = \"FirehoseRecordsSent\" },$.metric_value", 
+        "RuleProcessor-FailedParses-PROD,{ $.metric_name = \"FailedParses\" },$.metric_value", 
+        "RuleProcessor-FailedParses,{ $.metric_name = \"FailedParses\" },$.metric_value", 
+        "RuleProcessor-TotalStreamAlertAppRecords-PROD,{ $.metric_name = \"TotalStreamAlertAppRecords\" },$.metric_value", 
+        "RuleProcessor-TotalStreamAlertAppRecords,{ $.metric_name = \"TotalStreamAlertAppRecords\" },$.metric_value", 
+        "RuleProcessor-S3DownloadTime-PROD,{ $.metric_name = \"S3DownloadTime\" },$.metric_value", 
+        "RuleProcessor-S3DownloadTime,{ $.metric_name = \"S3DownloadTime\" },$.metric_value", 
+        "RuleProcessor-FirehoseFailedRecords-PROD,{ $.metric_name = \"FirehoseFailedRecords\" },$.metric_value", 
+        "RuleProcessor-FirehoseFailedRecords,{ $.metric_name = \"FirehoseFailedRecords\" },$.metric_value", 
+        "RuleProcessor-TriggeredAlerts-PROD,{ $.metric_name = \"TriggeredAlerts\" },$.metric_value", 
+        "RuleProcessor-TriggeredAlerts,{ $.metric_name = \"TriggeredAlerts\" },$.metric_value", 
+        "RuleProcessor-TotalProcessedSize-PROD,{ $.metric_name = \"TotalProcessedSize\" },$.metric_value", 
+        "RuleProcessor-TotalProcessedSize,{ $.metric_name = \"TotalProcessedSize\" },$.metric_value"
+      ], 
+      "rule_processor_timeout": 10, 
+      "rule_processor_version": 2, 
+      "sns_topic_arn": "arn:aws:sns:us-east-1:610860508905:stream_alert_monitoring", 
+      "source": "modules/tf_stream_alert"
+    }
+  }, 
+  "output": {
+    "kinesis_prod_access_key_id": {
+      "value": "${module.kinesis_prod.access_key_id}"
+    }, 
+    "kinesis_prod_secret_key": {
+      "value": "${module.kinesis_prod.secret_key}"
+    }, 
+    "kinesis_prod_username": {
+      "value": "${module.kinesis_prod.username}"
+    }
+  }
+}
