@@ -89,7 +89,7 @@ local.properties
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.ear
 *.zip
@@ -103,5 +103,7 @@ hs_err_pid*
 ## ignoring target file
 target/
 
+# Report generated files #
+*.synctex.gz
 
 # End of https://www.gitignore.io/api/git,java,eclipse,java-web

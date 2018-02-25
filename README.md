@@ -2,38 +2,22 @@
 
 ## General structure ##
 
-* `doc` is for documentation, report, etc. Create a dir for your team there, e.g., `teamX`, and initialize the report document there.
+* `doc/team2/pm1/README.md` outlines how to set up and run each part of PM1.
+* Under `src` we have all the client and service related classes and generated files, as well as general utility classes.
+* Under `config` we have the StreamAlert configuration files that have been created/modified.
+    * `/config/streamalert/conf/clusters` contains the clusters we have defined for deployment.
+	* `/config/streamalert/conf` contains files specifying the source buckets, logs, outputs, etc.
+	* `/config/streamalert/rules` contains the rules we have created.
+	* `/config/streamalert/tests` contains the test scripts we made that send test data to the rules we made.
 
-## Templates ##
+## Documentation ##
 
-* `doc/report/project-report.tex` is the most documented example template in LaTeX, single column, more readable. To be able to compile LaTeX report, install and configure [MiKTeX](http://miktex.org) first (LaTeX backend compiler and styles and packages), then [TeXnicCenter](http://texniccenter.org) (GUI front-end to MikTeX, it will find MikTeX installation when installed after MikTeX). Open `project-report.tcp` project file for TeXnicCenter and compile it using F7 3 times; F5 to preview the PDF.
+* We are building our report document using Wikis. Please visit the [Wiki Home](https://bitbucket.org/soen487-w18-02/soen487-w18-team02/wiki/Home) page.
 
-## FYI: below is a boilerplate README from BitBucket ##
+## Downloads ##
 
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
+* For a preconfigured setup of StreamAlert, please visit the `Downloads` tab and download the [pm1_streamalert.zip](https://bitbucket.org/soen487-w18-02/soen487-w18-team02/downloads/pm1_streamalert.zip).
 
 ### Who do I talk to? ###
 
-* Serguei
-* Other community or team contact
+* [Alex Genio - Team Leader](mailto:alexgenio1995@gmail.com)
