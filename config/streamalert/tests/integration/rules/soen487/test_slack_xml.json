@@ -1,0 +1,14 @@
+{
+  "records": [
+    {
+      "data": "tag=JavaNode attrname=NewConfig attrvalue=fromService",
+      "description": "Sending key value pairs with a tag name should trigger an alert.",
+      "log": "soen487-xml-kv",
+      "source": "soen487g2.testing.xml.soap",
+      "service": "s3",
+      "trigger_rules": [
+        "xml_to_slack_2"
+      ]
+    }
+  ]
+}
