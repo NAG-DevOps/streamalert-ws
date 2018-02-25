@@ -139,12 +139,12 @@
 ### Notes ###
 
 * To test, do not select `RSS, MARFCATIN, or MARFCATOUT` default XML files to parse due to [StreamAlert-Slack integration limitations.](https://bitbucket.org/soen487-w18-02/soen487-w18-team02/wiki/StreamAlert%20Issues%20Identification)
-* If inputting a file name into the input box, make sure it ends in `.json`. Ex: `my_test_file.json`.
+* When inputting a file name in the input box, be sure to include `.json` as part of the file name. Ex: `my_test_file.json`.
     * If left empty, the default file name of `test_slack_xml.json` will be used.
 
 ### FAQ ###
 * Why am I getting a `The superclass "javax.servlet.http.HttpServlet" was not found on the Java Build Path` in my `index.jsp` file?
-	* There is no Target Runtimes specified. To specify -> Right click on the project `PM1_Client`, select `Properties`, from the left panel, select `Target Runtimes`, check the `Apache Tomcat v7.0` and `Save` changes.
+	* There is no Target Runtimes specified. To specify -> Right click on the project `PM1_Client`, select `Properties`, from the left panel, select the `Target Runtimes` menu option, check the `Apache Tomcat v7.0` checkbox and `Save` changes.
 
 ### Who do I talk to? ###
 
