@@ -50,7 +50,7 @@ public class ParseDOM extends Parser{
 			StringBuilder stringBuilder = new StringBuilder();
 			Document doc = docBuilder.parse(xml);
 			doc.normalize();
-			output = findChildNodes(doc, stringBuilder).toString();
+			output = keyValueNodes(doc, stringBuilder).toString();
 		}
 		catch(Exception e) {
 			getLogger().log(Level.WARNING, e.getMessage());
@@ -82,5 +82,35 @@ public class ParseDOM extends Parser{
 			}
 		}
 		return stringBuilder;
+	}
+	
+	/**
+	 * Iterates through each node of the XML document and 
+	 * stores value in tag=RootNode attrname=name attrvalue=value
+	 * @param doc object that has parsed file
+	 * @param stringBuilder
+	 * @return
+	 */
+	public String keyValueNodes(Document doc, StringBuilder stringBuilder) {
+		NodeList entries = doc.getElementsByTagName("*");
+		String stringTags = "tag=";
+		String stringAttributes = "attrname=";
+		String stringValues = "attrvalue=";
+		
+		for(int i=0; i < entries.getLength(); i++) {
+			Element tag = (Element) entries.item(i);
+			
+			stringTags += tag.getNodeName().replaceAll("\\s+", "") + ",";
+			
+			for(int j=0; j < tag.getAttributes().getLength(); j++) {
+				Node attribute = tag.getAttributes().item(j);
+
+				if(attribute != null) {
+					stringAttributes += attribute.getNodeName().replaceAll("\\s+", "") + ",";
+					stringValues += attribute.getNodeValue().replaceAll("\\s+", "") + ",";
+				}
+			}
+		}
+		return stringTags + " " + stringAttributes + " " + stringValues;
 	}
 }

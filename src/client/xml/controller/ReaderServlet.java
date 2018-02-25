@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import streamalert.util.LiveTestProxy;
 import xml.utils.*;
 
 /**
@@ -40,11 +41,14 @@ public class ReaderServlet extends HttpServlet {
 		
 		int markup = Integer.parseInt(request.getParameter("markup"));
 		int parserType = Integer.parseInt(request.getParameter("parser"));
+		String fileName = request.getParameter("fileName");
 		String uri = request.getParameter("uri");
 		String searchTerm = request.getParameter("searchTerm");;
 		
 		XMLParserProxy proxy = new XMLParserProxy();
 		String output = proxy.parseXML(markup, uri, parserType, searchTerm);
+		LiveTestProxy streamAlertProxy = new LiveTestProxy();
+		streamAlertProxy.XMLLiveTest(fileName, output);
 		
 		response.getWriter().append(output);
 	}

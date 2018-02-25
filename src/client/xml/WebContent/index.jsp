@@ -30,6 +30,11 @@
 	</div>
 	
 	<div>
+		<label>File Name: </label>
+		<input type="text" name="fileName" placeholder="Name for StreamAlert Test"/>
+	</div>
+	
+	<div>
 		<label>URI: </label>
 		<input type="text" name="uri" placeholder="Optional URI"/>
 	</div>

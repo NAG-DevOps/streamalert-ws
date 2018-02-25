@@ -42,14 +42,31 @@ public class LiveTest {
 		
 		String filePath = pathToTests + name;
 		
-		// create the test file to perform a live-test on
-		createTest(filePath, data);
+		//splitting  data in case it is too large
+		//String[] splitedData = data.split("\\s+");
+		//splitedData = generateStreamAlertFormat(splitedData);
 		
-		// run the live test for the --cluster prod --rules xml_to_slack_2
-		executeLiveTest();
-		
+		//for (String singularData : splitedData) {
+			// create the test file to perform a live-test on
+			createTest(filePath, data);
+			
+			// run the live test for the --cluster prod --rules xml_to_slack_2
+			executeLiveTest();
+		//}	
 	}
 	
+	/**
+	 * 
+	 * @param splitedData
+	 * @return
+	 */
+	private String[] generateStreamAlertFormat(String[] splitedData) {
+		//making each split data into tag, attrname and attrvalue format
+		splitedData[0] += " attrname=... attrvalue=..."; 
+		splitedData[1] = "tag=... " + splitedData[1] + " attrvalue=...";
+		splitedData[2] = "tag=... attrname=... " + splitedData[2];
+		return splitedData;
+	}
 	/**
 	 * Creates a test file under streamalert/tests/integration/rules/soen487
 	 * which will trigger a rule which alerts the data into a Slack channel. The

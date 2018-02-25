@@ -62,7 +62,8 @@ public class ParseSAX extends Parser{
 		try {
 			this.handler = new SAXHandler(getSearchTerm());
 			this.saxParser.parse(xml, this.handler);
-			output = this.handler.getValue().toString();
+//			output = this.handler.getValue().toString();
+			output = this.handler.getStringTags().toString() + " " + this.handler.getStringAttributes().toString() + " " + this.handler.getStringValues().toString();
 		} catch (SAXException | IOException e) {
 			getLogger().log(Level.WARNING, e.getMessage());
 		}
@@ -80,12 +81,19 @@ public class ParseSAX extends Parser{
 	 *         elements matching the search term and its contents will be
 	 *         stored.
 	 */
+	/**
+	 * @author SophiaK4444
+	 *
+	 */
 	public class SAXHandler extends DefaultHandler {
 
 		// Document parsing with InputStream - Adapted from:
 		// https://github.com/smokhov/atsm/blob/master/examples/ws/XML/XMLParsing/src/SAXSample.java
 		
 		private StringBuilder value;
+		private StringBuilder stringTags;
+		private StringBuilder stringAttributes;
+		private StringBuilder stringValues;
 		private String searchTerm;
 		private Boolean matchedSearch;
 
@@ -96,6 +104,9 @@ public class ParseSAX extends Parser{
 		 */
 		public SAXHandler(String searchTerm) {
 			this.value = new StringBuilder();
+			this.stringTags = new StringBuilder().append("tag=");
+			this.stringAttributes = new StringBuilder().append("attrname=");
+			this.stringValues = new StringBuilder().append("attrvalue=");
 			this.searchTerm = searchTerm;
 			this.matchedSearch = false;
 		}
@@ -129,13 +140,17 @@ public class ParseSAX extends Parser{
 		public void startElement(String uri, String localName, String qName, Attributes attributes)
 				throws SAXException {
 
+			
 			// No search term, just store elements and name value attribute
 			// pairs
 			if (Validation.isNotValidString(this.searchTerm)) {
-				this.value.append(qName + ":\n");
+				this.stringTags.append(qName.replaceAll("\\s+", "") + ",");
+//				this.value.append(qName + ":\n");
 
 				for (int i = 0; i < attributes.getLength(); i++) {
-					this.value.append(attributes.getQName(i) + " = " + attributes.getValue(i) + "\n");
+					this.stringAttributes.append(attributes.getQName(i).replaceAll("\\s+", "") + ",");
+					this.stringValues.append(attributes.getValue(i).replaceAll("\\s+", "") + ",");
+//					this.value.append(attributes.getQName(i) + " = " + attributes.getValue(i) + "\n");
 				}
 			} else {
 
@@ -155,6 +170,32 @@ public class ParseSAX extends Parser{
 		public StringBuilder getValue() {
 			return this.value;
 		}
+
+		/**
+		 * Gets the tag parsed XML output
+		 * @return Tag parsed XML output
+		 */
+		public StringBuilder getStringTags() {
+			return stringTags;
+		}
+
+		/**
+		 * Gets the attribute parsed XML output
+		 * @return Attribute parsed XML output
+		 */
+		public StringBuilder getStringAttributes() {
+			return stringAttributes;
+		}
+
+		/**
+		 * Gets the values parsed XML output
+		 * @return Values parsed XML output
+		 */
+		public StringBuilder getStringValues() {
+			return stringValues;
+		}
+		
+		
 
 	}
 
