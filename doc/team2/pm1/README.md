@@ -94,7 +94,7 @@
 * Delete the `xml.WebContent` package
 * Copy `src/utilities` from the zip and paste it in the Eclipse project under `src`
 * Copy `src/client/xml/WebContent` from the zip and paste it in the root of the Eclipse project. Overwrite the existing files
-* If you did not name your service project **PM1_Service** in the previous section, in Eclipse, open **`src/xml/utils/XMLParserServiceLocator.java`** and change the value assigned to **`MLParser_address`** to have the name of your project in the path
+* If you did not name your service project **PM1_Service** in the previous section, in Eclipse, open **`src/xml/utils/XMLParserServiceLocator.java`** and change the value assigned to **`XMLParser_address`** to have the name of your project in the path
 * If your Tomcat server is using a port other than 9999, open **`src/xml/utils/XMLParserServiceLocator.java`** and change the value assigned to **`XMLParser_address`** to have the port of your Tomcat server in the path
 
 ### Running The Web Client In Eclipse ###
@@ -125,7 +125,7 @@
 * Be sure that the `xml.WebContent` package is deleted
 * Be sure that `src/utilities` from the zip and is in the Eclipse project under `src`
 * Be sure that `src/client/xml/WebContent` from the zip and is in the root of the Eclipse project
-* Make sure that if your service project name is not **PM1_Service** in the previous section, in Eclipse, open **`src/streamalert/util/LiveTestServiceLocator.java`** and change the value assigned to **`LiveTest_address`** to have the name of your project in the path
+* Make sure that if your service project name is not **PM1_StreamAlert_Service** in the previous section, in Eclipse, open **`src/streamalert/util/LiveTestServiceLocator.java`** and change the value assigned to **`LiveTest_address`** to have the name of your project in the path
 * Make sure that your Tomcat server is using a port other than `9999`, open **`src/streamalert/util/LiveTestServiceLocator.java`** and change the value assigned to **`LiveTest_address`** to have the port of your Tomcat server in the path.
 
 ### Running The Web Client In Eclipse ###
