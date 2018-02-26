@@ -6,3 +6,8 @@ rule = StreamRules.rule
       outputs=['slack:soen487'])
 def send_xml_to_slack(record):
     return record
+
+@rule(logs=['neural-network', 'neural-network:events'],
+      outputs=['slack:soen487'])
+def send_nn_to_slack(record):
+    return record

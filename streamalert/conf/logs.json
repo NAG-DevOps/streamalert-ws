@@ -1492,5 +1492,17 @@
       "key5": [],
       "key6": {}
     }
+  },
+  "neural-network": {
+    "parser": "json",
+    "schema": {
+      "layer": {}
+    }
+  },
+  "neural-network:events": {
+    "parser": "json",
+    "schema": {
+      "layer": {}
+    }
   }
 }
