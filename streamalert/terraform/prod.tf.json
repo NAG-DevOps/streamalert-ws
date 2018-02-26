@@ -46,6 +46,16 @@
       "stream_name": "soen487_prod_stream_alert_kinesis", 
       "trusted_accounts": []
     }, 
+    "s3_events_soen487_prod_0": {
+      "bucket_id": "soen487.streamalerts", 
+      "enable_events": true, 
+      "filter_prefix": "", 
+      "filter_suffix": "", 
+      "lambda_function_arn": "${module.stream_alert_prod.lambda_arn}", 
+      "lambda_role_id": "${module.stream_alert_prod.lambda_role_id}", 
+      "notification_id": "prod_0", 
+      "source": "modules/tf_stream_alert_s3_events"
+    }, 
     "stream_alert_prod": {
       "account_id": "610860508905", 
       "alert_processor_config": "${var.alert_processor_config}", 
@@ -53,7 +63,7 @@
       "alert_processor_log_level": "info", 
       "alert_processor_memory": 128, 
       "alert_processor_timeout": 60, 
-      "alert_processor_version": 3, 
+      "alert_processor_version": 4, 
       "cluster": "prod", 
       "kms_key_arn": "${aws_kms_key.stream_alert_secrets.arn}", 
       "metric_alarms": [], 
@@ -84,7 +94,7 @@
         "RuleProcessor-TotalProcessedSize,{ $.metric_name = \"TotalProcessedSize\" },$.metric_value"
       ], 
       "rule_processor_timeout": 10, 
-      "rule_processor_version": 3, 
+      "rule_processor_version": 4, 
       "sns_topic_arn": "arn:aws:sns:us-east-1:610860508905:stream_alert_monitoring", 
       "source": "modules/tf_stream_alert"
     }

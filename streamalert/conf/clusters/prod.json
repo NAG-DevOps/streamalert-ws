@@ -22,15 +22,21 @@
       "batch_size": 100,
       "enabled": true
     },
+    "s3_events": [
+      {
+        "bucket_id": "soen487.streamalerts",
+        "enable_events": true
+      }
+    ],
     "stream_alert": {
       "alert_processor": {
-        "current_version": 3,
+        "current_version": 4,
         "log_level": "info",
         "memory": 128,
         "timeout": 60
       },
       "rule_processor": {
-        "current_version": 3,
+        "current_version": 4,
         "enable_metrics": true,
         "log_level": "info",
         "memory": 128,
