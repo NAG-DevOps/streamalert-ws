@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>PM2.1 Customers Client</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/babel">
+            const App = () => (
+                <div className="app">
+                    <h3>JavaScript Client for CustomerDB RESTful Web Service</h3>
+                    <h3>Resources for CustomerDBRest</h3>
+                    <CustomerTable/>
+                </div>
+            );
+      
+            class CustomerTable extends React.Component {
+                state = { customers: []};
+                
+                componentWillMount(){
+                    const customers = axios.get('http://localhost:8080/PM2CustomerDB/webresources/entities.customer', { headers: { Accept: 'application/json' } })
+                        .then(response => {
+                          this.setState({customers: response.data});
+                        })
+                        .catch(function (error) {
+                          console.log(error);
+                        });
+                }
+                
+                render() {
+                    const listItems = this.state.customers.map((customer) =>
+                        <tr key={customer.customerId}>
+                            <td>{customer.customerId}</td>
+                            <td>{customer.discountCode.discountCode}</td>
+                            <td>{customer.name}</td>
+                            <td>{customer.addressline1}<br/>
+                            {customer.addressline2}</td>
+                            <td>{customer.city}</td>
+                            <td>{customer.state}</td>
+                            <td>{customer.zip.zipCode}</td>
+                            <td>{customer.phone}</td>
+                            <td>{customer.fax}</td>
+                            <td>{customer.email}</td>
+                        </tr>
+                    );
+            
+                    return (
+                        <div>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Customer ID</th>
+                                    <th>Discount Code</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Zip Code</th>
+                                    <th>Phone</th>
+                                    <th>Fax</th>
+                                    <th>Email</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {listItems}
+                                </tbody>
+                            </table> 
+                        </div>  
+                    )
+                }
+            }  
+            ReactDOM.render(<App/>, document.getElementById('app'));
+        </script>
+    </body>
+</html>
