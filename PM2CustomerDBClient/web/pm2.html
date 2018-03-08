@@ -13,6 +13,7 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
     </head>
     <body>
         <div id="app"></div>
@@ -22,6 +23,8 @@ and open the template in the editor.
                     <h3>JavaScript Client for CustomerDB RESTful Web Service</h3>
                     <h3>Resources for CustomerDBRest</h3>
                     <CustomerTable/>
+                    <h3>Discount Codes</h3>
+                    <DiscountTable/>
                 </div>
             );
       
@@ -79,7 +82,66 @@ and open the template in the editor.
                         </div>  
                     )
                 }
-            }  
+            }
+            
+            class DiscountTable extends React.Component {
+                state = { discounts: []};
+                
+                componentWillMount(){   
+                    const request = axios.get('http://localhost:8080/PM2CustomerDB/webresources/entities.discountcode', { headers: { Accept: 'application/json' } })
+                        .then(response => {
+                            const discounts = {};
+                            _.forEach(response.data, (value) => {
+                                discounts[value.discountCode] = { rate:value.rate, customer_ids: [] };
+                            });
+                            this.setState({ discounts: discounts });
+                        })
+                        .catch(function (error) {
+                          console.log(error);
+                        });
+                    const customers = axios.get('http://localhost:8080/PM2CustomerDB/webresources/entities.customer', { headers: { Accept: 'application/json' } })
+                        .then(response => {
+                            const result = this.state.discounts;
+                            _.forEach(response.data, (value) => {
+                                result[value.discountCode.discountCode].customer_ids.push(value.customerId);
+                            });
+                            this.setState({discounts: result});
+                        })
+                        .catch(function (error) {
+                          console.log(error);
+                        });
+                }
+                
+                render() {
+                    const listItems = [];
+                    Object.keys(this.state.discounts).map((key, value) => {
+                        listItems.push(
+                            <tr key={key}>
+                                <td> {key} </td>
+                                <td> {this.state.discounts[key].rate} </td>
+                                <td> {this.state.discounts[key].customer_ids.join(' ')} </td>
+                            </tr>
+                        )
+                    });
+            
+                    return (
+                        <div>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Discount Code</th>
+                                    <th>Rate</th>
+                                    <th>Customer IDs</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {listItems}
+                                </tbody>
+                            </table> 
+                        </div>
+                    )
+                }
+            }
             ReactDOM.render(<App/>, document.getElementById('app'));
         </script>
     </body>
