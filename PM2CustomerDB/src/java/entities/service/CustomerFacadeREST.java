@@ -10,6 +10,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,6 +19,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 /**
  *
@@ -65,6 +67,15 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @Produces({"application/xml", "application/json"})
     public List<Customer> findAll() {
         return super.findAll();
+    }
+    
+    @GET
+    @Path("/state/{state}")
+    @Produces({"application/xml", "application/json"})
+    public List<Customer> findByState(@PathParam("state")String state) {
+        TypedQuery<Customer> query = em.createNamedQuery("Customer.findByState", Customer.class);
+        query.setParameter("state", state);
+        return query.getResultList();
     }
 
     @GET
