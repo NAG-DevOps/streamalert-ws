@@ -16,10 +16,11 @@ and open the template in the editor.
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
     </head>
     <body>
-        <div id="app"></div>
+        <div id="app"></div>        
         <script type="text/babel">
             const App = () => (
                 <div className="app">
+                    <StateForm/>
                     <h3>JavaScript Client for CustomerDB RESTful Web Service</h3>
                     <h3>Resources for CustomerDBRest</h3>
                     <CustomerTable/>
@@ -28,11 +29,52 @@ and open the template in the editor.
                 </div>
             );
       
+            class StateForm extends React.Component {
+              constructor(props) {
+                super(props);
+                this.state = {value: ''};
+                this.handleChange = this.handleChange.bind(this);
+                this.handleSubmit = this.handleSubmit.bind(this);
+              }
+
+              handleChange(event) {
+                this.setState({value: event.target.value});
+              }
+
+              handleSubmit(event) {
+                event.preventDefault();
+                const results= (
+                                <div>
+                                    <CustomerTable url={"/state/"+ this.state.value} />
+                                    <a href="http://localhost:8080/PM2CustomerDBClient/pm2.html">Go Back</a>
+                                </div>
+                                );
+                ReactDOM.render(results, document.getElementById('app'));    
+              }
+
+              render() {
+                return (
+                  <form onSubmit={this.handleSubmit}>
+                    <label>
+                      State:
+                      <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                  </form>
+                );
+              }
+            }
+
+
             class CustomerTable extends React.Component {
                 state = { customers: []};
-                
-                componentWillMount(){
-                    const customers = axios.get('http://localhost:8080/PM2CustomerDB/webresources/entities.customer', { headers: { Accept: 'application/json' } })
+                     
+                componentWillMount(){ 
+                    var url = 'http://localhost:8080/PM2CustomerDB/webresources/entities.customer';
+                    if (this.props.url !== undefined) {
+                        url += this.props.url;
+                    }
+                    const customers = axios.get( url , { headers: { Accept: 'application/json' } })
                         .then(response => {
                           this.setState({customers: response.data});
                         })
