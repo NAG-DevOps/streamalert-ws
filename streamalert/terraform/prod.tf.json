@@ -47,7 +47,7 @@
       "trusted_accounts": []
     }, 
     "s3_events_soen487_prod_0": {
-      "bucket_id": "soen487.streamalerts", 
+      "bucket_id": "soen487.prod.streamalert.cloudtrail", 
       "enable_events": true, 
       "filter_prefix": "", 
       "filter_suffix": "", 
@@ -56,22 +56,34 @@
       "notification_id": "prod_0", 
       "source": "modules/tf_stream_alert_s3_events"
     }, 
+    "s3_events_soen487_prod_1": {
+      "bucket_id": "soen487.streamalerts", 
+      "enable_events": true, 
+      "filter_prefix": "", 
+      "filter_suffix": "", 
+      "lambda_function_arn": "${module.stream_alert_prod.lambda_arn}", 
+      "lambda_role_id": "${module.stream_alert_prod.lambda_role_id}", 
+      "notification_id": "prod_1", 
+      "source": "modules/tf_stream_alert_s3_events"
+    }, 
     "stream_alert_prod": {
       "account_id": "610860508905", 
       "alert_processor_config": "${var.alert_processor_config}", 
       "alert_processor_enable_metrics": true, 
-      "alert_processor_log_level": "info", 
+      "alert_processor_log_level": "debug", 
       "alert_processor_memory": 128, 
       "alert_processor_timeout": 60, 
-      "alert_processor_version": 7, 
+      "alert_processor_version": 25, 
       "cluster": "prod", 
       "kms_key_arn": "${aws_kms_key.stream_alert_secrets.arn}", 
       "metric_alarms": [], 
+      "output_lambda_functions": [], 
+      "output_s3_buckets": [], 
       "prefix": "soen487", 
       "region": "us-east-1", 
       "rule_processor_config": "${var.rule_processor_config}", 
       "rule_processor_enable_metrics": true, 
-      "rule_processor_log_level": "info", 
+      "rule_processor_log_level": "debug", 
       "rule_processor_memory": 128, 
       "rule_processor_metric_filters": [
         "RuleProcessor-TotalRecords-PROD,{ $.metric_name = \"TotalRecords\" },$.metric_value", 
@@ -94,7 +106,7 @@
         "RuleProcessor-TotalProcessedSize,{ $.metric_name = \"TotalProcessedSize\" },$.metric_value"
       ], 
       "rule_processor_timeout": 10, 
-      "rule_processor_version": 7, 
+      "rule_processor_version": 27, 
       "sns_topic_arn": "arn:aws:sns:us-east-1:610860508905:stream_alert_monitoring", 
       "source": "modules/tf_stream_alert"
     }

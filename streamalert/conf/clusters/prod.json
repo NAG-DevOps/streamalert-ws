@@ -24,21 +24,32 @@
     },
     "s3_events": [
       {
+        "bucket_id": "soen487.prod.streamalert.cloudtrail",
+        "enable_events": true
+      },
+      {
         "bucket_id": "soen487.streamalerts",
         "enable_events": true
       }
     ],
     "stream_alert": {
       "alert_processor": {
-        "current_version": 7,
-        "log_level": "info",
+        "current_version": 25,
+        "log_level": "debug",
         "memory": 128,
+        "outputs": {
+          "aws-lambda": [],
+          "aws-s3": [],
+          "slack": [
+            "soen487"
+          ]
+        },
         "timeout": 60
       },
       "rule_processor": {
-        "current_version": 7,
+        "current_version": 27,
         "enable_metrics": true,
-        "log_level": "info",
+        "log_level": "debug",
         "memory": 128,
         "timeout": 10
       }

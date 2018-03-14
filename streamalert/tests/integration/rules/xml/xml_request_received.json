@@ -2,912 +2,235 @@
   "records": [
     {
       "data": {
-        "key1": "Darrel",
-        "key2": 21,
-        "key3": true,
-        "key4": 99.99,
-        "key5": [],
-        "key6": {
-          "key": "value"
-        }
-      },
-      "description": "XML request received and forwarding its data to Slack",
-      "log": "test-data",
-      "trigger_rules": ["send_xml_to_slack"],
-      "service": "s3",
-      "source": "soen487.streamalerts"
-    },
-    {
-      "data": {
-        "layer": {
-          "layer": [
-            {
-              "neuron": [
-                {
-                  "input": [],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    },
-                    {
-                      "ref": 4
-                    },
-                    {
-                      "ref": 5
-                    },
-                    {
-                      "ref": 6
-                    },
-                    {
-                      "ref": 7
-                    },
-                    {
-                      "ref": 8
-                    },
-                    {
-                      "ref": 9
-                    },
-                    {
-                      "ref": 10
-                    },
-                    {
-                      "ref": 11
-                    },
-                    {
-                      "ref": 12
-                    }
-                  ],
-                  "index": 1,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    },
-                    {
-                      "ref": 4
-                    },
-                    {
-                      "ref": 5
-                    },
-                    {
-                      "ref": 6
-                    },
-                    {
-                      "ref": 7
-                    },
-                    {
-                      "ref": 8
-                    },
-                    {
-                      "ref": 9
-                    },
-                    {
-                      "ref": 10
-                    },
-                    {
-                      "ref": 11
-                    },
-                    {
-                      "ref": 12
-                    }
-                  ],
-                  "index": 2,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    },
-                    {
-                      "ref": 4
-                    },
-                    {
-                      "ref": 5
-                    },
-                    {
-                      "ref": 6
-                    },
-                    {
-                      "ref": 7
-                    },
-                    {
-                      "ref": 8
-                    },
-                    {
-                      "ref": 9
-                    },
-                    {
-                      "ref": 10
-                    },
-                    {
-                      "ref": 11
-                    },
-                    {
-                      "ref": 12
-                    }
-                  ],
-                  "index": 3,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    },
-                    {
-                      "ref": 4
-                    },
-                    {
-                      "ref": 5
-                    },
-                    {
-                      "ref": 6
-                    },
-                    {
-                      "ref": 7
-                    },
-                    {
-                      "ref": 8
-                    },
-                    {
-                      "ref": 9
-                    },
-                    {
-                      "ref": 10
-                    },
-                    {
-                      "ref": 11
-                    },
-                    {
-                      "ref": 12
-                    }
-                  ],
-                  "index": 4,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    },
-                    {
-                      "ref": 4
-                    },
-                    {
-                      "ref": 5
-                    },
-                    {
-                      "ref": 6
-                    },
-                    {
-                      "ref": 7
-                    },
-                    {
-                      "ref": 8
-                    },
-                    {
-                      "ref": 9
-                    },
-                    {
-                      "ref": 10
-                    },
-                    {
-                      "ref": 11
-                    },
-                    {
-                      "ref": 12
-                    }
-                  ],
-                  "index": 5,
-                  "thresh": 1.0
-                }
-              ],
-              "type": "input",
-              "index": 1
-            },
-            {
-              "neuron": [
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": -0.4499066
-                    },
-                    {
-                      "ref": 2,
-                      "weight": -0.9130166
-                    },
-                    {
-                      "ref": 3,
-                      "weight": -0.97601926
-                    },
-                    {
-                      "ref": 4,
-                      "weight": 0.25572923
-                    },
-                    {
-                      "ref": 5,
-                      "weight": -0.29875252
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    }
-                  ],
-                  "index": 1,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": 0.08261773
-                    },
-                    {
-                      "ref": 2,
-                      "weight": -0.44181678
-                    },
-                    {
-                      "ref": 3,
-                      "weight": -0.30837137
-                    },
-                    {
-                      "ref": 4,
-                      "weight": 0.49136943
-                    },
-                    {
-                      "ref": 5,
-                      "weight": -0.6152266
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    }
-                  ],
-                  "index": 2,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": -0.60893863
-                    },
-                    {
-                      "ref": 2,
-                      "weight": -0.23418958
-                    },
-                    {
-                      "ref": 3,
-                      "weight": -0.41980106
-                    },
-                    {
-                      "ref": 4,
-                      "weight": -0.5813491
-                    },
-                    {
-                      "ref": 5,
-                      "weight": 0.6285634
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    }
-                  ],
-                  "index": 3,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": 0.6753686
-                    },
-                    {
-                      "ref": 2,
-                      "weight": 0.86833256
-                    },
-                    {
-                      "ref": 3,
-                      "weight": 0.7595225
-                    },
-                    {
-                      "ref": 4,
-                      "weight": 0.97085905
-                    },
-                    {
-                      "ref": 5,
-                      "weight": 0.6489974
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    }
-                  ],
-                  "index": 4,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": -0.14579502
-                    },
-                    {
-                      "ref": 2,
-                      "weight": -0.4173812
-                    },
-                    {
-                      "ref": 3,
-                      "weight": -0.49925527
-                    },
-                    {
-                      "ref": 4,
-                      "weight": 0.15687495
-                    },
-                    {
-                      "ref": 5,
-                      "weight": 0.26161933
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    }
-                  ],
-                  "index": 5,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": 0.48399356
-                    },
-                    {
-                      "ref": 2,
-                      "weight": 0.42382336
-                    },
-                    {
-                      "ref": 3,
-                      "weight": 0.9641731
-                    },
-                    {
-                      "ref": 4,
-                      "weight": -0.41615874
-                    },
-                    {
-                      "ref": 5,
-                      "weight": 0.25168175
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    }
-                  ],
-                  "index": 6,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": 0.38706717
-                    },
-                    {
-                      "ref": 2,
-                      "weight": -0.09556704
-                    },
-                    {
-                      "ref": 3,
-                      "weight": -0.5444334
-                    },
-                    {
-                      "ref": 4,
-                      "weight": -0.23257312
-                    },
-                    {
-                      "ref": 5,
-                      "weight": 0.018706167
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    }
-                  ],
-                  "index": 7,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": -0.19314498
-                    },
-                    {
-                      "ref": 2,
-                      "weight": -0.7043944
-                    },
-                    {
-                      "ref": 3,
-                      "weight": -0.2226342
-                    },
-                    {
-                      "ref": 4,
-                      "weight": 0.8659317
-                    },
-                    {
-                      "ref": 5,
-                      "weight": -0.61704206
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    }
-                  ],
-                  "index": 8,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": -0.4355893
-                    },
-                    {
-                      "ref": 2,
-                      "weight": -0.93147093
-                    },
-                    {
-                      "ref": 3,
-                      "weight": -0.17319632
-                    },
-                    {
-                      "ref": 4,
-                      "weight": -0.20060542
-                    },
-                    {
-                      "ref": 5,
-                      "weight": 0.5113729
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    }
-                  ],
-                  "index": 9,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": -0.058705907
-                    },
-                    {
-                      "ref": 2,
-                      "weight": 0.7543916
-                    },
-                    {
-                      "ref": 3,
-                      "weight": -0.8474489
-                    },
-                    {
-                      "ref": 4,
-                      "weight": -0.63685393
-                    },
-                    {
-                      "ref": 5,
-                      "weight": -0.37827954
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    }
-                  ],
-                  "index": 10,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": -0.66379404
-                    },
-                    {
-                      "ref": 2,
-                      "weight": -0.084273055
-                    },
-                    {
-                      "ref": 3,
-                      "weight": -0.4016141
-                    },
-                    {
-                      "ref": 4,
-                      "weight": 0.2889532
-                    },
-                    {
-                      "ref": 5,
-                      "weight": -0.7917229
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    }
-                  ],
-                  "index": 11,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": -0.26872477
-                    },
-                    {
-                      "ref": 2,
-                      "weight": 0.99473673
-                    },
-                    {
-                      "ref": 3,
-                      "weight": -0.8901918
-                    },
-                    {
-                      "ref": 4,
-                      "weight": 0.044953004
-                    },
-                    {
-                      "ref": 5,
-                      "weight": 0.52940494
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    },
-                    {
-                      "ref": 2
-                    },
-                    {
-                      "ref": 3
-                    }
-                  ],
-                  "index": 12,
-                  "thresh": 1.0
-                }
-              ],
-              "type": "hidden",
-              "index": 2
-            },
-            {
-              "neuron": [
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": 0.40541863
-                    },
-                    {
-                      "ref": 2,
-                      "weight": -0.48529926
-                    },
-                    {
-                      "ref": 3,
-                      "weight": 0.9730101
-                    },
-                    {
-                      "ref": 4,
-                      "weight": 0.01498534
-                    },
-                    {
-                      "ref": 5,
-                      "weight": 0.26638743
-                    },
-                    {
-                      "ref": 6,
-                      "weight": 0.88695365
-                    },
-                    {
-                      "ref": 7,
-                      "weight": -0.101362854
-                    },
-                    {
-                      "ref": 8,
-                      "weight": -0.0025224676
-                    },
-                    {
-                      "ref": 9,
-                      "weight": 0.34801573
-                    },
-                    {
-                      "ref": 10,
-                      "weight": -0.1268278
-                    },
-                    {
-                      "ref": 11,
-                      "weight": 0.42115662
-                    },
-                    {
-                      "ref": 12,
-                      "weight": -0.9478741
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    }
-                  ],
-                  "index": 1,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": 0.6010977
-                    },
-                    {
-                      "ref": 2,
-                      "weight": 0.18900779
-                    },
-                    {
-                      "ref": 3,
-                      "weight": -0.9428683
-                    },
-                    {
-                      "ref": 4,
-                      "weight": 0.5791024
-                    },
-                    {
-                      "ref": 5,
-                      "weight": 0.6154757
-                    },
-                    {
-                      "ref": 6,
-                      "weight": 0.6566996
-                    },
-                    {
-                      "ref": 7,
-                      "weight": 0.038153842
-                    },
-                    {
-                      "ref": 8,
-                      "weight": 0.7389864
-                    },
-                    {
-                      "ref": 9,
-                      "weight": -0.62326217
-                    },
-                    {
-                      "ref": 10,
-                      "weight": -0.6360099
-                    },
-                    {
-                      "ref": 11,
-                      "weight": 0.40676698
-                    },
-                    {
-                      "ref": 12,
-                      "weight": -0.96339023
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    }
-                  ],
-                  "index": 2,
-                  "thresh": 1.0
-                },
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": 0.99451274
-                    },
-                    {
-                      "ref": 2,
-                      "weight": 0.40530637
-                    },
-                    {
-                      "ref": 3,
-                      "weight": 0.35554227
-                    },
-                    {
-                      "ref": 4,
-                      "weight": 0.83098304
-                    },
-                    {
-                      "ref": 5,
-                      "weight": -0.13659939
-                    },
-                    {
-                      "ref": 6,
-                      "weight": -0.68631005
-                    },
-                    {
-                      "ref": 7,
-                      "weight": -0.5215856
-                    },
-                    {
-                      "ref": 8,
-                      "weight": -0.12193723
-                    },
-                    {
-                      "ref": 9,
-                      "weight": -0.5607038
-                    },
-                    {
-                      "ref": 10,
-                      "weight": 0.70529646
-                    },
-                    {
-                      "ref": 11,
-                      "weight": 0.9814205
-                    },
-                    {
-                      "ref": 12,
-                      "weight": -0.441885
-                    }
-                  ],
-                  "output": [
-                    {
-                      "ref": 1
-                    }
-                  ],
-                  "index": 3,
-                  "thresh": 1.0
-                }
-              ],
-              "type": "hidden",
-              "index": 3
-            },
-            {
-              "neuron": [
-                {
-                  "input": [
-                    {
-                      "ref": 1,
-                      "weight": -0.7392001
-                    },
-                    {
-                      "ref": 2,
-                      "weight": 0.058072343
-                    },
-                    {
-                      "ref": 3,
-                      "weight": 0.988582
-                    }
-                  ],
-                  "output": [],
-                  "index": 1,
-                  "thresh": 1.0
-                }
-              ],
-              "type": "output",
-              "index": 4
-            }
-          ]
-        }
+        "layer": [
+          {
+            "neuron": [
+              {
+                "input": [],
+                "output": [
+                  {
+                    "ref": 1
+                  },
+                  {
+                    "ref": 2
+                  },
+                  {
+                    "ref": 3
+                  },
+                  {
+                    "ref": 4
+                  },
+                  {
+                    "ref": 5
+                  },
+                  {
+                    "ref": 6
+                  },
+                  {
+                    "ref": 7
+                  },
+                  {
+                    "ref": 8
+                  },
+                  {
+                    "ref": 9
+                  },
+                  {
+                    "ref": 10
+                  },
+                  {
+                    "ref": 11
+                  },
+                  {
+                    "ref": 12
+                  }
+                ],
+                "index": 1,
+                "thresh": 1.0
+              },
+              {
+                "input": [],
+                "output": [
+                  {
+                    "ref": 1
+                  },
+                  {
+                    "ref": 2
+                  },
+                  {
+                    "ref": 3
+                  },
+                  {
+                    "ref": 4
+                  },
+                  {
+                    "ref": 5
+                  },
+                  {
+                    "ref": 6
+                  },
+                  {
+                    "ref": 7
+                  },
+                  {
+                    "ref": 8
+                  },
+                  {
+                    "ref": 9
+                  },
+                  {
+                    "ref": 10
+                  },
+                  {
+                    "ref": 11
+                  },
+                  {
+                    "ref": 12
+                  }
+                ],
+                "index": 2,
+                "thresh": 1.0
+              },
+              {
+                "input": [],
+                "output": [
+                  {
+                    "ref": 1
+                  },
+                  {
+                    "ref": 2
+                  },
+                  {
+                    "ref": 3
+                  },
+                  {
+                    "ref": 4
+                  },
+                  {
+                    "ref": 5
+                  },
+                  {
+                    "ref": 6
+                  },
+                  {
+                    "ref": 7
+                  },
+                  {
+                    "ref": 8
+                  },
+                  {
+                    "ref": 9
+                  },
+                  {
+                    "ref": 10
+                  },
+                  {
+                    "ref": 11
+                  },
+                  {
+                    "ref": 12
+                  }
+                ],
+                "index": 3,
+                "thresh": 1.0
+              },
+              {
+                "input": [],
+                "output": [
+                  {
+                    "ref": 1
+                  },
+                  {
+                    "ref": 2
+                  },
+                  {
+                    "ref": 3
+                  },
+                  {
+                    "ref": 4
+                  },
+                  {
+                    "ref": 5
+                  },
+                  {
+                    "ref": 6
+                  },
+                  {
+                    "ref": 7
+                  },
+                  {
+                    "ref": 8
+                  },
+                  {
+                    "ref": 9
+                  },
+                  {
+                    "ref": 10
+                  },
+                  {
+                    "ref": 11
+                  },
+                  {
+                    "ref": 12
+                  }
+                ],
+                "index": 4,
+                "thresh": 1.0
+              },
+              {
+                "input": [],
+                "output": [
+                  {
+                    "ref": 1
+                  },
+                  {
+                    "ref": 2
+                  },
+                  {
+                    "ref": 3
+                  },
+                  {
+                    "ref": 4
+                  },
+                  {
+                    "ref": 5
+                  },
+                  {
+                    "ref": 6
+                  },
+                  {
+                    "ref": 7
+                  },
+                  {
+                    "ref": 8
+                  },
+                  {
+                    "ref": 9
+                  },
+                  {
+                    "ref": 10
+                  },
+                  {
+                    "ref": 11
+                  },
+                  {
+                    "ref": 12
+                  }
+                ],
+                "index": 5,
+                "thresh": 1.0
+              }
+            ],
+            "type": "input",
+            "index": 1
+          }
+        ]
       },
       "description": "XML request received and forwarding its data to Slack",
       "log": "neural-network",
-      "trigger_rules": ["send_nn_to_slack"],
       "service": "s3",
-      "source": "soen487.streamalerts"
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["send_nn_to_slack"]
     }
   ]
 }

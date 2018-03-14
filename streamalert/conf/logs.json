@@ -1496,13 +1496,12 @@
   "neural-network": {
     "parser": "json",
     "schema": {
-      "layer": {}
-    }
-  },
-  "neural-network:events": {
-    "parser": "json",
-    "schema": {
-      "layer": {}
+      "neuron": [],
+      "type": "string",
+      "index": "integer"
+    },
+    "configuration": {
+      "json_path": "layer[*]"
     }
   }
 }

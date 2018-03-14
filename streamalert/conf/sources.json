@@ -17,7 +17,6 @@
     },
     "soen487.streamalerts": {
       "logs": [
-        "test-data",
         "neural-network"
       ]
     }
