@@ -1482,17 +1482,6 @@
       }
     }
   },
-  "test-data": {
-    "parser": "json",
-    "schema": {
-      "key1": "string",
-      "key2": "integer",
-      "key3": "boolean",
-      "key4": "float",
-      "key5": [],
-      "key6": {}
-    }
-  },
   "neural-network": {
     "parser": "json",
     "schema": {
@@ -1502,6 +1491,19 @@
     },
     "configuration": {
       "json_path": "layer[*]"
+    }
+  },
+  "marfcat-input": {
+    "parser": "json",
+    "schema": {
+      "generatedBy": "string",
+      "generatedOn": "string",
+      "description": {
+        "fileTypeTool": "string",
+        "findTool": "string",
+        "marfTool": "string"
+      },
+      "files": []
     }
   }
 }

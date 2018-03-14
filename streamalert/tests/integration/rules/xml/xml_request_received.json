@@ -226,11 +226,32 @@
           }
         ]
       },
-      "description": "XML request received and forwarding its data to Slack",
+      "description": "Neural Network XML request received and forwarding its data to Slack",
       "log": "neural-network",
       "service": "s3",
       "source": "soen487.streamalerts",
       "trigger_rules": ["send_nn_to_slack"]
+    },
+    {
+      "data": {
+        "generatedBy": "test",
+        "generatedOn": "test",
+        "description": {
+          "fileTypeTool": "test",
+          "findTool": "test",
+          "marfTool": "test"
+        },
+        "files": [
+          {
+            "test":"test"
+          }
+        ]
+      },
+      "description": "Marfcat-in XML request received and forwarding its data to Slack",
+      "log": "marfcat-input",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["send_mi_to_slack"]
     }
   ]
 }
