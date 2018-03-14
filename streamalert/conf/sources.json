@@ -18,7 +18,8 @@
     "soen487.streamalerts": {
       "logs": [
         "neural-network",
-        "marfcat-input"
+        "marfcat-input",
+        "marfcat-output"
       ]
     }
   },

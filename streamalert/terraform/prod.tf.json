@@ -73,7 +73,7 @@
       "alert_processor_log_level": "debug", 
       "alert_processor_memory": 128, 
       "alert_processor_timeout": 60, 
-      "alert_processor_version": 26, 
+      "alert_processor_version": 27, 
       "cluster": "prod", 
       "kms_key_arn": "${aws_kms_key.stream_alert_secrets.arn}", 
       "metric_alarms": [], 
@@ -106,7 +106,7 @@
         "RuleProcessor-TotalProcessedSize,{ $.metric_name = \"TotalProcessedSize\" },$.metric_value"
       ], 
       "rule_processor_timeout": 10, 
-      "rule_processor_version": 28, 
+      "rule_processor_version": 29, 
       "sns_topic_arn": "arn:aws:sns:us-east-1:610860508905:stream_alert_monitoring", 
       "source": "modules/tf_stream_alert"
     }

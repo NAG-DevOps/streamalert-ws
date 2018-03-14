@@ -252,6 +252,27 @@
       "service": "s3",
       "source": "soen487.streamalerts",
       "trigger_rules": ["send_mi_to_slack"]
+    },
+    {
+      "data": {
+        "toolName": "test",
+        "toolVersion": "test",
+        "weaknesses": [
+          {
+            "id": "1",
+            "toolSpecificId": "1",
+            "name": {},
+            "location": {},
+            "grade": {},
+            "output": {}
+          }
+        ]
+      },
+      "description": "Marfcat-out XML request received and forwarding its data to Slack",
+      "log": "marfcat-output",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["send_mo_to_slack"]
     }
   ]
 }

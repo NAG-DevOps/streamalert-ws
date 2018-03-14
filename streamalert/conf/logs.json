@@ -1505,5 +1505,13 @@
       },
       "files": []
     }
+  },
+  "marfcat-output": {
+    "parser": "json",
+    "schema": {
+      "toolName": "string",
+      "toolVersion": "string",
+      "weaknesses": []
+    }
   }
 }

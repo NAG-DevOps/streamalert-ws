@@ -9,3 +9,7 @@ def send_nn_to_slack(record):
 @rule(logs=['marfcat-input'], outputs=['slack:soen487'])
 def send_mi_to_slack(record):
     return True
+
+@rule(logs=['marfcat-output'], outputs=['slack:soen487'])
+def send_mo_to_slack(record):
+    return True
