@@ -19,7 +19,8 @@
       "logs": [
         "neural-network",
         "marfcat-input",
-        "marfcat-output"
+        "marfcat-output",
+        "le-devoir"
       ]
     }
   },

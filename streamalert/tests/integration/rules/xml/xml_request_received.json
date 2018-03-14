@@ -226,7 +226,8 @@
           }
         ]
       },
-      "description": "Neural Network XML request received and forwarding its data to Slack",
+      "description":
+        "Neural Network XML request received and forwarding its data to Slack",
       "log": "neural-network",
       "service": "s3",
       "source": "soen487.streamalerts",
@@ -243,11 +244,12 @@
         },
         "files": [
           {
-            "test":"test"
+            "test": "test"
           }
         ]
       },
-      "description": "Marfcat-in XML request received and forwarding its data to Slack",
+      "description":
+        "Marfcat-in XML request received and forwarding its data to Slack",
       "log": "marfcat-input",
       "service": "s3",
       "source": "soen487.streamalerts",
@@ -268,11 +270,36 @@
           }
         ]
       },
-      "description": "Marfcat-out XML request received and forwarding its data to Slack",
+      "description":
+        "Marfcat-out XML request received and forwarding its data to Slack",
       "log": "marfcat-output",
       "service": "s3",
       "source": "soen487.streamalerts",
       "trigger_rules": ["send_mo_to_slack"]
+    },
+    {
+      "data": {
+        "titles": {
+          "titles": [
+            { "title": "Fil de presse Le Devoir" },
+            { "title": "Fil de presse Le Devoir" },
+            {
+              "title":
+                "Le Canadien signe une victoire contre les Stars de Dallas"
+            },
+            {
+              "title":
+                "Raonic atteint le quatrieme tour au tournoi Indian Wells"
+            }
+          ]
+        }
+      },
+      "description":
+        "Le-Devoir XML request received and forwarding its data to Slack",
+      "log": "le-devoir",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["send_ld_to_slack"]
     }
   ]
 }

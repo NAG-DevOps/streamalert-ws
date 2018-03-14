@@ -1513,5 +1513,11 @@
       "toolVersion": "string",
       "weaknesses": []
     }
+  },
+  "le-devoir": {
+    "parser": "json",
+    "schema": {
+      "titles": []
+    }
   }
 }
