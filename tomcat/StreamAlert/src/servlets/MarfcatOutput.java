@@ -16,6 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
 import marfcat.Report;
 
 /**
@@ -95,6 +99,14 @@ public class MarfcatOutput extends HttpServlet {
 		}
 		try {
 			Report rp = XmlParser.unmarshal(xmlString, Report.class);
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.enable(SerializationFeature.INDENT_OUTPUT);
+			String jsonPretty = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(rp);
+			JsonNode jsonNode = mapper.readValue(jsonPretty, JsonNode.class);
+			System.out.println(jsonNode);
+			// Send XML data to Slack #streamalert channel
+			AWSUtils awsUtils = new AWSUtils("soen487.streamalerts", "us-east-1");
+			awsUtils.putJSON(jsonNode.toString(), "marfcat-output.json");
 			request.setAttribute("report-tool_name", rp.toolName);
 			request.setAttribute("report-tool_version", rp.toolVersion);
 			request.setAttribute("weaknesses", rp.weaknesses);
