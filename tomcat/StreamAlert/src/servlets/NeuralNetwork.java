@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationConfig;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import neural_network.Net;
@@ -47,9 +46,11 @@ public class NeuralNetwork extends HttpServlet {
 			Net neuralNetwork = XmlParser.unmarshal(xmlString, Net.class);
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.enable(SerializationFeature.INDENT_OUTPUT);
-			String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(neuralNetwork);
-			System.out.println(json);
-			request.setAttribute("neuralNetwork", json);
+			String jsonPretty = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(neuralNetwork);
+			JsonNode jsonNode = mapper.readValue(jsonPretty, JsonNode.class);
+			AWSUtils awsUtils = new AWSUtils("soen487.streamalerts", "us-east-1");
+			awsUtils.putJSON(jsonNode.toString(), "neural-network.json");
+			request.setAttribute("neuralNetwork", jsonPretty);
 			response.setContentType("text/html");
 	        request.getRequestDispatcher("/WEB-INF/jsp/neural-network.jsp").forward(request, response);
 		} catch (Exception e) {
@@ -60,7 +61,7 @@ public class NeuralNetwork extends HttpServlet {
 	}
 	
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -87,8 +88,12 @@ public class NeuralNetwork extends HttpServlet {
 			Net neuralNetwork = XmlParser.unmarshal(xmlString, Net.class);
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.enable(SerializationFeature.INDENT_OUTPUT);
-			String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(neuralNetwork);
-			request.setAttribute("neuralNetwork", json);
+			String jsonPretty = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(neuralNetwork);
+			JsonNode jsonNode = mapper.readValue(jsonPretty, JsonNode.class);
+			// Send XML data to Slack #streamalert channel
+			AWSUtils awsUtils = new AWSUtils("soen487.streamalerts", "us-east-1");
+			awsUtils.putJSON(jsonNode.toString(), "neural-network.json");
+			request.setAttribute("neuralNetwork", jsonPretty);
 			response.setContentType("text/html");
 	        request.getRequestDispatcher("/WEB-INF/jsp/neural-network.jsp").forward(request, response);
 		} 

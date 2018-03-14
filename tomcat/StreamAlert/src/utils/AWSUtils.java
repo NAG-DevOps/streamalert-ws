@@ -1,7 +1,14 @@
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -19,19 +26,29 @@ public class AWSUtils {
 		this.bucketName = bucketName;
 		this.region = region;
 		
-        s3Client = AmazonS3ClientBuilder.standard()
-        		.withCredentials(new EnvironmentVariableCredentialsProvider()) 
-                .withRegion(this.region)
-                .build();
+		BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIAJSLHLLIKEPAYSF4A", "z5jkKlxtlF6BJHibxK7EpT9jO8oVkQoYogj3C9HF");
+        s3Client = AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(awsCreds)).withRegion(this.region).build();
+        
+//        s3Client = AmazonS3ClientBuilder.standard()
+//        		.withCredentials(new EnvironmentVariableCredentialsProvider()) 
+//                .withRegion(this.region)
+//                .build();
 	}
 	
-	public void upload(InputStream inputStream, String keyName) {       
-        try {
-            System.out.println("Uploading a new object to S3 from a file\n");
-            s3Client.putObject(new PutObjectRequest(
-            		                 bucketName, keyName, inputStream, new ObjectMetadata()));
+	public void putJSON(String json, String keyName) {
+		System.out.println("Uploading a new JSON to S3 from a file\n");
+		File file;
+		try {
+			file = File.createTempFile("testfile", ".json");
+			file.deleteOnExit();
+        
+	        Writer writer = new OutputStreamWriter(new FileOutputStream(file));
+	        writer.write(json);  
+			writer.close();
 
-         } catch (AmazonServiceException ase) {
+			s3Client.putObject(new PutObjectRequest(bucketName, keyName, file));
+			
+		} catch (AmazonServiceException ase) {
             System.out.println("Caught an AmazonServiceException, which " +
             		"means your request made it " +
                     "to Amazon S3, but was rejected with an error response" +
@@ -48,6 +65,9 @@ public class AWSUtils {
                     "communicate with S3, " +
                     "such as not being able to access the network.");
             System.out.println("Error Message: " + ace.getMessage());
-        }
+        } catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
