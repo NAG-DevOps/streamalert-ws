@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
 import marfcat.Dataset;
 
 /**
@@ -88,6 +92,14 @@ public class MarfcatInput extends HttpServlet {
 		}
 		try {
 			Dataset ds = XmlParser.unmarshal(xmlString, Dataset.class);
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.enable(SerializationFeature.INDENT_OUTPUT);
+			String jsonPretty = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(ds);
+			JsonNode jsonNode = mapper.readValue(jsonPretty, JsonNode.class);
+			System.out.println(jsonNode);
+			// Send XML data to Slack #streamalert channel
+			AWSUtils awsUtils = new AWSUtils("soen487.streamalerts", "us-east-1");
+			awsUtils.putJSON(jsonNode.toString(), "marfcat-input.json");
 			request.setAttribute("dataset-generated-by", ds.generatedBy);
 			request.setAttribute("dataset-generated-on", ds.generatedOn);
 			request.setAttribute("description-file-type-tool", ds.description.fileTypeTool);

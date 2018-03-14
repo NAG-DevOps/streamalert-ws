@@ -41,7 +41,6 @@ public class AWSUtils {
 		try {
 			file = File.createTempFile("testfile", ".json");
 			file.deleteOnExit();
-        
 	        Writer writer = new OutputStreamWriter(new FileOutputStream(file));
 	        writer.write(json);  
 			writer.close();
