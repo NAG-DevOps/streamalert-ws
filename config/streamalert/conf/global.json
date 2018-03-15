@@ -1,0 +1,18 @@
+{
+  "account": {
+    "aws_account_id": "561020731041",
+    "kms_key_alias": "stream_alert_secrets_miq",
+    "prefix": "soen487g2",
+    "region": "us-east-1"
+  },
+  "infrastructure": {
+    "monitoring": {
+      "create_sns_topic": true
+    }
+  },
+  "terraform": {
+    "tfstate_bucket": "soen487g2.streamalert.terraform.state",
+    "tfstate_s3_key": "stream_alert_state/terraform.tfstate",
+    "tfvars": "terraform.tfvars"
+  }
+}

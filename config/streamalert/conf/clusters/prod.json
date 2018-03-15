@@ -1,0 +1,45 @@
+{
+  "id": "soen487-s3",
+  "modules": {
+    "cloudtrail": {
+      "enable_kinesis": false,
+      "enable_logging": false
+    },
+    "cloudwatch_monitoring": {
+      "enabled": true,
+      "kinesis_alarms_enabled": false
+    },
+    "s3_events": [
+      {
+        "bucket_id": "soen487g2.s3.streamalert.cloudtrail",
+        "enable_events": true
+      },
+      {
+        "bucket_id": "soen487g2.s3.streamalert.soap",
+        "enable_events": true
+      }
+    ],
+    "stream_alert": {
+      "alert_processor": {
+        "current_version": 5,
+        "log_level": "info",
+        "memory": 128,
+        "outputs": {
+          "aws-lambda": [],
+          "aws-s3": [],
+          "slack": [
+            "pm1-notifications"
+          ]
+        },
+        "timeout": 25
+      },
+      "rule_processor": {
+        "current_version": 6,
+        "log_level": "debug",
+        "memory": 256,
+        "timeout": 10
+      }
+    }
+  },
+  "region": "us-east-1"
+}

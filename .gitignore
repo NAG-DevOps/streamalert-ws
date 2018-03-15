@@ -1,3 +1,84 @@
+<<<<<<< HEAD
+=======
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+.DS_Store
+doc/report/project-report.pdf
+*.tps
+Thumbs.db
+
+# Created by https://www.gitignore.io/api/git,java,eclipse,java-web
+
+### Eclipse ###
+
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
+
+### Eclipse Patch ###
+# Eclipse Core		
+.project
+
+# JDT-specific (Eclipse Java Development Tools)		
+.classpath
+
+### Git ###
+*.orig
+
+### Java ###
+>>>>>>> 4e0bdfc52ad037ddb4cf5b2f40693627e3bd7390
 # Compiled class file
 *.class
 
@@ -11,7 +92,11 @@
 .mtj.tmp/
 
 # Package Files #
+<<<<<<< HEAD
 *.jar
+=======
+#*.jar
+>>>>>>> 4e0bdfc52ad037ddb4cf5b2f40693627e3bd7390
 *.war
 *.ear
 *.zip
@@ -20,3 +105,15 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+<<<<<<< HEAD
+=======
+
+### Java-Web ###
+## ignoring target file
+target/
+
+# Report generated files #
+*.synctex.gz
+
+# End of https://www.gitignore.io/api/git,java,eclipse,java-web
+>>>>>>> 4e0bdfc52ad037ddb4cf5b2f40693627e3bd7390
