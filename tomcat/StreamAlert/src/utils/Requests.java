@@ -38,9 +38,7 @@ public class Requests {
 	 */
 	public static String getWithBasicAuth(String urlToRead, String username, String password) throws Exception {
 		URL url = new URL (urlToRead);
-        //String encoding = Base64.getEncoder().encodeToString((username+":"+password).getBytes(‌"utf-8"));
 		String authStr = username + ":" + password;
-//		String encoding = Base64.getEncoder().encodeToString(Base64.getEncoder().encode(authStr.getBytes()));
 		String encoding = Base64.getEncoder().encodeToString((username+":"+password).getBytes(StandardCharsets.UTF_8));
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
