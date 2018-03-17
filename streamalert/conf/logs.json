@@ -1519,5 +1519,94 @@
     "schema": {
       "titles": []
     }
+  },
+  "feeds": {
+    "parser": "json",
+    "schema": {
+      "timeline_url": "string",
+      "user_url": "string",
+      "current_user_public_url": "string",
+      "current_user_url": "string",
+      "current_user_actor_url": "string",
+      "current_user_organization_url": "",
+      "current_user_organization_urls": [
+        "string"
+      ],
+      "_links": {
+        "timeline": {
+          "href": "string",
+          "type": "string"
+        },
+        "user": {
+          "href": "string",
+          "type": "string"
+        },
+        "current_user_public": {
+          "href": "string",
+          "type": "string"
+        },
+        "current_user": {
+          "href": "string",
+          "type": "string"
+        },
+        "current_user_actor": {
+          "href": "string",
+          "type": "string"
+        },
+        "current_user_organization": {
+          "href": "",
+          "type": ""
+        },
+        "current_user_organizations": [
+          {
+            "href": "string",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "alert": {
+    "parser": "json",
+    "schema": {
+      "title": "string",
+      "message": "string"
+    }
+  },
+  "issue": {
+    "parser": "json",
+    "schema": {
+      "id": "integer",
+      "url": "string",
+      "repository_url": "string",
+      "labels_url": "string",
+      "comments_url": "string",
+      "events_url": "string",
+      "html_url": "string",
+      "number": "integer",
+      "state": "string",
+      "title": "string",
+      "body": "string",
+      "user": {},
+      "labels": [],
+      "assignee": {},
+      "assignees": [],
+      "milestone": {},
+      "locked": "boolean",
+      "active_lock_reason": "string",
+      "comments": "integer",
+      "pull_request": {},
+      "closed_at": "string",
+      "created_at": "string",
+      "updated_at": "string",
+      "closed_by": {},
+      "author_association": "string"
+    },
+    "configuration": {
+      "optional_top_level_keys": [
+        "active_lock_reason",
+        "pull_request"
+      ]
+    }
   }
 }

@@ -20,7 +20,10 @@
         "neural-network",
         "marfcat-input",
         "marfcat-output",
-        "le-devoir"
+        "le-devoir",
+        "feeds",
+        "alert",
+        "issue"
       ]
     }
   },
