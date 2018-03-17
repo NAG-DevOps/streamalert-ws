@@ -54,4 +54,28 @@ public class Requests {
 		in.close();
 		return result.toString();
 	}
+	
+	
+	/**
+	 * Request a HTTP GET method on a URL.
+	 * @param urlToRead URL to open the connection on
+	 * @return Formatted string containing the request's input stream
+	 * @throws Exception
+	 */
+	public static String getWithOAuth(String urlToRead, String accessToken) throws Exception {
+		String urlWithAccessToken = urlToRead + "?access_token=" + accessToken;
+		URL url = new URL (urlWithAccessToken);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+        connection.setDoOutput(true);
+        InputStream content = (InputStream)connection.getInputStream();
+        BufferedReader in = new BufferedReader (new InputStreamReader (content));
+        String line;
+        StringBuilder result = new StringBuilder();
+        while ((line = in.readLine()) != null) {
+            result.append(line);
+        }
+		in.close();
+		return result.toString();
+	}
 }

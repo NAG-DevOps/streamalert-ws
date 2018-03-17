@@ -31,8 +31,6 @@ public class Pull extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String user = request.getHeader("username");
-		String pass = request.getHeader("password");
 
 		String uriEnding = request.getPathInfo();
 		String [] uriParts = uriEnding.split("/");
@@ -63,9 +61,10 @@ public class Pull extends HttpServlet {
 		}
 		else if (uriParts.length == 3 && type.equals("facebook")) {
 			String account = uriParts[2];
-			String url = "https://graph.facebook.com/v2.12/" + account;
+			String url = "https://graph.facebook.com/v2.12/" + account + "/feed";
+			String accessToken = request.getHeader("access_token");
 			try {
-				getResponse = Requests.getWithBasicAuth(url, user, pass);
+				getResponse = Requests.getWithOAuth(url, accessToken);
 				ObjectMapper mapper = new ObjectMapper();
 				mapper.enable(SerializationFeature.INDENT_OUTPUT);
 				JsonNode jsonNode = mapper.readValue(getResponse, JsonNode.class);
