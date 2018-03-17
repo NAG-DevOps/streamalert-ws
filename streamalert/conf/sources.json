@@ -21,9 +21,9 @@
         "marfcat-input",
         "marfcat-output",
         "le-devoir",
-        "feeds",
+        "github_feeds",
         "alert",
-        "issue"
+        "github_issue"
       ]
     }
   },

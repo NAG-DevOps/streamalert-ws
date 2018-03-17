@@ -56,10 +56,10 @@
       },
       "description":
         "GET '/pull/github/repo/issue' request received and forwarded its data to Slack",
-      "log": "issue",
+      "log": "github_issue",
       "service": "s3",
       "source": "soen487.streamalerts",
-      "trigger_rules": ["github_issue_retrieved"]
+      "trigger_rules": ["github_get_single_issue"]
     }
   ]
 }

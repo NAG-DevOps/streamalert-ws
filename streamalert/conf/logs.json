@@ -1520,7 +1520,7 @@
       "titles": []
     }
   },
-  "feeds": {
+  "github_feeds": {
     "parser": "json",
     "schema": {
       "timeline_url": "string",
@@ -1573,7 +1573,7 @@
       "message": "string"
     }
   },
-  "issue": {
+  "github_issue": {
     "parser": "json",
     "schema": {
       "id": "integer",
