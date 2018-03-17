@@ -1,0 +1,52 @@
+{
+  "records": [
+    {
+      "data": {
+        "timeline_url": "test",
+        "user_url": "test",
+        "current_user_public_url": "test",
+        "current_user_url": "test",
+        "current_user_actor_url": "test",
+        "current_user_organization_url": "test",
+        "current_user_organization_urls": ["test"],
+        "_links": {
+          "timeline": {
+            "href": "test",
+            "type": "test"
+          },
+          "user": {
+            "href": "test",
+            "type": "test"
+          },
+          "current_user_public": {
+            "href": "test",
+            "type": "test"
+          },
+          "current_user": {
+            "href": "test",
+            "type": "test"
+          },
+          "current_user_actor": {
+            "href": "test",
+            "type": "test"
+          },
+          "current_user_organization": {
+            "href": "test",
+            "type": "test"
+          },
+          "current_user_organizations": [
+            {
+              "href": "test",
+              "type": "test"
+            }
+          ]
+        }
+      },
+      "description": "GitHub '/feed' request received and forwarded its data to Slack",
+      "log": "feeds",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["send_github_feeds_to_slack"]
+    }
+  ]
+}

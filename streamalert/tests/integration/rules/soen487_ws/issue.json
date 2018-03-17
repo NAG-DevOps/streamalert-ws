@@ -1,0 +1,65 @@
+{
+  "records": [
+    {
+      "data": {
+        "url":
+          "https://api.github.com/repos/tensorflow/tensorflow/issues/17747",
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "labels_url":
+          "https://api.github.com/repos/tensorflow/tensorflow/issues/17747/labels{/name}",
+        "comments_url":
+          "https://api.github.com/repos/tensorflow/tensorflow/issues/17747/comments",
+        "events_url":
+          "https://api.github.com/repos/tensorflow/tensorflow/issues/17747/events",
+        "html_url": "https://github.com/tensorflow/tensorflow/issues/17747",
+        "id": 305746183,
+        "number": 17747,
+        "title":
+          "Error polling for event status: failed to query event: CUDA_ERROR_ILLEGAL_INSTRUCTION",
+        "user": {
+          "login": "fsaxen",
+          "id": 12739067,
+          "avatar_url": "https://avatars0.githubusercontent.com/u/12739067?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/fsaxen",
+          "html_url": "https://github.com/fsaxen",
+          "followers_url": "https://api.github.com/users/fsaxen/followers",
+          "following_url":
+            "https://api.github.com/users/fsaxen/following{/other_user}",
+          "gists_url": "https://api.github.com/users/fsaxen/gists{/gist_id}",
+          "starred_url":
+            "https://api.github.com/users/fsaxen/starred{/owner}{/repo}",
+          "subscriptions_url":
+            "https://api.github.com/users/fsaxen/subscriptions",
+          "organizations_url": "https://api.github.com/users/fsaxen/orgs",
+          "repos_url": "https://api.github.com/users/fsaxen/repos",
+          "events_url": "https://api.github.com/users/fsaxen/events{/privacy}",
+          "received_events_url":
+            "https://api.github.com/users/fsaxen/received_events",
+          "type": "User",
+          "site_admin": false
+        },
+        "labels": [],
+        "state": "open",
+        "locked": false,
+        "assignee": null,
+        "assignees": [],
+        "milestone": null,
+        "comments": 0,
+        "created_at": "2018-03-15T22:50:28Z",
+        "updated_at": "2018-03-15T22:50:28Z",
+        "closed_at": null,
+        "author_association": "NONE",
+        "body":
+          "### System information\r\n- **Have I written custom code (as opposed to using a stock example script provided in TensorFlow)**: Yes\r\n- **OS Platform and Distribution (e.g., Linux Ubuntu 16.04)**: Windows 10\r\n- **TensorFlow installed from (source or binary)**: Binary\r\n- **TensorFlow version (use command below)**: 1.6.0\r\n- **Python version**: 3.5.2\r\n- **CUDA/cuDNN version**: 9.0/cudnn7\r\n- **GPU model and memory**: GTX 1080 (8GB)\r\n- **Exact command to reproduce**:\r\n\r\n### Any Idea why this small example produces the following error?\r\n**ERROR:**\r\n*2018-03-15 23:20:48.744262: E C:\\tf_jenkins\\workspace\\rel-win\\M\\windows-gpu\\PY\\35\\tensorflow\\stream_executor\\cuda\\cuda_event.cc:49] Error polling for event status: failed to query event: CUDA_ERROR_ILLEGAL_INSTRUCTION*\r\n*2018-03-15 23:20:48.746624: F C:\\tf_jenkins\\workspace\\rel-win\\M\\windows-gpu\\PY\\35\\tensorflow\\core\\common_runtime\\gpu\\gpu_event_mgr.cc:203] Unexpected Event status: 1*\r\n\r\n**CODE:**\r\n```\r\nimport numpy as np\r\nimport tensorflow as tf\r\nbatch_size = 64\r\nchannels = 3\r\nimage_size = 32\r\n\r\nif __name__ == '__main__':\r\n    images = tf.random_normal(shape=[batch_size, image_size, image_size, channels], dtype=tf.float32)\r\n    angle_rad = 30. / 180. * np.pi\r\n    angles = tf.random_uniform([batch_size], -angle_rad, angle_rad)\r\n    images = tf.contrib.image.rotate(images, angles)\r\n     \r\n    with tf.Session() as sess:\r\n         _ = sess.run(images)\r\n```\r\n",
+        "closed_by": null
+      },
+      "description":
+        "GET '/pull/github/repo/issue' request received and forwarded its data to Slack",
+      "log": "issue",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["github_issue_retrieved"]
+    }
+  ]
+}
