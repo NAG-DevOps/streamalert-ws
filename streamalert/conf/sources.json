@@ -23,7 +23,8 @@
         "le-devoir",
         "github_feeds",
         "alert",
-        "github_issue"
+        "github_issue",
+        "facebook_feeds"
       ]
     }
   },

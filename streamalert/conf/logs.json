@@ -1608,5 +1608,19 @@
         "pull_request"
       ]
     }
+  },
+  "facebook_feeds": {
+    "parser": "json",
+    "schema": {
+      "data": [{
+        "story": "string",
+        "created_time": "string",
+        "id": "string"
+      }],
+      "paging": {
+        "previous": "string",
+        "next": "string"
+      }
+    }
   }
 }
