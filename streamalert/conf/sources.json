@@ -24,7 +24,8 @@
         "github_feeds",
         "alert",
         "github_issue",
-        "facebook_feeds"
+        "facebook_feeds",
+        "splints_feeds"
       ]
     }
   },
