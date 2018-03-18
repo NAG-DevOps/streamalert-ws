@@ -34,7 +34,7 @@
     ],
     "stream_alert": {
       "alert_processor": {
-        "current_version": 32,
+        "current_version": 33,
         "log_level": "debug",
         "memory": 128,
         "outputs": {
@@ -47,7 +47,7 @@
         "timeout": 60
       },
       "rule_processor": {
-        "current_version": 34,
+        "current_version": 35,
         "enable_metrics": true,
         "log_level": "debug",
         "memory": 128,

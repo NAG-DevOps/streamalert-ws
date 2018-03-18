@@ -25,7 +25,8 @@
         "alert",
         "github_issue",
         "facebook_feeds",
-        "splints_feeds"
+        "splints_feeds",
+        "wscgen_feeds"
       ]
     }
   },

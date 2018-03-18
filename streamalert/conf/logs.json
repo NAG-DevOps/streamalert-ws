@@ -22,7 +22,9 @@
     },
     "parser": "json",
     "configuration": {
-      "optional_top_level_keys": ["accessible_by"]
+      "optional_top_level_keys": [
+        "accessible_by"
+      ]
     }
   },
   "carbonblack:alert.status.updated": {
@@ -40,7 +42,10 @@
     },
     "parser": "json",
     "configuration": {
-      "optional_top_level_keys": ["ioc_query_index", "ioc_query_string"]
+      "optional_top_level_keys": [
+        "ioc_query_index",
+        "ioc_query_string"
+      ]
     }
   },
   "carbonblack:alert.watchlist.hit.feedsearch.bin": {
@@ -80,7 +85,9 @@
     "parser": "json",
     "configuration": {
       "log_patterns": {
-        "type": ["alert.watchlist.hit.feedsearch.binary"]
+        "type": [
+          "alert.watchlist.hit.feedsearch.binary"
+        ]
       },
       "optional_top_level_keys": [
         "assigned_to",
@@ -177,7 +184,9 @@
     "parser": "json",
     "configuration": {
       "log_patterns": {
-        "type": ["alert.watchlist.hit.ingress.process"]
+        "type": [
+          "alert.watchlist.hit.ingress.process"
+        ]
       },
       "optional_top_level_keys": [
         "assigned_to",
@@ -260,7 +269,9 @@
     "parser": "json",
     "configuration": {
       "log_patterns": {
-        "type": ["alert.watchlist.hit.query.process"]
+        "type": [
+          "alert.watchlist.hit.query.process"
+        ]
       },
       "optional_top_level_keys": [
         "alliance_data_bit9endpointvisibility",
@@ -394,7 +405,9 @@
     "parser": "json",
     "configuration": {
       "log_patterns": {
-        "type": ["feed.ingress.hit.process"]
+        "type": [
+          "feed.ingress.hit.process"
+        ]
       }
     }
   },
@@ -590,7 +603,10 @@
       "type": "string"
     },
     "configuration": {
-      "optional_top_level_keys": ["ioc_query_index", "ioc_query_string"]
+      "optional_top_level_keys": [
+        "ioc_query_index",
+        "ioc_query_string"
+      ]
     },
     "parser": "json"
   },
@@ -624,7 +640,10 @@
     },
     "parser": "json",
     "configuration": {
-      "optional_top_level_keys": ["ioc_query_index", "ioc_query_string"]
+      "optional_top_level_keys": [
+        "ioc_query_index",
+        "ioc_query_string"
+      ]
     }
   },
   "carbonblack:feed.synchronized": {
@@ -844,7 +863,9 @@
     },
     "parser": "json",
     "configuration": {
-      "optional_top_level_keys": ["assigned_to"]
+      "optional_top_level_keys": [
+        "assigned_to"
+      ]
     }
   },
   "carbonblack:watchlist.hit.process": {
@@ -966,7 +987,9 @@
     "parser": "json",
     "configuration": {
       "log_patterns": {
-        "type": ["watchlist.storage.hit.binary"]
+        "type": [
+          "watchlist.storage.hit.binary"
+        ]
       }
     }
   },
@@ -987,7 +1010,9 @@
     "parser": "json",
     "configuration": {
       "log_patterns": {
-        "type": ["watchlist.storage.hit.process"]
+        "type": [
+          "watchlist.storage.hit.process"
+        ]
       }
     }
   },
@@ -1166,8 +1191,19 @@
         "timestamp": "string"
       },
       "json_regex_key": "message",
-      "optional_envelope_keys": ["logsource", "pid", "program", "timestamp"],
-      "optional_top_level_keys": ["repo", "repo_id", "user", "user_id", "org"]
+      "optional_envelope_keys": [
+        "logsource",
+        "pid",
+        "program",
+        "timestamp"
+      ],
+      "optional_top_level_keys": [
+        "repo",
+        "repo_id",
+        "user",
+        "user_id",
+        "org"
+      ]
     }
   },
   "ghe:syslog": {
@@ -1243,7 +1279,11 @@
     },
     "parser": "json",
     "configuration": {
-      "optional_top_level_keys": ["etag", "ipAddress", "ownerDomain"]
+      "optional_top_level_keys": [
+        "etag",
+        "ipAddress",
+        "ownerDomain"
+      ]
     }
   },
   "onelogin:events": {
@@ -1298,7 +1338,11 @@
     },
     "parser": "json",
     "configuration": {
-      "optional_top_level_keys": ["decorations", "epoch", "counter"]
+      "optional_top_level_keys": [
+        "decorations",
+        "epoch",
+        "counter"
+      ]
     }
   },
   "osquery:differential": {
@@ -1316,7 +1360,12 @@
     },
     "parser": "json",
     "configuration": {
-      "optional_top_level_keys": ["counter", "decorations", "epoch", "log_type"]
+      "optional_top_level_keys": [
+        "counter",
+        "decorations",
+        "epoch",
+        "log_type"
+      ]
     }
   },
   "osquery:snapshot": {
@@ -1334,7 +1383,11 @@
     },
     "parser": "json",
     "configuration": {
-      "optional_top_level_keys": ["decorations", "epoch", "counter"]
+      "optional_top_level_keys": [
+        "decorations",
+        "epoch",
+        "counter"
+      ]
     }
   },
   "osquery:status": {
@@ -1352,7 +1405,9 @@
     },
     "parser": "json",
     "configuration": {
-      "optional_top_level_keys": ["decorations"]
+      "optional_top_level_keys": [
+        "decorations"
+      ]
     }
   },
   "pan": {
@@ -1421,7 +1476,9 @@
     "parser": "csv",
     "configuration": {
       "log_patterns": {
-        "type": ["TRAFFIC"]
+        "type": [
+          "TRAFFIC"
+        ]
       }
     }
   },
@@ -1472,7 +1529,9 @@
       "current_user_url": "string",
       "current_user_actor_url": "string",
       "current_user_organization_url": "",
-      "current_user_organization_urls": ["string"],
+      "current_user_organization_urls": [
+        "string"
+      ],
       "_links": {
         "timeline": {
           "href": "string",
@@ -1544,7 +1603,10 @@
       "author_association": "string"
     },
     "configuration": {
-      "optional_top_level_keys": ["active_lock_reason", "pull_request"]
+      "optional_top_level_keys": [
+        "active_lock_reason",
+        "pull_request"
+      ]
     }
   },
   "facebook_feeds": {
@@ -1564,6 +1626,23 @@
     }
   },
   "splints_feeds": {
+    "parser": "json",
+    "schema": {
+      "id": "string",
+      "type": "string",
+      "actor": {},
+      "repo": {
+        "id": "integer",
+        "name": "string",
+        "url": "string"
+      },
+      "payload": {},
+      "public": "boolean",
+      "created_at": "string",
+      "org": {}
+    }
+  },
+  "wscgen_feeds": {
     "parser": "json",
     "schema": {
       "id": "string",

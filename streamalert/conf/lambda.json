@@ -2,15 +2,15 @@
   "alert_processor_config": {
     "handler": "stream_alert.alert_processor.main.handler",
     "source_bucket": "soen487.streamalert.source",
-    "source_current_hash": "cm3l1MiC1zV8sF5N8tx8GlQUs+Ze9cYbEsRsgRz5238=",
-    "source_object_key": "alert_processor/alert_processor_1.6.0_20180317_T164531.zip",
+    "source_current_hash": "wmK5UQtqqOWUBEGriMpTa7CyRoMOsCEILK+iXzp12P8=",
+    "source_object_key": "alert_processor/alert_processor_1.6.0_20180318_T231252.zip",
     "third_party_libraries": []
   },
   "rule_processor_config": {
     "handler": "stream_alert.rule_processor.main.handler",
     "source_bucket": "soen487.streamalert.source",
-    "source_current_hash": "Xv1XuuuFp9J9Galio469gKZ9RnE85kMBwZNpklj8PT8=",
-    "source_object_key": "rule_processor/rule_processor_1.6.0_20180317_T164526.zip",
+    "source_current_hash": "VDN+DpLUPLvJYI6kxHifvWBCO/Ev8s6SgjLGewNKbM4=",
+    "source_object_key": "rule_processor/rule_processor_1.6.0_20180318_T231248.zip",
     "third_party_libraries": [
       "netaddr"
     ]
@@ -18,8 +18,8 @@
   "stream_alert_apps_config": {
     "handler": "app_integrations.main.handler",
     "source_bucket": "soen487.streamalert.source",
-    "source_current_hash": "BuFi04X8ZQRQXrt7CvKwF1NeuQjmB3ce8luJhwr4Xfs=",
-    "source_object_key": "stream_alert_app/stream_alert_app_1.0.0_20180317_T164517.zip",
+    "source_current_hash": "oj1y4pOq10EP5qhSgis5ijcbZCkWi4O1LWGKcKq6Gb0=",
+    "source_object_key": "stream_alert_app/stream_alert_app_1.0.0_20180318_T231238.zip",
     "third_party_libraries": []
   }
 }
