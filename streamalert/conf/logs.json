@@ -1625,6 +1625,20 @@
       }
     }
   },
+  "facebook_single_feed": {
+    "parser": "json",
+    "schema": {
+      "story": "string",
+      "message": "string",
+      "created_time": "string",
+      "id": "string"
+    },
+    "configuration": {
+      "optional_top_level_keys": [
+        "message"
+      ]
+    }
+  },
   "splints_feeds": {
     "parser": "json",
     "schema": {

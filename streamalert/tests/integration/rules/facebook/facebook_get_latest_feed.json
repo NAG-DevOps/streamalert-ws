@@ -1,0 +1,33 @@
+{
+  "records": [
+    {
+      "data": {
+        "created_time": "2018-03-09T03:06:34+0000",
+        "story":
+          "Canada China Art Tech shared Canada China International Film Festival's post.",
+        "id": "1659127747690489_2077565802513346"
+      },
+      "description":
+        "Single Facebook request received and forwarded its data to Slack",
+      "log": "facebook_single_feed",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["facebook_get_latest_feed"]
+    },
+    {
+      "data": {
+        "created_time": "2018-03-12T20:05:28+0000",
+        "message":
+          "Please notice: the Location has changed to: the 9th floor of the John Molson School of Business building of Concordia University, (1450 Guy St, Montreal, QC H3H 0A1)",
+        "story": "Canada China International Film Festival shared their event.",
+        "id": "1504317536536823_1855471028088137"
+      },
+      "description":
+        "Single Facebook request received and forwarded its data to Slack",
+      "log": "facebook_single_feed",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["facebook_get_latest_feed"]
+    }
+  ]
+}
