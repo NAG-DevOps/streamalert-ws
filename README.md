@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 # streamalert-ws
 StreamAlert as a web service (REST and SOAP) with some test integrations and deployments
-=======
-# README #
 
 ## General structure ##
 
@@ -25,4 +22,3 @@ StreamAlert as a web service (REST and SOAP) with some test integrations and dep
 ### Who do I talk to? ###
 
 * [Alex Genio - Team Leader](mailto:alexgenio1995@gmail.com)
->>>>>>> 4e0bdfc52ad037ddb4cf5b2f40693627e3bd7390
