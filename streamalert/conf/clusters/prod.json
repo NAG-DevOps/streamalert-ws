@@ -1,0 +1,66 @@
+{
+  "id": "prod",
+  "modules": {
+    "cloudtrail": {
+      "enable_kinesis": false,
+      "enable_logging": true
+    },
+    "cloudwatch_monitoring": {
+      "enabled": true,
+      "kinesis_alarms_enabled": true,
+      "lambda_alarms_enabled": true
+    },
+    "kinesis": {
+      "streams": {
+        "create_user": true,
+        "retention": 24,
+        "shards": 1,
+        "trusted_accounts": []
+      }
+    },
+    "kinesis_events": {
+      "batch_size": 100,
+      "enabled": true
+    },
+    "s3_events": [
+      {
+        "bucket_id": "soen487.prod.streamalert.cloudtrail",
+        "enable_events": true
+      },
+      {
+        "bucket_id": "soen487.streamalerts",
+        "enable_events": true
+      }
+    ],
+    "stream_alert": {
+      "alert_processor": {
+        "current_version": 34,
+        "log_level": "debug",
+        "memory": 128,
+        "outputs": {
+          "aws-lambda": [],
+          "aws-s3": [],
+          "slack": [
+            "soen487"
+          ]
+        },
+        "timeout": 60
+      },
+      "rule_processor": {
+        "current_version": 36,
+        "enable_metrics": true,
+        "log_level": "debug",
+        "memory": 128,
+        "timeout": 10
+      }
+    }
+  },
+  "outputs": {
+    "kinesis": [
+      "username",
+      "access_key_id",
+      "secret_key"
+    ]
+  },
+  "region": "us-east-1"
+}

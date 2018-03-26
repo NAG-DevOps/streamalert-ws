@@ -20,3 +20,27 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+.DS_Store
+doc/report/project-report.pdf
+*.tps
+Thumbs.db
+tomcat/StreamAlert/build/
+.metadata/
+tomcat/StreamAlert/.settings/org.eclipse.wst.common.project.facet.core.prefs.xml/
+tomcat/war/
+.recommenders/
+
+# Compiled class file
+*.class
+.classpath
+/PM2CustomerDB/nbproject/private/
+/PM2CustomerDBClient/build/
+/PM2CustomerDBClient/dist/
