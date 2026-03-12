@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Temperature 2.2c</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="title">
+            <h1>
+                Javascript client stub for RESTful Web Services - Test
+            </h1>
+            <h2>
+                Test TemperatureServiceRest with Javascript
+            </h2>
+        </div>
+        <div id="app"></div>
+        <div id="setTemp"></div>
+        <div id="newTemp"></div>
+        <script>
+            function get_temperature(div) {
+                $.ajax({
+                    type: "GET",
+                    url: "http://localhost:8080/PM2Temperature/webresources/generic",
+                    async: true,
+                    contentType: "application/xml",
+                    dataType: "json",
+                    success: function(data) {
+                        console.log("success");
+                        console.log(data.body);
+                        console.log("end data");
+                        var tableData = "<h2>Today's temperature is " + data + "!</h2>";
+                        $('#'+div).html(tableData);
+                        console.log(data);
+                    },
+                    error: function(data) {
+                        console.log(data);
+                        console.log("error");
+                    }
+                });
+            }
+            function put_temperature(temperature) {
+                $.ajax({
+                    type: 'PUT',
+                    url: 'http://localhost:8080/PM2Temperature/webresources/generic',
+                    async: false,
+                    dataType: "string",
+                    data: temperature,
+                    contentType: "application/xml",
+                    success: function(data) {
+                        console.log("put is done");
+                        var temperatureData = "<h2>Set temperature to " + temperature + "</h2>";
+                        $('#setTemp').html(temperatureData);
+                        console.log(data);
+                    },
+                    error: function(data) {
+                        console.log("put error");
+                        console.log(data);
+                    }
+                });                
+            }
+            get_temperature('app');
+            put_temperature("20");
+            get_temperature('newTemp');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,117 @@
+{
+  "module": {
+    "globals": {
+      "account_id": "610860508905", 
+      "prefix": "soen487", 
+      "region": "us-east-1", 
+      "source": "modules/tf_stream_alert_globals"
+    }
+  }, 
+  "provider": {
+    "aws": {
+      "version": "~> 1.5.0"
+    }
+  }, 
+  "resource": {
+    "aws_kms_alias": {
+      "stream_alert_secrets": {
+        "name": "alias/stream_alert_secrets", 
+        "target_key_id": "${aws_kms_key.stream_alert_secrets.key_id}"
+      }
+    }, 
+    "aws_kms_key": {
+      "stream_alert_secrets": {
+        "description": "StreamAlert secret management", 
+        "enable_key_rotation": true
+      }
+    }, 
+    "aws_s3_bucket": {
+      "lambda_source": {
+        "acl": "private", 
+        "bucket": "soen487.streamalert.source", 
+        "force_destroy": true, 
+        "logging": {
+          "target_bucket": "soen487.streamalert.s3-logging", 
+          "target_prefix": "soen487.streamalert.source/"
+        }, 
+        "versioning": {
+          "enabled": true
+        }
+      }, 
+      "logging_bucket": {
+        "acl": "log-delivery-write", 
+        "bucket": "soen487.streamalert.s3-logging", 
+        "force_destroy": true, 
+        "lifecycle_rule": {
+          "enabled": true, 
+          "prefix": "/", 
+          "transition": {
+            "days": 30, 
+            "storage_class": "GLACIER"
+          }
+        }, 
+        "logging": {
+          "target_bucket": "soen487.streamalert.s3-logging", 
+          "target_prefix": "soen487.streamalert.s3-logging/"
+        }, 
+        "versioning": {
+          "enabled": true
+        }
+      }, 
+      "stream_alert_secrets": {
+        "acl": "private", 
+        "bucket": "soen487.streamalert.secrets", 
+        "force_destroy": true, 
+        "logging": {
+          "target_bucket": "soen487.streamalert.s3-logging", 
+          "target_prefix": "soen487.streamalert.secrets/"
+        }, 
+        "versioning": {
+          "enabled": true
+        }
+      }, 
+      "streamalerts": {
+        "acl": "private", 
+        "bucket": "soen487.streamalerts", 
+        "force_destroy": true, 
+        "logging": {
+          "target_bucket": "soen487.streamalert.s3-logging", 
+          "target_prefix": "soen487.streamalerts/"
+        }, 
+        "versioning": {
+          "enabled": true
+        }
+      }, 
+      "terraform_remote_state": {
+        "acl": "private", 
+        "bucket": "soen487.streamalert.terraform.state", 
+        "force_destroy": true, 
+        "logging": {
+          "target_bucket": "soen487.streamalert.s3-logging", 
+          "target_prefix": "soen487.streamalert.terraform.state/"
+        }, 
+        "versioning": {
+          "enabled": true
+        }
+      }
+    }, 
+    "aws_sns_topic": {
+      "stream_alert_monitoring": {
+        "name": "stream_alert_monitoring"
+      }
+    }
+  }, 
+  "terraform": {
+    "backend": {
+      "s3": {
+        "acl": "private", 
+        "bucket": "soen487.streamalert.terraform.state", 
+        "encrypt": true, 
+        "key": "stream_alert_state/terraform.tfstate", 
+        "kms_key_id": "alias/stream_alert_secrets", 
+        "region": "us-east-1"
+      }
+    }, 
+    "required_version": "~> 0.11.3"
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "records": [
+    {
+      "data": {
+        "layer": [
+          {
+            "neuron": [
+              {
+                "input": [],
+                "output": [
+                  {
+                    "ref": 1
+                  },
+                  {
+                    "ref": 2
+                  },
+                  {
+                    "ref": 3
+                  },
+                  {
+                    "ref": 4
+                  },
+                  {
+                    "ref": 5
+                  },
+                  {
+                    "ref": 6
+                  },
+                  {
+                    "ref": 7
+                  },
+                  {
+                    "ref": 8
+                  },
+                  {
+                    "ref": 9
+                  },
+                  {
+                    "ref": 10
+                  },
+                  {
+                    "ref": 11
+                  },
+                  {
+                    "ref": 12
+                  }
+                ],
+                "index": 1,
+                "thresh": 1.0
+              },
+              {
+                "input": [],
+                "output": [
+                  {
+                    "ref": 1
+                  },
+                  {
+                    "ref": 2
+                  },
+                  {
+                    "ref": 3
+                  },
+                  {
+                    "ref": 4
+                  },
+                  {
+                    "ref": 5
+                  },
+                  {
+                    "ref": 6
+                  },
+                  {
+                    "ref": 7
+                  },
+                  {
+                    "ref": 8
+                  },
+                  {
+                    "ref": 9
+                  },
+                  {
+                    "ref": 10
+                  },
+                  {
+                    "ref": 11
+                  },
+                  {
+                    "ref": 12
+                  }
+                ],
+                "index": 2,
+                "thresh": 1.0
+              },
+              {
+                "input": [],
+                "output": [
+                  {
+                    "ref": 1
+                  },
+                  {
+                    "ref": 2
+                  },
+                  {
+                    "ref": 3
+                  },
+                  {
+                    "ref": 4
+                  },
+                  {
+                    "ref": 5
+                  },
+                  {
+                    "ref": 6
+                  },
+                  {
+                    "ref": 7
+                  },
+                  {
+                    "ref": 8
+                  },
+                  {
+                    "ref": 9
+                  },
+                  {
+                    "ref": 10
+                  },
+                  {
+                    "ref": 11
+                  },
+                  {
+                    "ref": 12
+                  }
+                ],
+                "index": 3,
+                "thresh": 1.0
+              },
+              {
+                "input": [],
+                "output": [
+                  {
+                    "ref": 1
+                  },
+                  {
+                    "ref": 2
+                  },
+                  {
+                    "ref": 3
+                  },
+                  {
+                    "ref": 4
+                  },
+                  {
+                    "ref": 5
+                  },
+                  {
+                    "ref": 6
+                  },
+                  {
+                    "ref": 7
+                  },
+                  {
+                    "ref": 8
+                  },
+                  {
+                    "ref": 9
+                  },
+                  {
+                    "ref": 10
+                  },
+                  {
+                    "ref": 11
+                  },
+                  {
+                    "ref": 12
+                  }
+                ],
+                "index": 4,
+                "thresh": 1.0
+              },
+              {
+                "input": [],
+                "output": [
+                  {
+                    "ref": 1
+                  },
+                  {
+                    "ref": 2
+                  },
+                  {
+                    "ref": 3
+                  },
+                  {
+                    "ref": 4
+                  },
+                  {
+                    "ref": 5
+                  },
+                  {
+                    "ref": 6
+                  },
+                  {
+                    "ref": 7
+                  },
+                  {
+                    "ref": 8
+                  },
+                  {
+                    "ref": 9
+                  },
+                  {
+                    "ref": 10
+                  },
+                  {
+                    "ref": 11
+                  },
+                  {
+                    "ref": 12
+                  }
+                ],
+                "index": 5,
+                "thresh": 1.0
+              }
+            ],
+            "type": "input",
+            "index": 1
+          }
+        ]
+      },
+      "description":
+        "Neural Network XML request received and forwarding its data to Slack",
+      "log": "neural-network",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["send_nn_to_slack"]
+    },
+    {
+      "data": {
+        "generatedBy": "test",
+        "generatedOn": "test",
+        "description": {
+          "fileTypeTool": "test",
+          "findTool": "test",
+          "marfTool": "test"
+        },
+        "files": [
+          {
+            "test": "test"
+          }
+        ]
+      },
+      "description":
+        "Marfcat-in XML request received and forwarding its data to Slack",
+      "log": "marfcat-input",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["send_mi_to_slack"]
+    },
+    {
+      "data": {
+        "toolName": "test",
+        "toolVersion": "test",
+        "weaknesses": [
+          {
+            "id": "1",
+            "toolSpecificId": "1",
+            "name": {},
+            "location": {},
+            "grade": {},
+            "output": {}
+          }
+        ]
+      },
+      "description":
+        "Marfcat-out XML request received and forwarding its data to Slack",
+      "log": "marfcat-output",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["send_mo_to_slack"]
+    },
+    {
+      "data": {
+        "titles": {
+          "titles": [
+            { "title": "Fil de presse Le Devoir" },
+            { "title": "Fil de presse Le Devoir" },
+            {
+              "title":
+                "Le Canadien signe une victoire contre les Stars de Dallas"
+            },
+            {
+              "title":
+                "Raonic atteint le quatrieme tour au tournoi Indian Wells"
+            }
+          ]
+        }
+      },
+      "description":
+        "Le-Devoir XML request received and forwarding its data to Slack",
+      "log": "le-devoir",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["send_ld_to_slack"]
+    }
+  ]
+}

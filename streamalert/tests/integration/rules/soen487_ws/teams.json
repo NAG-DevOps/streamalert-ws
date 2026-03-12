@@ -1,0 +1,435 @@
+{
+  "records": [
+    {
+      "data": {
+        "id": "7394029662",
+        "type": "IssueCommentEvent",
+        "actor": {
+          "id": 10067003,
+          "login": "smokhov",
+          "display_login": "smokhov",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/smokhov",
+          "avatar_url": "https://avatars.githubusercontent.com/u/10067003?"
+        },
+        "repo": {
+          "id": 107871950,
+          "name": "NAG-DevOps/splints",
+          "url": "https://api.github.com/repos/NAG-DevOps/splints"
+        },
+        "payload": {
+          "action": "created",
+          "issue": {
+            "url": "https://api.github.com/repos/NAG-DevOps/splints/issues/10",
+            "repository_url": "https://api.github.com/repos/NAG-DevOps/splints",
+            "labels_url":
+              "https://api.github.com/repos/NAG-DevOps/splints/issues/10/labels{/name}",
+            "comments_url":
+              "https://api.github.com/repos/NAG-DevOps/splints/issues/10/comments",
+            "events_url":
+              "https://api.github.com/repos/NAG-DevOps/splints/issues/10/events",
+            "html_url": "https://github.com/NAG-DevOps/splints/pull/10",
+            "id": 300059753,
+            "number": 10,
+            "title": "Pm1.3 team08",
+            "user": {
+              "login": "vincent-fugnitto",
+              "id": 9368351,
+              "avatar_url":
+                "https://avatars0.githubusercontent.com/u/9368351?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/vincent-fugnitto",
+              "html_url": "https://github.com/vincent-fugnitto",
+              "followers_url":
+                "https://api.github.com/users/vincent-fugnitto/followers",
+              "following_url":
+                "https://api.github.com/users/vincent-fugnitto/following{/other_user}",
+              "gists_url":
+                "https://api.github.com/users/vincent-fugnitto/gists{/gist_id}",
+              "starred_url":
+                "https://api.github.com/users/vincent-fugnitto/starred{/owner}{/repo}",
+              "subscriptions_url":
+                "https://api.github.com/users/vincent-fugnitto/subscriptions",
+              "organizations_url":
+                "https://api.github.com/users/vincent-fugnitto/orgs",
+              "repos_url":
+                "https://api.github.com/users/vincent-fugnitto/repos",
+              "events_url":
+                "https://api.github.com/users/vincent-fugnitto/events{/privacy}",
+              "received_events_url":
+                "https://api.github.com/users/vincent-fugnitto/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "labels": [
+              {
+                "id": 831367721,
+                "url":
+                  "https://api.github.com/repos/NAG-DevOps/splints/labels/Java",
+                "name": "Java",
+                "color": "f4dea8",
+                "default": false
+              },
+              {
+                "id": 727367008,
+                "url":
+                  "https://api.github.com/repos/NAG-DevOps/splints/labels/enhancement",
+                "name": "enhancement",
+                "color": "84b6eb",
+                "default": true
+              }
+            ],
+            "state": "closed",
+            "locked": false,
+            "assignee": {
+              "login": "smokhov",
+              "id": 10067003,
+              "avatar_url":
+                "https://avatars0.githubusercontent.com/u/10067003?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/smokhov",
+              "html_url": "https://github.com/smokhov",
+              "followers_url": "https://api.github.com/users/smokhov/followers",
+              "following_url":
+                "https://api.github.com/users/smokhov/following{/other_user}",
+              "gists_url":
+                "https://api.github.com/users/smokhov/gists{/gist_id}",
+              "starred_url":
+                "https://api.github.com/users/smokhov/starred{/owner}{/repo}",
+              "subscriptions_url":
+                "https://api.github.com/users/smokhov/subscriptions",
+              "organizations_url": "https://api.github.com/users/smokhov/orgs",
+              "repos_url": "https://api.github.com/users/smokhov/repos",
+              "events_url":
+                "https://api.github.com/users/smokhov/events{/privacy}",
+              "received_events_url":
+                "https://api.github.com/users/smokhov/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "assignees": [
+              {
+                "login": "smokhov",
+                "id": 10067003,
+                "avatar_url":
+                  "https://avatars0.githubusercontent.com/u/10067003?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/smokhov",
+                "html_url": "https://github.com/smokhov",
+                "followers_url":
+                  "https://api.github.com/users/smokhov/followers",
+                "following_url":
+                  "https://api.github.com/users/smokhov/following{/other_user}",
+                "gists_url":
+                  "https://api.github.com/users/smokhov/gists{/gist_id}",
+                "starred_url":
+                  "https://api.github.com/users/smokhov/starred{/owner}{/repo}",
+                "subscriptions_url":
+                  "https://api.github.com/users/smokhov/subscriptions",
+                "organizations_url":
+                  "https://api.github.com/users/smokhov/orgs",
+                "repos_url": "https://api.github.com/users/smokhov/repos",
+                "events_url":
+                  "https://api.github.com/users/smokhov/events{/privacy}",
+                "received_events_url":
+                  "https://api.github.com/users/smokhov/received_events",
+                "type": "User",
+                "site_admin": false
+              }
+            ],
+            "milestone": null,
+            "comments": 13,
+            "created_at": "2018-02-25T20:49:08Z",
+            "updated_at": "2018-03-17T05:11:31Z",
+            "closed_at": "2018-03-07T02:28:56Z",
+            "author_association": "NONE",
+            "pull_request": {
+              "url": "https://api.github.com/repos/NAG-DevOps/splints/pulls/10",
+              "html_url": "https://github.com/NAG-DevOps/splints/pull/10",
+              "diff_url": "https://github.com/NAG-DevOps/splints/pull/10.diff",
+              "patch_url": "https://github.com/NAG-DevOps/splints/pull/10.patch"
+            },
+            "body":
+              "refactored code based on comments, added rt client and bitbucket issues"
+          },
+          "comment": {
+            "url":
+              "https://api.github.com/repos/NAG-DevOps/splints/issues/comments/373895174",
+            "html_url":
+              "https://github.com/NAG-DevOps/splints/pull/10#issuecomment-373895174",
+            "issue_url":
+              "https://api.github.com/repos/NAG-DevOps/splints/issues/10",
+            "id": 373895174,
+            "user": {
+              "login": "smokhov",
+              "id": 10067003,
+              "avatar_url":
+                "https://avatars0.githubusercontent.com/u/10067003?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/smokhov",
+              "html_url": "https://github.com/smokhov",
+              "followers_url": "https://api.github.com/users/smokhov/followers",
+              "following_url":
+                "https://api.github.com/users/smokhov/following{/other_user}",
+              "gists_url":
+                "https://api.github.com/users/smokhov/gists{/gist_id}",
+              "starred_url":
+                "https://api.github.com/users/smokhov/starred{/owner}{/repo}",
+              "subscriptions_url":
+                "https://api.github.com/users/smokhov/subscriptions",
+              "organizations_url": "https://api.github.com/users/smokhov/orgs",
+              "repos_url": "https://api.github.com/users/smokhov/repos",
+              "events_url":
+                "https://api.github.com/users/smokhov/events{/privacy}",
+              "received_events_url":
+                "https://api.github.com/users/smokhov/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "created_at": "2018-03-17T05:11:31Z",
+            "updated_at": "2018-03-17T05:11:31Z",
+            "author_association": "OWNER",
+            "body":
+              "@vincent-fugnitto -- do not worry for this deadline at this time; better to have completed quality work than incomplete rushed deliverable"
+          }
+        },
+        "public": true,
+        "created_at": "2018-03-17T05:11:31Z",
+        "org": {
+          "id": 25575464,
+          "login": "NAG-DevOps",
+          "gravatar_id": "",
+          "url": "https://api.github.com/orgs/NAG-DevOps",
+          "avatar_url": "https://avatars.githubusercontent.com/u/25575464?"
+        }
+      },
+      "description":
+        "GET latest splint feed request received and forwarded its data to Slack",
+      "log": "splints_feeds",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["get_latest_splints_feed"]
+    },
+    {
+      "data": {
+        "id": "7385458384",
+        "type": "IssueCommentEvent",
+        "actor": {
+          "id": 4071667,
+          "login": "Mchapuis",
+          "display_login": "Mchapuis",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Mchapuis",
+          "avatar_url": "https://avatars.githubusercontent.com/u/4071667?"
+        },
+        "repo": {
+          "id": 82968360,
+          "name": "GIPSY-dev/WSC-Gen",
+          "url": "https://api.github.com/repos/GIPSY-dev/WSC-Gen"
+        },
+        "payload": {
+          "action": "created",
+          "issue": {
+            "url": "https://api.github.com/repos/GIPSY-dev/WSC-Gen/issues/5",
+            "repository_url": "https://api.github.com/repos/GIPSY-dev/WSC-Gen",
+            "labels_url":
+              "https://api.github.com/repos/GIPSY-dev/WSC-Gen/issues/5/labels{/name}",
+            "comments_url":
+              "https://api.github.com/repos/GIPSY-dev/WSC-Gen/issues/5/comments",
+            "events_url":
+              "https://api.github.com/repos/GIPSY-dev/WSC-Gen/issues/5/events",
+            "html_url": "https://github.com/GIPSY-dev/WSC-Gen/pull/5",
+            "id": 303933638,
+            "number": 5,
+            "title": "Datasets branch made into a SOAP WebService",
+            "user": {
+              "login": "Mchapuis",
+              "id": 4071667,
+              "avatar_url":
+                "https://avatars1.githubusercontent.com/u/4071667?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/Mchapuis",
+              "html_url": "https://github.com/Mchapuis",
+              "followers_url":
+                "https://api.github.com/users/Mchapuis/followers",
+              "following_url":
+                "https://api.github.com/users/Mchapuis/following{/other_user}",
+              "gists_url":
+                "https://api.github.com/users/Mchapuis/gists{/gist_id}",
+              "starred_url":
+                "https://api.github.com/users/Mchapuis/starred{/owner}{/repo}",
+              "subscriptions_url":
+                "https://api.github.com/users/Mchapuis/subscriptions",
+              "organizations_url": "https://api.github.com/users/Mchapuis/orgs",
+              "repos_url": "https://api.github.com/users/Mchapuis/repos",
+              "events_url":
+                "https://api.github.com/users/Mchapuis/events{/privacy}",
+              "received_events_url":
+                "https://api.github.com/users/Mchapuis/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "labels": [],
+            "state": "open",
+            "locked": false,
+            "assignee": {
+              "login": "smokhov",
+              "id": 10067003,
+              "avatar_url":
+                "https://avatars0.githubusercontent.com/u/10067003?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/smokhov",
+              "html_url": "https://github.com/smokhov",
+              "followers_url": "https://api.github.com/users/smokhov/followers",
+              "following_url":
+                "https://api.github.com/users/smokhov/following{/other_user}",
+              "gists_url":
+                "https://api.github.com/users/smokhov/gists{/gist_id}",
+              "starred_url":
+                "https://api.github.com/users/smokhov/starred{/owner}{/repo}",
+              "subscriptions_url":
+                "https://api.github.com/users/smokhov/subscriptions",
+              "organizations_url": "https://api.github.com/users/smokhov/orgs",
+              "repos_url": "https://api.github.com/users/smokhov/repos",
+              "events_url":
+                "https://api.github.com/users/smokhov/events{/privacy}",
+              "received_events_url":
+                "https://api.github.com/users/smokhov/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "assignees": [
+              {
+                "login": "smokhov",
+                "id": 10067003,
+                "avatar_url":
+                  "https://avatars0.githubusercontent.com/u/10067003?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/smokhov",
+                "html_url": "https://github.com/smokhov",
+                "followers_url":
+                  "https://api.github.com/users/smokhov/followers",
+                "following_url":
+                  "https://api.github.com/users/smokhov/following{/other_user}",
+                "gists_url":
+                  "https://api.github.com/users/smokhov/gists{/gist_id}",
+                "starred_url":
+                  "https://api.github.com/users/smokhov/starred{/owner}{/repo}",
+                "subscriptions_url":
+                  "https://api.github.com/users/smokhov/subscriptions",
+                "organizations_url":
+                  "https://api.github.com/users/smokhov/orgs",
+                "repos_url": "https://api.github.com/users/smokhov/repos",
+                "events_url":
+                  "https://api.github.com/users/smokhov/events{/privacy}",
+                "received_events_url":
+                  "https://api.github.com/users/smokhov/received_events",
+                "type": "User",
+                "site_admin": false
+              },
+              {
+                "login": "jashanj0tsingh",
+                "id": 23247195,
+                "avatar_url":
+                  "https://avatars2.githubusercontent.com/u/23247195?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/jashanj0tsingh",
+                "html_url": "https://github.com/jashanj0tsingh",
+                "followers_url":
+                  "https://api.github.com/users/jashanj0tsingh/followers",
+                "following_url":
+                  "https://api.github.com/users/jashanj0tsingh/following{/other_user}",
+                "gists_url":
+                  "https://api.github.com/users/jashanj0tsingh/gists{/gist_id}",
+                "starred_url":
+                  "https://api.github.com/users/jashanj0tsingh/starred{/owner}{/repo}",
+                "subscriptions_url":
+                  "https://api.github.com/users/jashanj0tsingh/subscriptions",
+                "organizations_url":
+                  "https://api.github.com/users/jashanj0tsingh/orgs",
+                "repos_url":
+                  "https://api.github.com/users/jashanj0tsingh/repos",
+                "events_url":
+                  "https://api.github.com/users/jashanj0tsingh/events{/privacy}",
+                "received_events_url":
+                  "https://api.github.com/users/jashanj0tsingh/received_events",
+                "type": "User",
+                "site_admin": false
+              }
+            ],
+            "milestone": null,
+            "comments": 8,
+            "created_at": "2018-03-09T18:18:51Z",
+            "updated_at": "2018-03-15T15:32:08Z",
+            "closed_at": null,
+            "author_association": "NONE",
+            "pull_request": {
+              "url": "https://api.github.com/repos/GIPSY-dev/WSC-Gen/pulls/5",
+              "html_url": "https://github.com/GIPSY-dev/WSC-Gen/pull/5",
+              "diff_url": "https://github.com/GIPSY-dev/WSC-Gen/pull/5.diff",
+              "patch_url": "https://github.com/GIPSY-dev/WSC-Gen/pull/5.patch"
+            },
+            "body":
+              "We made temporary fixes to be transform the Generator into a web service. Please review the WebService_README.txt file in /doc folder for details.\r\n\r\nThis version is still not working correctly because we are back to our original problem. When I did the wrapper for the Generator, I used the swing library and java.io.File to save files. I need to correct this because JAX-RPC is not using these.\r\n\r\n``The service class \"ca.concordia.cse.gipsy.ws.soap.Generator\" does not comply to one or more requirements of the JAX-RPC 1.1 specification, and may not deploy or function correctly.\r\n  The method \"getOutputFolder\" on the service class \"ca.concordia.cse.gipsy.ws.soap.Generator\" uses a data type, \"java.io.File\", that is not supported by the JAX-RPC specification. Instances of the type may not serialize or deserialize correctly. Loss of data or complete failure of the Web service may result.\r\n  The method \"containsFile\" on the service class \"ca.concordia.cse.gipsy.ws.soap.Generator\" uses a data type, \"java.io.File\", that is not supported by the JAX-RPC specification. Instances of the type may not serialize or deserialize correctly. Loss of data or complete failure of the Web ``\r\n\r\nBut the project is building correctly now."
+          },
+          "comment": {
+            "url":
+              "https://api.github.com/repos/GIPSY-dev/WSC-Gen/issues/comments/373418035",
+            "html_url":
+              "https://github.com/GIPSY-dev/WSC-Gen/pull/5#issuecomment-373418035",
+            "issue_url":
+              "https://api.github.com/repos/GIPSY-dev/WSC-Gen/issues/5",
+            "id": 373418035,
+            "user": {
+              "login": "Mchapuis",
+              "id": 4071667,
+              "avatar_url":
+                "https://avatars1.githubusercontent.com/u/4071667?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/Mchapuis",
+              "html_url": "https://github.com/Mchapuis",
+              "followers_url":
+                "https://api.github.com/users/Mchapuis/followers",
+              "following_url":
+                "https://api.github.com/users/Mchapuis/following{/other_user}",
+              "gists_url":
+                "https://api.github.com/users/Mchapuis/gists{/gist_id}",
+              "starred_url":
+                "https://api.github.com/users/Mchapuis/starred{/owner}{/repo}",
+              "subscriptions_url":
+                "https://api.github.com/users/Mchapuis/subscriptions",
+              "organizations_url": "https://api.github.com/users/Mchapuis/orgs",
+              "repos_url": "https://api.github.com/users/Mchapuis/repos",
+              "events_url":
+                "https://api.github.com/users/Mchapuis/events{/privacy}",
+              "received_events_url":
+                "https://api.github.com/users/Mchapuis/received_events",
+              "type": "User",
+              "site_admin": false
+            },
+            "created_at": "2018-03-15T15:32:07Z",
+            "updated_at": "2018-03-15T15:32:07Z",
+            "author_association": "NONE",
+            "body":
+              "The push @mariegobran and me did yesterday was for PM1, but we should have referenced PM1 for clarity, we will do this next time.\r\n@jdesorm1 fixed his push so now `Datasets` should be ok and contain only PM1 work."
+          }
+        },
+        "public": true,
+        "created_at": "2018-03-15T15:32:08Z",
+        "org": {
+          "id": 25989863,
+          "login": "GIPSY-dev",
+          "gravatar_id": "",
+          "url": "https://api.github.com/orgs/GIPSY-dev",
+          "avatar_url": "https://avatars.githubusercontent.com/u/25989863?"
+        }
+      },
+      "description":
+        "GET latest wscgen feed request received and forwarded its data to Slack",
+      "log": "wscgen_feeds",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["get_latest_wscgen_feed"]
+    }
+  ]
+}

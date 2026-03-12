@@ -1,0 +1,16 @@
+{
+  "records": [
+    {
+      "data": {
+        "title": "Test Alert Title",
+        "message": "Test Alert Message"
+      },
+      "description":
+        "POST and PUT '/alert' request received and forwarded its data to Slack",
+      "log": "alert",
+      "service": "s3",
+      "source": "soen487.streamalerts",
+      "trigger_rules": ["alert_created"]
+    }
+  ]
+}
