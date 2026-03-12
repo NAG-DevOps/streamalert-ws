@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://util.streamalert" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://util.streamalert" xmlns:intf="http://util.streamalert" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://util.streamalert" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="XMLLiveTest">
+    <complexType>
+     <sequence>
+      <element name="filename" type="xsd:string"/>
+      <element name="data" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="XMLLiveTestResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="XMLLiveTestRequest">
+
+      <wsdl:part element="impl:XMLLiveTest" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="XMLLiveTestResponse">
+
+      <wsdl:part element="impl:XMLLiveTestResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="LiveTest">
+
+      <wsdl:operation name="XMLLiveTest">
+
+         <wsdl:input message="impl:XMLLiveTestRequest" name="XMLLiveTestRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:XMLLiveTestResponse" name="XMLLiveTestResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="LiveTestSoapBinding" type="impl:LiveTest">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="XMLLiveTest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="XMLLiveTestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="XMLLiveTestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="LiveTestService">
+
+      <wsdl:port binding="impl:LiveTestSoapBinding" name="LiveTest">
+
+         <wsdlsoap:address location="http://localhost:9999/PM1_StreamAlert_Service/services/LiveTest"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

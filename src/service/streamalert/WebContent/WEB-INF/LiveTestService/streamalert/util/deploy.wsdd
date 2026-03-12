@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from LiveTestService WSDL service -->
+
+  <service name="LiveTest" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://util.streamalert"/>
+      <parameter name="wsdlServiceElement" value="LiveTestService"/>
+      <parameter name="schemaQualified" value="http://util.streamalert"/>
+      <parameter name="wsdlServicePort" value="LiveTest"/>
+      <parameter name="className" value="streamalert.util.LiveTest"/>
+      <parameter name="wsdlPortType" value="LiveTest"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://util.streamalert" name="XMLLiveTest" qname="operNS:XMLLiveTest" soapAction="">
+        <parameter xmlns:pns="http://util.streamalert" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:filename" type="tns:string"/>
+        <parameter xmlns:pns="http://util.streamalert" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:data" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="XMLLiveTest"/>
+
+  </service>
+</deployment>
